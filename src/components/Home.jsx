@@ -7,6 +7,9 @@ const Home = () => {
       <div className="title">
         <h1>People Number Tab </h1>
       </div>
+      <div className="warn">
+        <p>If you want to see docs version click here !</p>
+      </div>
 
       {People.map((user) => {
         return (
