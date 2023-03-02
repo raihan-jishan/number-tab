@@ -41,10 +41,29 @@
     transform: scale(1.1);
     background: hsl(143, 100%, 48%);;
 }
+/* icons */
+.icon{
+    color: hsla(0, 0%, 24%, 0.897);
+}
+.type{
+    background: #2dbf63ba !important;
+}
 @media screen and (max-width: 470px) {
     .dataTable  {
        display: flex;
        width: 100%;
        flex-direction: column;
+    }
+   
+    .dataTable{
+        border-top: .3px solid rgba(100, 100, 100, 0.733);
+        border-radius: 1rem;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        font-size: 1.3rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .type {
+     background-color: #2dbf63ba;
     }
 }
