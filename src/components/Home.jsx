@@ -13,7 +13,7 @@ const Home = () => {
 
       {People.map((user) => {
         return (
-          <div className="dataTable">
+          <div className="dataTable" key={user.id}>
             <h3>Name: {user.name}</h3>
             <h3>Number:{user.number}</h3>
             <h3 className="type">Type:{user.type} <span className="icon">{user.icon}</span></h3>

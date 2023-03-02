@@ -22,4 +22,13 @@
 body {
   font-family: "Montserrat", sans-serif;
   background: #f7f7f7;
+  scroll-behavior: smooth;
+}
+.scroll-to-top {
+  background: #10ca70 !important;
+  transition: 0.2s !important;
+}
+.scroll-to-top:hover{
+  background: #05c96a !important;
+  transform: scale(0.9) !important;
 }
