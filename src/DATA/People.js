@@ -339,42 +339,91 @@ export const People = [
     number: "01828563015",
     icon: <i className="fa-solid fa-egg"></i>,
   },
-//   onother row of content 
-{
+  //   onother row of content
+  {
     id: 55,
     name: "দোলাল C.N.G ",
     number: "01720976334",
     icon: <i className="fa-regular fa-user"></i>,
   },
-{
+  {
     id: 56,
     name: "ফারুক ফোম , গাজি ",
     number: "01842435621",
     icon: <i className="fa-regular fa-user"></i>,
   },
-{
+  {
     id: 57,
     name: "ফরাদ ফার্নইচার ",
     number: "01990990085",
     icon: <i className="fa-regular fa-user"></i>,
   },
-{
+  {
     id: 58,
     name: "ফারুক আমেনা মেডিকেল ",
     number: "01775472571",
     icon: <i className="fa-regular fa-user"></i>,
   },
-{
+  {
     id: 59,
     name: "ইব্রাহিম টালস ",
     number: "01718951723",
     icon: <i className="fa-regular fa-user"></i>,
   },
-{
+  {
     id: 60,
     name: "ইসলামি ব্যাংক মশারফ ",
     number: "01911529272",
     icon: <i className="fa-regular fa-user"></i>,
   },
+  {
+    id: 61,
+    name: "অঞ্জন দাদা কেশাব ভাই/ ইসলাম-পুর A.S.K ফার-নিশিং",
+    number: "01720-480991",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 62,
+    name: "বে-I, আমেনা মেডিকেল ",
+    number: "01775472571",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 63,
+    name: "হাজী ",
+    number: "01746769683",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 64,
+    name: "D R A G  মেডিকেল কাদের ",
+    number: "01710977378",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 65,
+    name: "শফি হার্ডওয়্যার",
+    number: "01714735754",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 66,
+    name: "কুদ্দুস লেপ দোকান",
+    number: "01921519572",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 67,
+    name: "লাদেন ইলেক্ত্রনিক্স ",
+    number: "01912394279",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  {
+    id: 68,
+    name: "মোবারক হোসেন",
+    number: "01781970774",
+    icon: <i className="fa-regular fa-user"></i>,
+  },
+  //    new row
   
 ];
