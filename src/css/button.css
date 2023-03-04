@@ -34,3 +34,9 @@
   align-items: center;
   justify-content: center;
 }
+/* responsibe */
+@media screen and (max-width: 388px) {
+  .docsBtn.view {
+    padding: 7px 20px;
+  }
+}
