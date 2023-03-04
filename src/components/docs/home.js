@@ -1,5 +1,7 @@
 import React from "react";
 import { Docs } from "../../DATA/Docs";
+import "../../css/button.css";
+import Button from "../Button/Button";
 const home = () => {
   return (
     <main class="main">
@@ -11,14 +13,14 @@ const home = () => {
               <div class="video">
                 <img src={item.Image_To_Url} alt="" />
                 <p>{item.desc}</p>
-                <a
-                  rel="noreferrer"
-                  href={item.Image_To_Url}
-                  target="_blank"
-                  className="docsBtn"
-                >
-                  View The Image {item.icon}
-                </a>
+                {/* button componnet */}
+
+                <Button className="docsBtn view">
+                  <a rel="noreferrer" href={item.Image_To_Url} target="_blank">
+                    View The Image {item.icon}
+                  </a>
+                </Button>
+                {/*  end there  */}
               </div>
             );
           })}

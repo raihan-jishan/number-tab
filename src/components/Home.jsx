@@ -1,7 +1,8 @@
 import React from "react";
 import "../css/home.css";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { People } from "../DATA/People";
+import Button from "./Button/Button";
 const Home = () => {
   return (
     <div className="container">
@@ -9,7 +10,13 @@ const Home = () => {
         <h1>People Number Tab </h1>
       </div>
       <div className="warn">
-        <p>If you want to see docs version <Link to={"/docs/number-user-e4470374091274092"} className="click"> click here !  </Link></p>
+        <p>
+          If you want to see docs version{" "}
+          <Link to={"/docs/number-user-e4470374091274092"} className="click">
+            {" "}
+            click here !{" "}
+          </Link>
+        </p>
       </div>
 
       {People.map((user) => {
@@ -29,13 +36,13 @@ const Home = () => {
           Hand Writing !
         </h2>
       </div>
-      <div className="Button">
-        <Link to={"/docs/number-user-e4470374091274092"}>
-        <button className="docsBtn">
+      {/*  button */}
+      <Link to={"/docs/number-user-e4470374091274092"}>
+        <Button className="docsBtn">
           View Docs <i class="fa-solid fa-folder"></i>
-        </button>
-        </Link>
-      </div>
+        </Button>
+      </Link>
+      {/* button */}
     </div>
   );
 };

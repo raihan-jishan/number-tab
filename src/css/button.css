@@ -1,0 +1,36 @@
+/* button  */
+.docsBtn {
+    text-align: center;
+    padding: 7px 50px;
+    margin: 5px;
+    border: 0;
+    outline: 0;
+    /* background: rgb(175, 175, 175); */
+    background: hsl(143, 81%, 54%);
+    color: rgb(0, 0, 0);
+    border-radius: 0.6rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3;
+    font-size: 1.4rem;
+  }
+  .docsBtn:hover {
+    transform: scale(0.9);
+    background: hsl(143, 100%, 42%);
+  }
+  /*  onother view docs button */
+  .docsBtn.view{
+    padding: 7px 30px;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+     font-size: 1.7rem;
+  }
+  .docsBtn.view a{
+    color: var(--fontPrimary);
+  }
+  .Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
