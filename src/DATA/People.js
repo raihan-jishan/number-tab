@@ -425,5 +425,4 @@ export const People = [
     icon: <i className="fa-regular fa-user"></i>,
   },
   //    new row
-  
 ];

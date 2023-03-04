@@ -11,7 +11,7 @@ const home = () => {
           {Docs.map((item) => {
             return (
               <div class="video">
-                <img src={item.Image_To_Url} alt="" />
+                <img src={item.Image_To_Url} alt="" loading="lazy" />
                 <p>{item.desc}</p>
                 {/* button componnet */}
 
