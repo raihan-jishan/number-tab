@@ -690,7 +690,7 @@ export const People = [
         icon: <i className="fa-regular fa-user"></i>, 
         type:"Person",
     },
-     export const Test = [
+  
   {
     id: 108,
     name: "আবেদ আলী মনির ভাই : মিতল্ললা",
@@ -967,4 +967,3 @@ export const People = [
   },
 ];
 
-];
