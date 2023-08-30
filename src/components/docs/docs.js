@@ -16,9 +16,7 @@ const home = () => {
                 {/* button componnet */}
 
                 <Button className="docsBtn view">
-                  <a rel="noreferrer" href={item.Image_To_Url} target="_blank">
-                    View The Image {item.icon}
-                  </a>
+                  
                 </Button>
                 {/*  end there  */}
               </div>

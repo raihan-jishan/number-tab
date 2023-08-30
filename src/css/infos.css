@@ -1,0 +1,26 @@
+.info-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -90px;
+}
+
+/* responsibe */
+@media screen and (max-width: 700px) {
+    .info-item {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0px;
+    }
+    .info-item h1{
+        text-align: center;
+    }
+}
+@media screen and (max-width: 900px) {
+    .info-item {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+}

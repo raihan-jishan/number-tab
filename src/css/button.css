@@ -34,9 +34,66 @@
   align-items: center;
   justify-content: center;
 }
+/* 2n button */
+
+.btn-primary button {
+  padding: 8px 60px;
+  background: var(--purpule);
+  border: none;
+  outline: none;
+  color: #000;
+  font-size: 2rem;
+  border-radius: 2rem;
+  margin: 20px 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.btn-primary button:hover {
+  background: var(--fontPrimary);
+  color: #ffff;
+  transform: scale(0.9);
+}
+/* border-radius-md */
+.border-radius-md button {
+  border-radius: 1rem;
+}
+.login button {
+  border: 3px solid #000;
+  background: transparent;
+}
+.p-5 button {
+  padding: 5px 40px;
+}
+/* logout btn */
+.logOutBtn li {
+  border: 3px solid #000;
+  background: transparent;
+  padding: 5px 30px;
+  margin: 7px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 2rem;
+  font-weight: 600;
+}
+
+.logOutBtn li:hover {
+  background: var(--fontPrimary);
+  color: #ffff;
+  transform: scale(0.9);
+}
 /* responsibe */
 @media screen and (max-width: 388px) {
   .docsBtn.view {
     padding: 7px 20px;
+  }
+  .btn-primary button {
+    padding: 8px 40px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .logOutBtn li {
+    border: 3px solid #5c0606;
+    color: #fff;
   }
 }

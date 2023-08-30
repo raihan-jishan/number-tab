@@ -1,5 +1,7 @@
 /*  import font family */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -11,13 +13,14 @@
 :root {
   --activeGreen: #2dbf64;
   --fontPrimary: #002333;
-  --questionBG: #e4e8ee;
+  --Silver: #dbdbdb;
   --successGreen: #00ff84;
   --newGreen: #1dd881;
   --bodyBackground: #f2f4f8;
   --smartYellow: #ffc916;
   --smartBlue: #0070f3;
   --purpule: #728fce;
+  /* --purpleCode:#800080 ; */
 }
 body {
   font-family: "Montserrat", sans-serif;
