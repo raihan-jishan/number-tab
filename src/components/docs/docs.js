@@ -14,10 +14,7 @@ const home = () => {
                 <img src={item.Image_To_Url} alt="" loading="lazy" />
                 <p>{item.desc}</p>
                 {/* button componnet */}
-
-                <Button className="docsBtn view">
-                  
-                </Button>
+                <Button />
                 {/*  end there  */}
               </div>
             );

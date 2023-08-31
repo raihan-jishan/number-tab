@@ -1,3 +1,4 @@
+/* design the whole addform page.  */
 /* form-container */
 .form-container {
   display: flex;
@@ -9,9 +10,11 @@
 .image-card img {
   width: 55%;
 }
+/* form-input */
 .form-input {
   margin: 20px;
 }
+/* .form-input input */
 .form-input input {
   margin: 20px;
   padding: 10px 50px;
@@ -21,8 +24,8 @@
   border-right: 4px solid #000;
   border-left: 4px solid #000;
   border-radius: 1rem;
-  /* font-family: 'Comfortaa', sans-serif; */
 }
+/* submit-btn */
 .submit-btn {
   display: flex;
   align-items: center;
@@ -30,27 +33,31 @@
 }
 /* responsibe */
 @media screen and (max-width: 700px) {
+  /* form-container */
   .form-container {
     flex-direction: column;
   }
+  /* form-input input */
   .form-input input {
     width: 325px;
     margin: 20px;
     text-align: left;
   }
+  /* image-card img */
   .image-card img {
     width: 100%;
   }
 }
 @media screen and (max-width: 900px) {
+  /* form-container */
   .form-container {
     flex-direction: column;
   }
+  /* image-card */
   .image-card {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px;
   }
-  
 }

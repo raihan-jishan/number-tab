@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button.js";
-import "../../css/addform.css"; 
+import "../../css/addform.css";
 import AddFormPic from "../../assets/Account.svg";
 const AboutInfo = () => {
   return (
@@ -22,7 +22,7 @@ const AboutInfo = () => {
         </div>
 
         {/* onSubmit btn */}
-        <div className="submit-btn">  
+        <div className="submit-btn">
           <Button
             title="Create account"
             className="btn-primary  "
@@ -37,4 +37,3 @@ const AboutInfo = () => {
   );
 };
 export default AboutInfo;
-  

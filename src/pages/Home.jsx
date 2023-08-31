@@ -1,8 +1,9 @@
 /*
     title: Home.jsx file, 
-    desc: simple home age file for application .
+    desc: simple home page file for application .
     date: 23 - 8 - 2023 . 
 */
+// import all important files and modules
 import React from "react";
 import { AiOutlineBorderlessTable } from "react-icons/ai";
 import Btn from "../components/Button/Button.js";
@@ -11,14 +12,15 @@ import "../css/homePage.css";
 import Numbers from "./Numbers.jsx";
 const Home = () => {
   return (
+    // wrapp whole application with the react fragment.
     <>
+      {/* main container of the homepage */}
       <div class="hero-wrapper">
         <div class="overlay">
           <div class="hero-content">
             <h1>
               <AiOutlineBorderlessTable className="numberTag" size={40} /> Store
               the Number safe place{" "}
-              
             </h1>
             <p>
               If you want to save your important numbers , You can storade in
@@ -33,11 +35,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* numberList */}
 
+      {/* if have token then go to the number page or go to login page component.  */}
       {localStorage.getItem("token") ? <Numbers /> : <Login />}
-
-      {/* close */}
     </>
   );
 };

@@ -1,30 +1,37 @@
-import SubmitBtn from "../../components/Button/SubmitBtn.js";
+/*
+    title: "Adddform.js file"
+    desc: "  file for   application number details adding form and stored in database" 
+    date: 31 - 8 - 2023.
+*/
+// import all important files and modules
 import "../../css/addform.css";
 import noteContext from "../../context/noteContext";
 import React, { useContext, useState } from "react";
 import AddFormPic from "../../assets/AddForm.svg";
 const AddForm = () => {
+  // context of useContext in react and get the funtionity from the noteContext file.
   const context = useContext(noteContext);
+  // import the module from noteContext.
   const { addNote } = context;
-
+  // initialize useState hook in react and declared all them.
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
-
+  // handleClick function
   const handleClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description, note.tag);
     setNote({ title: "", description: "", tag: "" });
   };
-
+  // onChange event
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
   return (
     <div className="form-container">
       <div className="image-card">
+        {/* picture of the application and the by default alt tag to handle the error response. */}
         <img src={AddFormPic} alt="404 module not found!" />
       </div>
       {/* form*/}
-
       <form action="" className="form-input">
         <div>
           <input
@@ -33,8 +40,8 @@ const AddForm = () => {
             type="text"
             id="title"
             name="title"
-            value={note.title}
-            onChange={onChange}
+            value={note.title} // value of the element
+            onChange={onChange} // onChange function to handle events .
             minLength={5}
             required
           />
@@ -46,8 +53,8 @@ const AddForm = () => {
             type="text"
             id="description"
             name="description"
-            value={note.description}
-            onChange={onChange}
+            value={note.description} // value of the element
+            onChange={onChange} // onChange function to handle events .
             minLength={5}
             required
           />
@@ -59,8 +66,8 @@ const AddForm = () => {
             type="text"
             id="tag"
             name="tag"
-            value={note.tag}
-            onChange={onChange}
+            value={note.tag} // value of the element
+            onChange={onChange} // onChange function to handle events .
             minLength={5}
             required
           />
@@ -74,8 +81,6 @@ const AddForm = () => {
         </div>
         {/* close */}
       </form>
-
-      {/* close */}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import "../../css/alertBox.css";
+import "../../css/numbers.css";
 import DeletePic from "../../assets/Delete.svg";
 import noteContext from "../../context/noteContext";
 const NumberList = (props) => {
@@ -53,7 +54,7 @@ const NumberList = (props) => {
 
         <h2>{data.tag}</h2>
         <div className="delete-btns">
-          <AiOutlineDelete size={55} onClick={handleClick} />
+          <AiOutlineDelete size={40} onClick={handleClick} />
         </div>
       </div>
     </>

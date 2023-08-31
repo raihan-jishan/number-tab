@@ -1,16 +1,26 @@
+/*
+    title: "Loginform.js file"
+    desc: "  file for   application account login form and login a account. " 
+    date: 31 - 8 - 2023.
+*/
+// import all important files and modules
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginPic from "../../assets/Login.svg";
-import Infos from '../../components/Infos/Infos.jsx';
+import Infos from "../../components/Infos/Infos.jsx";
 import SubmitBtn from "../../components/Button/SubmitBtn.js";
 const Loginform = () => {
-  // port name
-  const port = "https://backend-of-notebook.onrender.com";
+  //  server
+  const server = "https://backend-of-notebook.onrender.com";
+  // initailize a useState hook with this credentials
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  let navigate = useNavigate(); // initilaize useNaviagte() func
+  // initilaize useNaviagte() func
+  let navigate = useNavigate();
+  // handleSubmit functions
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${port}/api/auth/login`, {
+    const response = await fetch(`${server}/api/auth/login`, {
+      // des-structuring proccess
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,6 +30,7 @@ const Loginform = () => {
         password: credentials.password,
       }),
     });
+    // response -> covert json
     const json = await response.json();
     console.log(json);
     if (json.success) {
@@ -31,7 +42,7 @@ const Loginform = () => {
       <h1>Invalid creadentials... </h1>;
     }
   };
-
+  // onChange event function
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
@@ -39,9 +50,11 @@ const Loginform = () => {
   // login Successful
 
   return (
+    // wrapp the whole with fragment ...
     <>
       <div className="form-container">
         <div className="image-card">
+          {/* image card image or not found by default alt tag incloded. */}
           <img src={LoginPic} alt="404 module not found!" />
         </div>
         <form action="" className="form-input" onSubmit={handleSubmit}>
@@ -50,8 +63,8 @@ const Loginform = () => {
               type="email"
               placeholder="enter a email"
               className="form-control"
-              value={credentials.email}
-              onChange={onChange}
+              value={credentials.email} // creadentials infos
+              onChange={onChange} // onChange function to handle events .
               id="email"
               name="email"
               aria-describedby="emailHelp"
@@ -62,13 +75,13 @@ const Loginform = () => {
               placeholder="enter password"
               type="password"
               className="form-control"
-              value={credentials.password}
-              onChange={onChange}
+              value={credentials.password} // creadentials infos
+              onChange={onChange} // onChange function to handle events .
               name="password"
               id="password"
             />
           </div>
-          {/* onSubmit btn */}
+          {/* onSubmit btn componeent */}
           <div className="submit-btn">
             <SubmitBtn
               title="Login now"
@@ -78,8 +91,9 @@ const Loginform = () => {
           </div>
           {/* close */}
         </form>
-        {/* close */}
       </div>
+      {/* that is the info about Doesn't have an account ? signup infos...  */}
+
       <Infos
         title="Doesn't have an account ?"
         buttonTitle="create account"
@@ -90,5 +104,5 @@ const Loginform = () => {
     </>
   );
 };
-
+// export default the module file.
 export default Loginform;
