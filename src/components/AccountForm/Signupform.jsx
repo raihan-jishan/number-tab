@@ -10,6 +10,8 @@ import "../../css/addform.css";
 import SubmitBtn from "../../components/Button/SubmitBtn.js";
 import Infos from "../../components/Infos/Infos.jsx";
 import SignUpPic from "../../assets/Account.svg";
+import { SkeletonTheme } from "react-loading-skeleton";
+import 'react-loading-skeleton/dist/skeleton.css';
 const SignupForm = () => {
   // initailize a useState hook with this credentials
   const [credentials, setCredentials] = useState({
@@ -48,7 +50,7 @@ const SignupForm = () => {
   };
   return (
     // wrapp the whole with fragment ...
-    <>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <div className="form-container">
         <div className="image-card">
           {/* image card image or not found by default alt tag incloded. */}
@@ -125,7 +127,7 @@ const SignupForm = () => {
         btnIcon="fa-solid fa-arrow-right-to-bracket"
         className="btn-primary border-radius-md login"
       />
-    </>
+    </SkeletonTheme>
   );
 };
 // export default the module file.

@@ -6,16 +6,17 @@
 // import all important files and modules
 import React from "react";
 import AddNote from "../components/AddForm/AddForm";
-
+import 'react-loading-skeleton/dist/skeleton.css';
+import { SkeletonTheme } from "react-loading-skeleton"; 
 const AddNumber = () => {
   return (
-    <div>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <div className="info-title">
         <h2>Add Number </h2>
       </div>
       {/* wrap the about info section  */}
       <AddNote />
-    </div>
+    </SkeletonTheme>
   );
 };
 

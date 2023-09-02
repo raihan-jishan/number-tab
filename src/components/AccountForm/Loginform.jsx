@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import LoginPic from "../../assets/Login.svg";
 import Infos from "../../components/Infos/Infos.jsx";
 import SubmitBtn from "../../components/Button/SubmitBtn.js";
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const Loginform = () => {
   //  server
   const server = "https://backend-of-notebook.onrender.com";
@@ -51,7 +53,7 @@ const Loginform = () => {
 
   return (
     // wrapp the whole with fragment ...
-    <>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
       <div className="form-container">
         <div className="image-card">
           {/* image card image or not found by default alt tag incloded. */}
@@ -101,7 +103,7 @@ const Loginform = () => {
         btnIcon="fa-regular fa-user"
         className="btn-primary border-radius-md login p-5"
       />
-    </>
+    </SkeletonTheme>
   );
 };
 // export default the module file.

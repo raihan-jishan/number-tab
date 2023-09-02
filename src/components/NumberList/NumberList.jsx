@@ -4,6 +4,8 @@ import "../../css/alertBox.css";
 import "../../css/numbers.css";
 import DeletePic from "../../assets/Delete.svg";
 import noteContext from "../../context/noteContext";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const NumberList = (props) => {
   // context
   const context = useContext(noteContext);
@@ -21,7 +23,7 @@ const NumberList = (props) => {
     setClick(false);
   };
   return (
-    <>
+    <SkeletonTheme baseColor="#202020" highlightColor="#444">
       {/* alert box */}
       {click ? (
         <div className="alertContainer">
@@ -48,16 +50,16 @@ const NumberList = (props) => {
       ) : null}
       {/* close */}
       <div className="number-card">
-        <h2> {data.title} </h2>
+        <h2> {data.title || <Skeleton />} </h2>
 
-        <h2>{data.description}</h2>
+        <h2>{data.description || <Skeleton />}</h2>
 
-        <h2>{data.tag}</h2>
+        <h2>{data.tag || <Skeleton />}</h2>
         <div className="delete-btns">
           <AiOutlineDelete size={40} onClick={handleClick} />
         </div>
       </div>
-    </>
+    </SkeletonTheme>
   );
 };
 
