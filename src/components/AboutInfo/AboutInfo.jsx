@@ -1,3 +1,9 @@
+/*
+    title: "Aboutinfo.js file"
+    desc: "file for about infos  " 
+    date: 2 - 8 - 2023.
+*/
+// import all important files and modules
 import React from "react";
 import Button from "../../components/Button/Button.js";
 import "../../css/addform.css";
@@ -6,10 +12,10 @@ const AboutInfo = () => {
   return (
     <div className="form-container">
       <div className="image-card">
+        {/* about image pic  */}
         <img src={AddFormPic} alt="404 module not found!" />
       </div>
       {/* form*/}
-
       <div className="form-input">
         <div>
           <h1>About this app</h1>
@@ -36,4 +42,5 @@ const AboutInfo = () => {
     </div>
   );
 };
+// exp default module. 
 export default AboutInfo;

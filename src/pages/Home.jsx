@@ -7,7 +7,7 @@
 import { AiOutlineBorderlessTable } from "react-icons/ai";
 import Btn from "../components/Button/Button.js";
 import Login from "../pages/Login.jsx";
-import "../css/homePage.css";
+import "../css/home.css";
 import Numbers from "./Numbers.jsx";
 import { SkeletonTheme } from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css'
