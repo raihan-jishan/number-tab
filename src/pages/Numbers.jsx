@@ -41,7 +41,7 @@ const Numbers = () => {
             )}
           </div>
           {/* close */}
-          <div className="data-table">
+         <div className="data-table">
             {notes.map((data) => {
               return <NumberList key={data._id} data={data} />;
             })}

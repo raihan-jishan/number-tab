@@ -28,10 +28,10 @@ body {
   scroll-behavior: smooth;
 }
 .scroll-to-top {
-  background: #10ca70 !important;
+  background: var(--purpule) !important;
   transition: 0.2s !important;
 }
 .scroll-to-top:hover{
-  background: #05c96a !important;
+  background: var(--purpule) !important;
   transform: scale(0.9) !important;
 }

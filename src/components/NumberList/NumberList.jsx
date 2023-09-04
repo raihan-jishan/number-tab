@@ -1,11 +1,31 @@
+/*
+    title: "NumberList.js file"
+    desc: "simple numberList component about lists " 
+    date: 04 - 8 - 2023.
+*/
+// import all important files and modules
 import React, { useContext, useState } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineUser, AiOutlineTag } from "react-icons/ai";
+import { FaShare } from "react-icons/fa";
 import "../../css/alertBox.css";
 import "../../css/numbers.css";
 import DeletePic from "../../assets/Delete.svg";
 import noteContext from "../../context/noteContext";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+// mui components
+import {
+  Card,
+  CardHeader,
+  Avatar,
+  CardMedia,
+  CardContent,
+  Typography,
+  IconButton,
+  CardActions,
+  Badge,
+} from "@mui/material";
+import { grey } from "@mui/material/colors"; 
 const NumberList = (props) => {
   // context
   const context = useContext(noteContext);
@@ -23,6 +43,7 @@ const NumberList = (props) => {
     setClick(false);
   };
   return (
+    // loading skeleton theme
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
       {/* alert box */}
       {click ? (
@@ -49,16 +70,52 @@ const NumberList = (props) => {
         </div>
       ) : null}
       {/* close */}
-      <div className="number-card">
-        <h2> {data.title || <Skeleton />} </h2>
-
-        <h2>{data.description || <Skeleton />}</h2>
-
-        <h2>{data.tag || <Skeleton />}</h2>
-        <div className="delete-btns">
-          <AiOutlineDelete size={40} onClick={handleClick} />
-        </div>
-      </div>
+      {/* mui card */}
+      <Card sx={{ maxWidth: 345, bgcolor: grey[900], color: "white", margin:'20px' }}>
+        <CardHeader
+          className="userAvater"
+          avatar={
+            <Avatar aria-label="user-details" className="avater-pic">
+              <AiOutlineUser size={60} />
+            </Avatar>
+          }
+          title={data.title}
+          subheader={new Date(data.date).toLocaleString()}
+        />
+        {/* card image media */}
+        <CardMedia
+          component="img"
+          height="194"
+          image="https://images.unsplash.com/photo-1517061493161-6f312d1c36d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG5ld3MlMjBwYXBlciUyMGJsdXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+          alt="Paella dish"
+        />
+        {/* card context */}
+        <CardContent>
+          {/* Typography */}
+          <Typography variant="h4" color="AppWorkspace">
+            {data.title}
+          </Typography>
+          {/* 2nd Typography */}
+          <Typography variant="h4" color="Background" sx={{margin:'20px'}}>
+            {data.description}
+          </Typography>
+          {/* badge */}
+          <Badge badgeContent={1} color="info" sx={{ margin: "10px" }}>
+            <AiOutlineTag size={30} /> {data.tag}
+          </Badge>
+          {/* close */}
+        </CardContent>
+        <CardActions disableSpacing>
+          {/* delete button */}
+          <IconButton aria-label="delete a note" sx={{ color: "white" }}>
+            <AiOutlineDelete size={40} onClick={handleClick} />
+          </IconButton>
+          <IconButton aria-label="delete a note" sx={{ color: "white" }}>
+            <FaShare size={40} onClick={handleClick} />
+          </IconButton>
+        </CardActions>
+      </Card>
+      {/* close */}
     </SkeletonTheme>
   );
 };
