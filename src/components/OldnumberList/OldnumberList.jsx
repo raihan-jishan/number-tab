@@ -5,7 +5,7 @@
 */
 // import all important files and modules
 import React from "react";
-import { AiOutlineUser, AiOutlineTag } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FaShare } from "react-icons/fa";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -75,7 +75,7 @@ const OldNumberList = (props) => {
               <CardActions disableSpacing>
                 {/* delete button */}
                 <IconButton aria-label="delete a note" sx={{ color: "white" }}>
-                  <AiOutlineTag size={40} />
+                  <AiOutlineHeart size={40} />
                 </IconButton>
                 <IconButton aria-label="delete a note" sx={{ color: "white" }}>
                   <FaShare size={40} />
