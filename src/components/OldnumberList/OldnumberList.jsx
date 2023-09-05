@@ -4,9 +4,11 @@
     date: 04 - 8 - 2023.
 */
 // import all important files and modules
-import React from "react";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
+import React from "react"; 
+import { AiOutlineUser, AiOutlineHeart, AiOutlineTag } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai"; 
 import { FaShare } from "react-icons/fa";
+import "../../css/numbers.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 // mui components
@@ -27,9 +29,10 @@ const OldNumberList = (props) => {
   return (
     // loading skeleton theme
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
+      <div className="data-table"> 
       {People.map((data) => {
         return (
-          <>
+            <>
             {/* mui card */}
             <Card
               sx={{
@@ -86,6 +89,7 @@ const OldNumberList = (props) => {
           </>
         );
       })}
+      </div>
     </SkeletonTheme>
   );
 };
