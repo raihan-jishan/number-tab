@@ -5,7 +5,7 @@
 */
 // import all important files and modules
 import React from "react"; 
-import { AiOutlineUser, AiOutlineHeart, AiOutlineTag, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineHeart, AiOutlineTag  } from "react-icons/ai";
 import { FaShare } from "react-icons/fa";
 import "../../css/numbers.css";
 import { SkeletonTheme } from "react-loading-skeleton";
