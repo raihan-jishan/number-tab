@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import Button from "../../components/Button/Button.js";
 import "../../css/infos.css";
 const Infos = (props) => {
@@ -18,6 +19,14 @@ const Infos = (props) => {
         className={className}
       />
     </div>
+=======
+
+const Infos = ({ name }) => {
+  return (
+    <span className="flex items-center justify-center text-2xl tracking-wide font-bold capitalize">
+      {name}
+    </span>
+>>>>>>> 4214f29 (update the ui & increase features)
   );
 };
 

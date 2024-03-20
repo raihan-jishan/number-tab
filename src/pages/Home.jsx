@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
     title: Home.jsx file, 
     desc: simple home page file for application .
@@ -46,3 +47,17 @@ const Home = () => {
 };
 
 export default Home;
+=======
+import Hero from '../components/Hero/Hero.jsx';
+import Numbers from '../pages/Numbers.jsx';
+const Home = () => {
+  return (
+    <div>
+        <Hero />
+        <Numbers />
+    </div>
+  )
+}
+
+export default Home;
+>>>>>>> 4214f29 (update the ui & increase features)

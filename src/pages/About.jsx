@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
     title: "About.js file"
     desc: "  file for about application purpose and that  works " 
@@ -20,3 +21,14 @@ const About = () => {
 };
 
 export default About;
+=======
+import React from 'react';
+
+const About = () => {
+  return (
+    <div>About</div>
+  )
+}
+
+export default About;
+>>>>>>> 4214f29 (update the ui & increase features)
