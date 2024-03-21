@@ -4,7 +4,7 @@ import AddnumberImage from "../assets/addnumbers.svg";
 import CreateAccountImage from "../assets/createaccount.svg";
 import FaildImage from "../assets/faild.svg";
 import HeroImage from "../assets/hero.svg";
-import LoginImage from "../assets/login.svg";
+import LoginImage from "../assets/Login.svg";
 import SuccessImage from "../assets/success.svg";
 import AppLayout from "../components/AppLayout/AppLayout.jsx";
 import { AddButton, Button } from "../components/Button/Button.jsx";
