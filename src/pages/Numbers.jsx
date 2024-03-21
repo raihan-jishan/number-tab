@@ -22,7 +22,8 @@ const Numbers = () => {
           {notes.length === 0 ? (
             <Typography
               name={"no numbers to diplay"}
-              icon={<MdOutlineLibraryBooks size={40} />}
+              fontSize={'max-lg:text-xl'}
+              icon={<MdOutlineLibraryBooks size={30} />}
             />
           ) : (
             <>
@@ -35,7 +36,7 @@ const Numbers = () => {
           {/* card */}
           <div
             className="m-4   grid grid-cols-3 gap-10 mb-4 mt-5 max-lg:grid-cols-1
-        max-sm:flex-col max-sm:gap-3 "
+        max-sm:flex-col max-sm:gap-3  max-lg:m-0"
           >
             {notes.map((data) => {
               return (

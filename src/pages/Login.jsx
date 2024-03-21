@@ -44,7 +44,8 @@ const Login = () => {
     <AppLayout>
       <Typography
         name={"login your account"}
-        icon={<CiBookmarkCheck size={40} />}
+        fontSize={'max-lg:text-2xl'}
+        icon={<CiBookmarkCheck size={35} />}
       />
       {/* forms */}
       <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">

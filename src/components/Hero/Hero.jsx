@@ -30,6 +30,7 @@ const Hero = () => {
                         className="text-gray-50 dark:text-gray-400"
                       />
                     }
+                   
                   />
                   <Button
                     name={data.secondNavigationTitle}

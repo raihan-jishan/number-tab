@@ -47,6 +47,7 @@ const Signup = () => {
     <AppLayout>
       <Typography
         name={"create an account"}
+        fontSize={'max-lg:text-2xl'}
         icon={<FaRegAddressCard size={40} />}
       />
       {/* forms */}

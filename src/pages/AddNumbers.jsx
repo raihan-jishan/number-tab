@@ -65,10 +65,10 @@ const AddNumbers = () => {
                   placeholder="person name"
                   required
                 />
-                <LabelFeild
-                  name={"person name"}
+             <LabelFeild
+                  name={"name"}
+                  forPurpose={"person name"}
                   icon={<FaRegUser size={35} />}
-                  forPurpose={"personName"}
                 />
               </div>
               {/* 2 */}
@@ -81,13 +81,13 @@ const AddNumbers = () => {
                   minLength={5}
                   className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
                   id="exampleFormControlInput3"
-                  placeholder="person number"
+                  placeholder="  number"
                   required
                 />
                 <LabelFeild
-                  name={"person number"}
-                  icon={<HiHashtag size={35} />}
+                  name={" number"}
                   forPurpose={"number"}
+                  icon={<HiHashtag size={35} />}
                 />
               </div>
               {/* 3 */}
@@ -104,7 +104,7 @@ const AddNumbers = () => {
                   required
                 />
                 <LabelFeild
-                  name={"person type"}
+                  name={" type"}
                   forPurpose={"person type"}
                   icon={<CiBookmark size={35} />}
                 />

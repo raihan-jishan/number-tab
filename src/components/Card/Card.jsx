@@ -17,11 +17,14 @@ const Card = ({ name, number, type, deleteNote, data }) => {
           </div>
           <p className="text-gray-700 dark:text-gray-200 flex items-center justify-between text-2xl gap-2">
             {" "}
-            <span className="flex gap-2">
+            <span className="flex gap-2 ">
               <LuPhone size={30} />
               {number}{" "}
             </span>{" "}
-            <button className="hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:scale-95">
+   
+          </p>
+         <div className="flex items-end justify-end mt-3">
+         <button className="hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:scale-95">
               <RiDeleteBin6Line
                 size={35}
                 onClick={() => {
@@ -29,7 +32,7 @@ const Card = ({ name, number, type, deleteNote, data }) => {
                 }}
               />{" "}
             </button>
-          </p>
+         </div>
         </div>
         <div className="px-6 pt-4 pb-2">
           <span className=" bg-gray-200 rounded-full px-3 py-1 text-xl font-semibold text-gray-700 mr-2 mb-2 gap-3 flex ">
