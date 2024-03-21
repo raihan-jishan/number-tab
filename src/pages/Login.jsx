@@ -1,28 +1,3 @@
-<<<<<<< HEAD
-/*
-    title: "Login.js file"
-    desc: "file for   application  login   works. " 
-    date: 31 - 8 - 2023.
-*/
-// import all important files and modules
-import React from "react";
-import Loginform from "../components/AccountForm/Loginform";
-import { SkeletonTheme } from "react-loading-skeleton";
-import 'react-loading-skeleton/dist/skeleton.css';
-const Login = () => {
-  return (
-    <SkeletonTheme baseColor="#202020" highlightColor="#444">
-      <div className="info-title">
-        <h2>Login account</h2>
-      </div>
-      {/* wrapped the login  form into a section. */}
-
-      <Loginform />
-    </SkeletonTheme>
-  );
-};
-
-=======
 import React, { useState } from "react";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { MdFileDownloadDone, MdLockOutline, MdMail } from "react-icons/md";
@@ -142,5 +117,4 @@ const Login = () => {
     </AppLayout>
   );
 };
->>>>>>> 4214f29 (update the ui & increase features)
 export default Login;

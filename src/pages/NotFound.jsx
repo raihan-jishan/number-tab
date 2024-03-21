@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-const NotFound = () => {
-  return (
-    <div>NotFound</div>
-  )
-}
-
-export default NotFound;
-=======
 import { MdOutlineBook } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import NotFoundImage from "../assets/notfound.svg";
@@ -59,5 +48,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
->>>>>>> 4214f29 (update the ui & increase features)
+export default NotFound; 

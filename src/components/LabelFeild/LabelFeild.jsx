@@ -1,5 +1,3 @@
-import React from "react";
-
 const LabelFeild = ({ name, icon, forPurpose }) => {
   return (
     <label

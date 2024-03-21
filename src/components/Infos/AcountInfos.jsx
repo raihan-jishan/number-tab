@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AcountInfos = ({inform,path,goFor}) => {
+const AcountInfos = ({ inform, path, goFor }) => {
   return (
     <div className="flex items-center justify-center  mt-5 max-lg:flex-col">
       <p
