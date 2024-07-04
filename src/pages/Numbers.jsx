@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react";
-import { MdOutlineLibraryBooks } from "react-icons/md";
 import {
   AppLayout,
   Card,
@@ -7,7 +6,7 @@ import {
   Infos,
   Login,
   Typography,
-} from "../modules/index.jsx";
+} from "../utils/index.jsx";
 const Numbers = () => {
   const context = useContext(Context);
   const { notes, getNotes, deleteNote } = context;
@@ -22,14 +21,14 @@ const Numbers = () => {
           {notes.length === 0 ? (
             <Typography
               name={"no numbers to diplay"}
-              fontSize={'max-lg:text-xl'}
-              icon={<MdOutlineLibraryBooks size={30} />}
+              fontSize={"text-[2.2rem]"}
+              marginTopMedium
             />
           ) : (
             <>
               <Typography
                 name={"All numbers"}
-                icon={<MdOutlineLibraryBooks size={40} />}
+                fontSize={"text-[2.5rem] max-lg:text-[2.2rem]"}
               />
             </>
           )}
@@ -44,7 +43,7 @@ const Numbers = () => {
                   key={data.id}
                   name={data.title}
                   number={data.description}
-                  type={data.tag ? data.tag : "not found!"}
+                  type={data.tag ? data.tag : null}
                   deleteNote={deleteNote}
                   data={data}
                 />

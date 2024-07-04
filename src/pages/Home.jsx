@@ -1,4 +1,4 @@
-import Hero from "../components/Hero/Hero.jsx";
+import Hero from "../components/Hero.jsx";
 import Numbers from "../pages/Numbers.jsx";
 const Home = () => {
   return (

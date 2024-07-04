@@ -3,7 +3,6 @@ import { CiBookmark } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { HiHashtag } from "react-icons/hi2";
 import { IoIosAdd } from "react-icons/io";
-import { IoPersonAddOutline } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -14,8 +13,8 @@ import {
   Infos,
   LabelFeild,
   Login,
-  Typography
-} from "../modules/index.jsx";
+  Typography,
+} from "../utils/index.jsx";
 const AddNumbers = () => {
   const context = useContext(Context);
   const { addNote } = context;
@@ -47,7 +46,8 @@ const AddNumbers = () => {
         <AppLayout>
           <Typography
             name={"Add Numbers"}
-            icon={<IoPersonAddOutline size={30} />}
+            fontSize={"text-[2.7rem]"}
+            marginTopMedium
           />
           {/* forms */}
           <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
@@ -65,10 +65,10 @@ const AddNumbers = () => {
                   placeholder="person name"
                   required
                 />
-             <LabelFeild
+                <LabelFeild
                   name={"name"}
                   forPurpose={"person name"}
-                  icon={<FaRegUser size={35} />}
+                  icon={<FaRegUser size={28} />}
                 />
               </div>
               {/* 2 */}
@@ -87,11 +87,11 @@ const AddNumbers = () => {
                 <LabelFeild
                   name={" number"}
                   forPurpose={"number"}
-                  icon={<HiHashtag size={35} />}
+                  icon={<HiHashtag size={28} />}
                 />
               </div>
               {/* 3 */}
-              <div className="relative mb-6">
+              <div className="relative mb-6  ">
                 <input
                   type="text"
                   name="tag"
@@ -106,18 +106,15 @@ const AddNumbers = () => {
                 <LabelFeild
                   name={" type"}
                   forPurpose={"person type"}
-                  icon={<CiBookmark size={35} />}
+                  icon={<CiBookmark size={28} />}
                 />
                 <div className="flex items-center justify-center mt-5">
                   <AddButton
                     icon={<IoIosAdd size="35" />}
                     name={"Add number"}
                     fontSize="xl"
-                    fontWeight="semibold"
-                    bg="bg-gray-400"
-                    rounded="full"
-                    width="full"
-                    className={"dark:text-gray-950"}
+                    fontWeight="font-semibold"
+                    roundedMedium
                     onClick={handleClick}
                   />
                 </div>

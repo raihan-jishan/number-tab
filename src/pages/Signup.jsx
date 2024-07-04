@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaRegAddressCard, FaRegUser } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
 import { MdLockOutline, MdMail } from "react-icons/md";
 import { RiAccountPinBoxLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ import {
   CreateAccountImage,
   LabelFeild,
   Typography,
-} from "../modules/index.jsx";
+} from "../utils/index.jsx";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -47,8 +47,8 @@ const Signup = () => {
     <AppLayout>
       <Typography
         name={"create an account"}
-        fontSize={'max-lg:text-2xl'}
-        icon={<FaRegAddressCard size={40} />}
+        fontSize={"text-[2.5rem]"}
+        marginTopMedium
       />
       {/* forms */}
       <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
@@ -64,7 +64,7 @@ const Signup = () => {
             />
             <LabelFeild
               name={"name"}
-              icon={<FaRegUser size={35} />}
+              icon={<FaRegUser size={28} />}
               forPurpose={"name"}
             />
           </div>
@@ -79,7 +79,7 @@ const Signup = () => {
             />
             <LabelFeild
               name={"email"}
-              icon={<MdMail size={35} />}
+              icon={<MdMail size={28} />}
               forPurpose={"email"}
             />
           </div>
@@ -94,7 +94,7 @@ const Signup = () => {
             />
             <LabelFeild
               name={"password"}
-              icon={<MdLockOutline size={35} />}
+              icon={<MdLockOutline size={28} />}
               forPurpose={"password"}
             />{" "}
           </div>
@@ -103,12 +103,7 @@ const Signup = () => {
               <AddButton
                 name={"create account"}
                 icon={<RiAccountPinBoxLine size="35" />}
-                fontSize="xl"
-                fontWeight="semibold"
-                bg="bg-gray-400"
-                rounded="full"
-                width="full"
-                className={"dark:text-gray-950"}
+                roundedMedium
               />
             </div>
             <AccountInfo

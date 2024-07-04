@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CiBookmarkCheck } from "react-icons/ci";
 import { MdFileDownloadDone, MdLockOutline, MdMail } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import {
@@ -8,7 +7,7 @@ import {
   AppLayout,
   LoginImage,
   Typography,
-} from "../modules/index.jsx";
+} from "../utils/index.jsx";
 const Login = () => {
   const server = import.meta.env.VITE_SERVER_URL;
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -44,8 +43,8 @@ const Login = () => {
     <AppLayout>
       <Typography
         name={"login your account"}
-        fontSize={'max-lg:text-2xl'}
-        icon={<CiBookmarkCheck size={35} />}
+        fontSize={"text-[2.7rem]"}
+        marginTopLarge
       />
       {/* forms */}
       <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
@@ -93,19 +92,14 @@ const Login = () => {
               <AddButton
                 name={"login account"}
                 icon={<MdFileDownloadDone size="35" />}
-                fontSize="xl"
-                fontWeight="semibold"
-                bg="bg-gray-400"
-                rounded="full"
-                width="full"
-                className={"dark:text-gray-950"}
+                roundedMedium  
               />
             </div>
-          <AccountInfo 
-          goFor={'Signup'}
-          inform={" doesn't have an account?"}
-          path={'/create-an-account'}
-          />
+            <AccountInfo
+              goFor={"Signup"}
+              inform={" doesn't have an account?"}
+              path={"/create-an-account"}
+            />
           </div>
         </form>
         {/* close */}

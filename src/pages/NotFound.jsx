@@ -1,7 +1,7 @@
 import { MdOutlineBook } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 import NotFoundImage from "../assets/notfound.svg";
-import { Button } from "../modules";
+import { Button } from "../utils";
 const NotFound = () => {
   const location = useLocation();
   const { pathname } = location;

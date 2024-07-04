@@ -7,14 +7,12 @@ import {
   NavLits,
   ThemeSwitcher,
   navbarListData,
-} from "../../modules/index.jsx";
+} from "../../utils/index.jsx";
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  // openNavbar function
   const OpenNavbar = () => {
     setClick(!click);
   };
-  // closeNavbar function
   const closeNavbar = () => {
     setClick(false);
   };
@@ -24,16 +22,23 @@ const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Brand />
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse gap-3 max-lg:gap-1">
-            {/* dark theme&light theme settings*/}
+            {/* theme switch button */}
             <ThemeSwitcher />
-            {/* close */}
             {/* account */}
             <div className="text-xl max-lg:text-sm  flex gap-2 bg-gray-900 p-2 text-gray-100 px-4 rounded-full hover:scale-95 transition-all cursor-pointer dark:bg-gray-700 max-lg:dark:bg-gray-950 dark:text-gray-50 font-bold ">
-              <Link to={"/create-an-account"} className="flex gap-3">
-                {" "}
-                <FaRegUser size={25} className="text-gray-300 " />
-                <span className="max-lg:hidden">account</span>
-              </Link>
+              {localStorage.getItem("token") ? (
+                <Link to={"/dashboard"} className="flex gap-3">
+                  {" "}
+                  <FaRegUser size={25} className="text-gray-300 " />
+                  <span className="max-lg:hidden">account</span>
+                </Link>
+              ) : (
+                <Link to={"/create-an-account"} className="flex gap-3">
+                  {" "}
+                  <FaRegUser size={25} className="text-gray-300 " />
+                  <span className="max-lg:hidden">account</span>
+                </Link>
+              )}
             </div>
             <button
               data-collapse-toggle="navbar-sticky"
@@ -53,7 +58,13 @@ const Navbar = () => {
           >
             <ul className="flex flex-col p-4 md:p-0  font-medium  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0   text-center  ">
               {navbarListData.map((data) => {
-                return <NavLits key={data.id} data={data} closeNavbar={closeNavbar}/>;
+                return (
+                  <NavLits
+                    key={data.id}
+                    data={data}
+                    closeNavbar={closeNavbar}
+                  />
+                );
               })}
             </ul>
           </div>

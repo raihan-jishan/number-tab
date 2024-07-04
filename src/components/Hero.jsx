@@ -1,7 +1,7 @@
 import React from "react";
 import { MdOutlineBook } from "react-icons/md";
-import { Button, heroDetails, HeroImage } from '../../modules/index.jsx';
-import Features from "./Features/Features";
+import { Button, heroDetails, HeroImage } from '../utils/index.jsx';
+import Features from "./Features.jsx";
 const Hero = () => {
   return (
     <div>
@@ -21,22 +21,27 @@ const Hero = () => {
                 <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                   {data.description}
                 </p>
-                <div className="max-lg:flex max-lg:items-center max-lg:justify-center max-lg:flex-col">
+                <div className="max-lg:flex max-lg:items-center max-lg:justify-center max-lg:flex-col ">
                   <Button
                     name={data.navigationTitle}
+                    className={'dark:bg-white dark:text-black font-semibold text-black bg-black'}
                     icon={
                       <MdOutlineBook
                         size={35}
-                        className="text-gray-50 dark:text-gray-400"
+                        
                       />
                     }
-                   
+                    roundedMedium
+                    path={'/addnumbers'}
                   />
                   <Button
                     name={data.secondNavigationTitle}
                     className={
-                      "border-2 border-gray-600 max-lg:w-full bg-transparent max-lg:mt-2 dark:text-gray-300 text-gray-950 font-bold"
+                      "border-2 border-gray-600 max-lg:w-full bg-transparent max-lg:mt-5 dark:text-gray-300 text-gray-950 hover:bg-black dark:hover:bg-white hover:text-white hover:dark:text-black"
                     }
+                    roundedFull
+                    fontBold
+                    path={'/numbers'}
                   />
                 </div>
               </div>

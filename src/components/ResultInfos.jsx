@@ -1,5 +1,5 @@
 import { MdOutlineBook } from "react-icons/md";
-import { Button } from '../../modules/index.jsx';
+import { Button } from './Button';
 const ResultInfos = ({Image, name, description, }) => {
   return (
     <section className="bg-white dark:bg-gray-950 mt-16 max-lg:mt-[4.5rem]">

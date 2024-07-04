@@ -7,7 +7,7 @@ export default {
   "darkMode":"class", 
   theme: {
     fontFamily:{
-      'Comfortaa': ['Comfortaa'],
+      'Comfortaa': ['Comfortaa'], 
     }
   },
   plugins: [],
