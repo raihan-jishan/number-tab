@@ -1,60 +1,125 @@
-import React from "react";
-import { MdOutlineBook } from "react-icons/md";
-import { Button, heroDetails, HeroImage } from '../utils/index.jsx';
-import Features from "./Features.jsx";
-const Hero = () => {
+import { useEffect, useState } from "react";
+import { FiRss, FiSave } from "react-icons/fi";
+import { RiContactsLine } from "react-icons/ri";
+import { TiContacts } from "react-icons/ti";
+import Hero_Animation from "../assets/Uploading.mp4";
+import LightthemeHeroImage from "../assets/light-themeAnimation.mp4";
+import { BtnPrimary } from "./ui/button";
+
+export const Hero = () => {
+  const [isLightTheme, setIsLightTheme] = useState(
+    !document.documentElement.classList.contains("dark")
+  );
+
+  // useEffect
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsLightTheme(!document.documentElement.classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div>
-      {heroDetails.map((data) => {
-        return (
-          <section className="bg-white dark:bg-gray-950 mt-16 max-lg:mt-[4.5rem]" key={data.id}>
-            {/* for mobile devices */}
-            <div className="hidden max-lg:flex max-lg:w-4/5  max-lg:m-auto">
-              <img src={HeroImage} alt="image not found!" />
-            </div>
-            {/* close */}
-            <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 ">
-              <div className="mr-auto place-self-center lg:col-span-7">
-                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-gray-100 max-lg:text-3xl max-lg:text-center">
-                  {data.mainpageTitle}
-                </h1>
-                <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-                  {data.description}
-                </p>
-                <div className="max-lg:flex max-lg:items-center max-lg:justify-center max-lg:flex-col ">
-                  <Button
-                    name={data.navigationTitle}
-                    className={'dark:bg-white dark:text-black font-semibold text-black bg-black'}
-                    icon={
-                      <MdOutlineBook
-                        size={35}
-                        
-                      />
-                    }
-                    roundedMedium
-                    path={'/addnumbers'}
-                  />
-                  <Button
-                    name={data.secondNavigationTitle}
-                    className={
-                      "border-2 border-gray-600 max-lg:w-full bg-transparent max-lg:mt-5 dark:text-gray-300 text-gray-950 hover:bg-black dark:hover:bg-white hover:text-white hover:dark:text-black"
-                    }
-                    roundedFull
-                    fontBold
-                    path={'/numbers'}
-                  />
-                </div>
-              </div>
-              <div className="max-lg:hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src={HeroImage} alt="image not found!" />
-              </div>
-            </div>
-          </section>
-        );
-      })}
-      <Features />
-    </div>
+    <main className="bg-white dark:bg-bgColor">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
+        {/* Left: Text Content */}
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <h1 className="max-w-2xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-6xl dark:text-gray-200 font-extrabold font-Raleway tracking-wide  max-lg:mt-4  ">
+            Next-Gen Contact Storage, Simplified
+          </h1>
+          <p className="max-w-2xl mb-6 text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300 font-Raleway">
+            Save, manage, and access your contacts—anytime, anywhere!
+          </p>
+
+          <div className="flex max-lg:flex max-lg:items-center max-lg:justify-center gap-3 flex-wrap">
+            {localStorage.getItem("token") ? (
+              <BtnPrimary
+                label={"Add new contact"}
+                variant={"hero-btn"}
+                iconLeft={<TiContacts size={25} />}
+                path={"/addnumbers"}
+              />
+            ) : (
+              <BtnPrimary
+                label={"Start Saving Now"}
+                variant={"hero-btn"}
+                iconLeft={<FiSave size={25} />}
+              />
+            )}
+
+            {localStorage.getItem("token") ? (
+              <BtnPrimary
+                label={"View saved Contacts"}
+                variant={"hero-btn"}
+                iconLeft={<RiContactsLine size={25} />}
+                path={"/saved-numbers"}
+              />
+            ) : (
+              <BtnPrimary
+                label={"Discover Now"}
+                variant={"hero-btn"}
+                iconLeft={<FiRss size={25} />}
+                path={"/saved-numbers"}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Right: Hero Animation Video */}
+        <div className="lg:mt-0 mt-5 lg:col-span-5 lg:flex justify-center items-center relative">
+          <video
+            key={isLightTheme ? "light" : "dark"}
+            src={isLightTheme ? LightthemeHeroImage : Hero_Animation}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full rounded-tl-[8rem] rounded-br-[5rem]  h-[25rem] rounded-2xl   object-cover   
+        dark:mix-blend-hard-light "
+          />
+        </div>
+      </div>
+    </main>
   );
 };
 
-export default Hero;
+export const DashHero = ({ label, btnText, image, path }) => {
+  return (
+    <main className="bg-white dark:bg-bgColor">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
+        {/* Left: Text Content */}
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <h1 className="max-w-3xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-6xl dark:text-gray-200 font-extrabold font-Raleway tracking-wide max-lg:mt-5 max-lg:text-[2.3rem]">
+            {label}
+          </h1>
+
+          <div className="flex  items-center justify-center gap-3 flex-wrap">
+            <BtnPrimary
+              label={btnText}
+              variant={"start-btn"}
+              iconLeft={<TiContacts size={25} />}
+              path={path ? path : "/saved-numbers"}
+            />
+          </div>
+        </div>
+
+        {/* Right: Hero Animation Video */}
+        <div className="lg:mt-0 lg:col-span-5 lg:flex justify-center items-center relative">
+          <img
+            src={image}
+            className="w-[60%]   rounded-2xl   object-cover  rounded-tl-[50%]
+      rounded-br-[50%] dark:mix-blend-hard-light max-lg:w-full "
+          />
+        </div>
+      </div>
+    </main>
+  );
+};

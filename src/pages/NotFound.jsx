@@ -1,12 +1,13 @@
-import { MdOutlineBook } from "react-icons/md";
+import { LucideNotepadTextDashed } from "lucide-react";
+import { CiHome } from "react-icons/ci";
 import { useLocation } from "react-router-dom";
 import NotFoundImage from "../assets/notfound.svg";
-import { Button } from "../utils";
+import { BtnPrimary } from '../components/ui/button';
 const NotFound = () => {
   const location = useLocation();
   const { pathname } = location;
   return (
-    <section className="bg-white dark:bg-gray-950 mt-16 max-lg:mt-[4.5rem] p-4">
+    <section className="bg-white dark:bg-bgColor mt-16 max-lg:mt-[4.5rem] p-4">
       {/* for mobile devices */}
       <div className="hidden max-lg:flex max-lg:w-4/5  max-lg:m-auto">
         <img src={NotFoundImage} alt="image not found!" />
@@ -20,24 +21,17 @@ const NotFound = () => {
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             is not exist in this webpage. Please browse onother page..
           </p>
-          <div className="max-lg:flex max-lg:items-center max-lg:justify-center max-lg:flex-col">
-            <Button
-              name={"Add an important number"}
-              path={"/addnumbers"}
-              icon={
-                <MdOutlineBook
-                  size={35}
-                  className="text-gray-50 dark:text-gray-400"
-                />
-              }
-            />
-            <Button
-              name={"home"}
-              path={"/"}
-              className={
-                "border-2 border-gray-600 max-lg:w-full bg-transparent max-lg:mt-2 dark:text-gray-300 text-gray-950 font-bold"
-              }
-            />
+          <div className="flex gap-4 max-lg:flex-col max-lg:items-center max-lg:w-full  ">
+          <BtnPrimary 
+          label={'Home'}
+          path={'/'}
+          iconLeft={<CiHome size={25} />}
+          />
+          <BtnPrimary 
+          label={'Dashboard'}
+          path={'/dashboard'}
+          iconLeft={<LucideNotepadTextDashed   size={25} />}
+          />
           </div>
         </div>
         <div className="max-lg:hidden lg:mt-0 lg:col-span-5 lg:flex">

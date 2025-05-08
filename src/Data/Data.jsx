@@ -4,6 +4,7 @@ export const NumberData = [
     name: "আজাদ হেলাল ",
     number: " 0171-2866157",
     type: " library",
+    location:'laksham cumilla BD'
   },
   {
     id: 2,
@@ -810,4 +811,4 @@ export const NumberData = [
   },
 ];
 
-export const words = ["a", "b", "c"];
+ 

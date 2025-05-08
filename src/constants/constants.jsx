@@ -16,7 +16,7 @@ export const navbarListData = [
     id: 4,
     name: "numbers",
     path: "/numbers",
-    icon: <AiOutlineNumber  size={27} />,
+    icon: <AiOutlineNumber size={27} />,
   },
 ];
 export const heroDetails = [

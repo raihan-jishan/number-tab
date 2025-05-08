@@ -1,21 +1,17 @@
 import React, { useContext, useState } from "react";
-import { CiBookmark } from "react-icons/ci";
-import { FaRegUser } from "react-icons/fa";
-import { HiHashtag } from "react-icons/hi2";
-import { IoIosAdd } from "react-icons/io";
-import { ToastContainer, toast } from "react-toastify";
+import { LuBookMarked } from "react-icons/lu";
+import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  AddButton,
-  AddnumberImage,
-  AppLayout,
-  Context,
-  Infos,
-  LabelFeild,
-  Login,
-  Typography,
-} from "../utils/index.jsx";
+import LoveToAddSvg from "../assets/undraw_love-it_8pc0.svg";
+import { AuthBtn } from "../components/ui/button.jsx";
+import { DashHeading, Heading } from "../components/ui/heading.jsx";
+import { Input } from "../components/ui/input.jsx";
+import { Label } from "../components/ui/label.jsx";
+import { AddnumberImage, AppLayout, Context, Login } from "../utils/index.jsx";
 const AddNumbers = () => {
+  const location = useLocation();
+  const hideWhenDash = location.pathname.startsWith("/dashboard");
   const context = useContext(Context);
   const { addNote } = context;
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
@@ -30,108 +26,104 @@ const AddNumbers = () => {
   };
   return (
     <>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
       {localStorage.getItem("token") ? (
         <AppLayout>
-          <Typography
-            name={"Add Numbers"}
-            fontSize={"text-[2.7rem]"}
-            marginTopMedium
-          />
+          {hideWhenDash ? (
+            <DashHeading label={"Add contact"} textCenterize fontDefault />
+          ) : (
+            <Heading
+              textSmall
+              borderSide
+              description={"Add contact"}
+              MobilewidthFull
+              widthFull
+            />
+          )}
           {/* forms */}
-          <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
+          <div className="flex w-full items-center justify-around m-5 max-lg:flex-col-reverse gap-10  mt-5 max-lg:m-2 ">
             {/* left content */}
             <form action="" className="mt-4">
-              <div className="relative mb-6">
-                <input
-                  type="text"
-                  name="title"
-                  value={note.title}
-                  onChange={onChange}
-                  minLength={5}
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400 "
-                  id="exampleFormControlInput3"
-                  placeholder="person name"
-                  required
-                />
-                <LabelFeild
-                  name={"name"}
-                  forPurpose={"person name"}
-                  icon={<FaRegUser size={28} />}
-                />
-              </div>
               {/* 2 */}
               <div className="relative mb-6">
-                <input
+                <Label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+                >
+                  person name
+                </Label>
+                <Input
+                  type="text"
+                  name="title"
+                  id="text"
+                  variant={"addnumber"}
+                  value={note.title}
+                  onChange={onChange}
+                  placeholder="Enter person name "
+                  required
+                />
+              </div>
+              <div className="relative mb-6">
+                <Label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+                >
+                  contact number
+                </Label>
+                <Input
+                  className="mt-2"
                   type="text"
                   name="description"
                   value={note.description}
                   onChange={onChange}
-                  minLength={5}
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
                   id="exampleFormControlInput3"
-                  placeholder="  number"
+                  placeholder="  enter your contact number"
                   required
-                />
-                <LabelFeild
-                  name={" number"}
-                  forPurpose={"number"}
-                  icon={<HiHashtag size={28} />}
                 />
               </div>
               {/* 3 */}
-              <div className="relative mb-6  ">
-                <input
+              <div className="relative mb-6">
+                <Label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+                >
+                  person description
+                </Label>
+                <Input
                   type="text"
                   name="tag"
                   value={note.tag}
                   onChange={onChange}
-                  minLength={5}
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
                   id="exampleFormControlInput3"
-                  placeholder="person name"
+                  placeholder="enter person description"
                   required
+                  className="mt-2 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
                 />
-                <LabelFeild
-                  name={" type"}
-                  forPurpose={"person type"}
-                  icon={<CiBookmark size={28} />}
-                />
+
                 <div className="flex items-center justify-center mt-5">
-                  <AddButton
-                    icon={<IoIosAdd size="35" />}
-                    name={"Add number"}
-                    fontSize="xl"
-                    fontWeight="font-semibold"
-                    roundedMedium
+                  <AuthBtn
+                    variant={"account-btn"}
+                    label={"Save contact"}
                     onClick={handleClick}
+                    iconLeft={<LuBookMarked size={25} />}
                   />
                 </div>
               </div>
             </form>
             {/* close */}
             {/* right content */}
-            <div className="m-5">
-              <img src={AddnumberImage} alt="" className="w-[22rem]" />
+            <div className="m-5 ">
+              <img
+                src={hideWhenDash ? LoveToAddSvg : AddnumberImage}
+                alt=""
+                className={hideWhenDash ? "w-[14rem]" : "w-[20rem]"}
+              />
             </div>
             {/* close */}
-          </section>
+          </div>
         </AppLayout>
       ) : (
         <>
-          <Login />
-          <Infos name={"for add an number"} />
+          <Login /> 
         </>
       )}
     </>

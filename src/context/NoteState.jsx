@@ -22,9 +22,9 @@ const NoteState = (props) => {
   };
   // get user details
   const getUserdetails = async () => {
+    // api call
     const response = await fetch(`${host}/api/auth/getuser`, {
       method: "POST",
-
       headers: {
         "content-Type": "application/json",
         "auth-token": localStorage.getItem("token"),

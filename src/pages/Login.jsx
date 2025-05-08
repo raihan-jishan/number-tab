@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { MdFileDownloadDone, MdLockOutline, MdMail } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import {
-  AccountInfo,
-  AddButton,
-  AppLayout,
-  LoginImage,
-  Typography,
-} from "../utils/index.jsx";
+import { BsPass } from "react-icons/bs";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthBtn } from "../components/ui/button.jsx";
+import { Heading } from "../components/ui/heading.jsx";
+import { Input } from "../components/ui/input.jsx";
+import { Label } from "../components/ui/label.jsx";
+import { AppLayout, LoginImage } from "../utils/index.jsx";
 const Login = () => {
   const server = import.meta.env.VITE_SERVER_URL;
   const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -41,74 +39,83 @@ const Login = () => {
 
   return (
     <AppLayout>
-      <Typography
-        name={"login your account"}
-        fontSize={"text-[2.7rem]"}
-        marginTopLarge
+      <Heading
+        textSmall
+        borderSide
+        description={"Login to numberTab"}
+        MobilewidthFull
+        widthFull
       />
       {/* forms */}
-      <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
+      <div className="flex w-full items-center justify-around m-5 max-lg:m-1 max-lg:flex-col-reverse gap-10  mt-16  ">
         {/* left content */}
         <form action="" className="mt-4" onSubmit={handleSubmit}>
           {/* 2 */}
           <div className="relative mb-6">
-            <input
+            <Label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+            >
+              email
+            </Label>
+            <Input
               type="email"
+              id="email"
               name="email"
               value={credentials.email}
               onChange={onChange}
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
-              id="email"
-              placeholder="email"
+              placeholder="Enter your email"
+              className="mt-2"
             />
-            <label
-              htmlFor="email"
-              className={
-                "text-2xl  px-6 rounded-full pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-gray-900 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-gray-400 dark:peer-focus:text-primary flex gap-4  "
-              }
-            >
-              <MdMail size={35} /> email
-            </label>
           </div>
           {/* 3 */}
           <div className="relative mb-6">
-            <input
-              type="password"
-              name="password"
-              onChange={onChange}
-              value={credentials.password}
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
-              id="password"
-              placeholder="password"
-            />
-            <label
+            <Label
               htmlFor="password"
-              className="text-2xl  px-6 rounded-full pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-gray-900 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[twe-input-state-active]:-translate-y-[1.15rem] peer-data-[twe-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-gray-400 dark:peer-focus:text-primary flex gap-4 "
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
             >
-              <MdLockOutline size={35} />
-              password
-            </label>
+              Password
+            </Label>
+            <Input
+              type="password"
+              id="password"
+              name="password"
+              value={credentials.password}
+              onChange={onChange}
+              placeholder="Enter your password"
+              className="mt-2"
+            />
+
             <div className="flex items-center justify-center mt-5">
-              <AddButton
-                name={"login account"}
-                icon={<MdFileDownloadDone size="35" />}
-                roundedMedium  
+              <AuthBtn
+                variant={"btn-login"}
+                label={"Login"} 
+                iconLeft={<BsPass size={25} />}
               />
             </div>
-            <AccountInfo
-              goFor={"Signup"}
-              inform={" doesn't have an account?"}
-              path={"/create-an-account"}
-            />
+           
+            {/* doesn't account */}
+            <Label
+              htmlFor="message"
+              className="flex-col  text-sm font-semibold text-gray-700 dark:text-gray-400 mt-10 gap-3 flex "
+            >
+              Don't have an account?
+              <Link
+                to={"/create-an-account"}
+                className="underline text-black dark:text-gray-200 text-sm font-semibold"
+              >
+                Sign up in numberTab
+              </Link>
+            </Label>
           </div>
         </form>
         {/* close */}
         {/* right content */}
-        <div className="m-5">
-          <img src={LoginImage} alt="" className="w-80" />
+        <div className="m-5 ">
+          <img src={LoginImage} alt="" className="w-[20rem]" />
         </div>
         {/* close */}
-      </section>
+      </div>
     </AppLayout>
   );
 };

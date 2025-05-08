@@ -1,25 +1,31 @@
-import { Navbar, NoteState, Routes } from "./utils/index.jsx";
+import { ThemeProvider } from "next-themes";
+import { useLocation } from "react-router-dom";
+import { Footer, Navbar, NoteState, Routes } from "./utils/index.jsx";
+
 function App() {
-  const originalString = "Hello World";
-  const charToInsert = "a";
-  const indexToInsertAt = 5;
+  const location = useLocation();
 
-  const newString =
-    originalString.slice(0,indexToInsertAt) +
-    "a" +
-    originalString.slice(indexToInsertAt);
+  // Hide navbar and footer on any "/dashboard" route
+ 
+  const hideNavbar = location.pathname.startsWith("/dashboard");
+  const hideFooter = ["/dashboard", "/saved-numbers", "/create-an-account", "/login-your-account"].some((path) =>
+    location.pathname.startsWith(path)
+  );
 
-  console.log(newString); // Outputs: "Helloa World"
   return (
-    <NoteState>
-      <div className="text-black dark:bg-gray-950  dark:text-gray-50 p-[1rem]">
-        <Navbar />
-        <Routes />
-        {localStorage.getItem("token")
-          ? console.log("token was founded!")
-          : console.log("please login!")}
-      </div>
-    </NoteState>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <NoteState>
+        <div className="bg-white dark:bg-bgColor">
+          {!hideNavbar && <Navbar />}
+          <Routes />
+          {localStorage.getItem("token")
+            ? console.log("token was found!")
+            : console.log("please login!")}
+        </div>
+        {!hideFooter && <Footer />}
+      </NoteState>
+    </ThemeProvider>
   );
 }
+
 export default App;

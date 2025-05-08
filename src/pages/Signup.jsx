@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { FaRegUser } from "react-icons/fa";
-import { MdLockOutline, MdMail } from "react-icons/md";
-import { RiAccountPinBoxLine } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { FaFeather } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import SignupImage from '../assets/createaccount.svg';
+import { AuthBtn } from "../components/ui/button.jsx";
+import { Heading } from "../components/ui/heading.jsx";
+import { Input } from "../components/ui/input.jsx";
+import { Label } from "../components/ui/label.jsx";
 import {
-  AccountInfo,
-  AddButton,
-  AppLayout,
-  CreateAccountImage,
-  LabelFeild,
-  Typography,
+  AppLayout
 } from "../utils/index.jsx";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -43,83 +41,105 @@ const Signup = () => {
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+
+  // name , email, password
   return (
     <AppLayout>
-      <Typography
-        name={"create an account"}
-        fontSize={"text-[2.5rem]"}
-        marginTopMedium
+      <Heading
+        textSmall
+        borderSide
+        description={"Create an account"}
+        MobilewidthFull
+        widthFull
       />
       {/* forms */}
-      <section className="flex items-center justify-between m-5 max-lg:flex-col-reverse  ">
+      <div className="flex w-full items-center justify-around  m-5  max-lg:m-1 max-lg:flex-col-reverse gap-10  mt-2  ">
         {/* left content */}
-        <form className="mt-2" onSubmit={handleSubmit}>
-          <div className="relative mb-6">
-            <input
-              type="text"
-              name="name"
-              onChange={onChange}
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400 "
-              placeholder="person name"
-            />
-            <LabelFeild
-              name={"name"}
-              icon={<FaRegUser size={28} />}
-              forPurpose={"name"}
-            />
-          </div>
+        <form action="" className="mt-4 " onSubmit={handleSubmit}>
           {/* 2 */}
           <div className="relative mb-6">
-            <input
+            <Label
+              htmlFor="name"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+            >
+              name
+            </Label>
+            <Input
+              type="name"
+              id="name"
+              name="name"
+              onChange={onChange}
+              placeholder="Enter your name"
+              className="mt-2"
+            />
+          </div>
+
+          <div className="relative mb-6">
+            <Label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+            >
+              email
+            </Label>
+            <Input
               type="email"
+              id="email"
               name="email"
               onChange={onChange}
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
-              placeholder="email...."
-            />
-            <LabelFeild
-              name={"email"}
-              icon={<MdMail size={28} />}
-              forPurpose={"email"}
+              placeholder="Enter your email"
+              className="mt-2"
             />
           </div>
+
           {/* 3 */}
           <div className="relative mb-6">
-            <input
+            <Label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
+            >
+              password
+            </Label>
+            <Input
               type="password"
+              id="password"
               name="password"
               onChange={onChange}
-              className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[twe-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-gray-300 dark:autofill:shadow-autofill dark:peer-focus:text-primary [&:not([data-twe-input-placeholder-active])]:placeholder:opacity-0 border-b-2 border-gray-950 dark:border-gray-400"
-              placeholder="enter your password..."
+              placeholder="Enter your password"
+              className="mt-2"
             />
-            <LabelFeild
-              name={"password"}
-              icon={<MdLockOutline size={28} />}
-              forPurpose={"password"}
-            />{" "}
-          </div>
-          <div className="relative mb-6">
+             
             <div className="flex items-center justify-center mt-5">
-              <AddButton
-                name={"create account"}
-                icon={<RiAccountPinBoxLine size="35" />}
-                roundedMedium
+              <AuthBtn
+                variant={"account-btn"}
+                label={"create account"}
+                iconLeft={<FaFeather  size={25} />}
               />
             </div>
-            <AccountInfo
-              goFor={"Login"}
-              inform={"allready have an account?"}
-              path={"/login-your-account"}
-            />
+            
+            {/* doesn't account */}
+            <Label
+              htmlFor="message"
+              className="  text-sm font-semibold text-gray-800 dark:text-gray-400 mt-10 gap-3 flex "
+            >
+              Already have an account?
+              <Link
+                to={"/login-your-account"}
+                className="underline text-black dark:text-gray-200 text-sm font-semibold"
+              >
+                Log in here
+              </Link>
+            </Label>
           </div>
+
+          
         </form>
         {/* close */}
         {/* right content */}
         <div className="m-5">
-          <img src={CreateAccountImage} alt="" className="w-[27rem]" />
+          <img src={SignupImage} alt="" className="w-[25rem]" />
         </div>
         {/* close */}
-      </section>
+      </div>
     </AppLayout>
   );
 };
