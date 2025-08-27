@@ -71,7 +71,7 @@ export {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 };
 
 // herologo card
@@ -227,7 +227,7 @@ export const PricingCard = ({ card }) => {
     <Card
       key={card.title}
       className={cn(
-        "relative flex flex-col w-full border-neutral-700 p-6 dark:bg-gray-900   flex-shrink-0 m-6  max-lg:m-0 overflow-hidden bg-gray-3 00",
+        "relative flex flex-col w-full border-neutral-700 p-6 dark:bg-gray-900 shadow-[0_0_10px_gray]  dark:shadow-[0_0_10px_green] flex-shrink-0 m-6  max-lg:m-0 overflow-hidden bg-gray-900 00",
         card.title === "Unlimited Saas" && "border-2 border-primary"
       )}
     >
@@ -245,17 +245,17 @@ export const PricingCard = ({ card }) => {
             card.title !== "Unlimited Saas" && "text-muted-foreground"
           )}
         >
-          <span className="text-3xl font-semibold tracking-tight text-black dark:text-green-400/95  font-Poppins">
+          <span className="text-3xl font-semibold tracking-tight text-gray-100 dark:text-green-400/95  font-Poppins">
             {card.price}
           </span>
         </CardTitle>
         <div className="mt-2 text-xl  ">
-          <CardDescription className="text-gray-700 tracking-wide font-Comfortaa dark:text-gray-200 font-semibold mt-4 dark:mt-2">
+          <CardDescription className="text-gray-400 tracking-wide font-Comfortaa dark:text-gray-200 font-semibold mt-4 dark:mt-2">
             {card.description}
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="pt-10 space-y-2 relative">
+      <CardContent className="pt-10 space-y-2 relative max-lg:space-y-8">
         {card.features.map((feature) => (
           <div key={feature} className="flex items-center gap-3">
             <span className="w-4 h-4 fill-primary text-primary">
@@ -264,7 +264,7 @@ export const PricingCard = ({ card }) => {
                 className="text-gray-500 dark:text-green-400"
               />
             </span>
-            <p className="text-gray-900  dark:text-gray-300">{feature}</p>
+            <p className="text-gray-100  dark:text-gray-300">{feature}</p>
           </div>
         ))}
       </CardContent>

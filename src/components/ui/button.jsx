@@ -64,15 +64,15 @@ const BtnPrimary = ({ label, icon, iconLeft, variant, onClick, path }) => {
               ? "p-7 px-6  bg-green-400/95   hover:bg-green-400/90 rounded-lg  border-2 border-black   text-black font-bold  font-Comfortaa max-lg:px-24 text-[1rem]"
               : // for sub work btn
               variant === "hero-btn"
-              ? "rounded-3xl p-[2.3rem] px-8 max-lg:px-14 font-bold max-lg:rounded-full   bg-green-500 hover:bg-green-500/90  text-black border-4 border-black text-[1rem] "
+              ? "h-10 rounded-full px-12 text-[1rem] font-semibold   p-8  max-lg:p-8" 
               : variant === "feature-btn"
-              ? ` bg-green-300 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400  `
+              ? ` bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400  `
               : variant === "start-btn"
               ? "bg-green-400/80 text-[1.2rem] p-8 rounded-full  text-black hover:bg-white/90 max-lg:w-full max-lg:px-4 "
               : variant === "logout"
               ? "bg-red-400 p-7 px-12 text-2xl   font-semibold "
               : "p-8 px-12 "
-          }   flex items-center gap-2 hover:scale-95 transition-all      font-semibold `,
+          }   flex items-center gap-2  transition-all      font-semibold `,
         })}
         onClick={onClick}
       >
@@ -126,4 +126,3 @@ const AuthBtn = ({ label, icon, iconLeft, variant, onClick }) => {
   );
 };
 export { AuthBtn, BtnPrimary, Button, buttonVariants };
-

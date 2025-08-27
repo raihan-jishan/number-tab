@@ -6,7 +6,8 @@ export default {
   theme: {
     fontFamily: {
       Comfortaa: ["Comfortaa"],
-      Raleway: ["Raleway", "serif"]
+      Raleway: ["Raleway", "serif"],
+      OpenSans: ["Open Sans", "sans-serif"],
     },
     extend: {
       borderRadius: {

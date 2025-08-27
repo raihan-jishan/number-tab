@@ -12,7 +12,7 @@ import {
 export const LogoData = [
   {
     name: "numberTab",
-    icon: <AiOutlineNumber size={30} className="text-green-400" />,
+    icon: <AiOutlineNumber size={30} className="text-green-900" />,
   },
 ];
 export const serviceCardData = [
@@ -87,71 +87,95 @@ export const serviceCardData = [
 ];
 
 export const overviewCard_Data = [
-   {
-    id:0,
-    imageUrl: <img src="https://cdn-icons-png.flaticon.com/128/647/647857.png" alt="image was not found!" />,
-    text:'Total 12  ',
-    status:'contacts',
-   },
-   {
-    id:0,
-    imageUrl: <img src="https://cdn-icons-png.flaticon.com/128/12617/12617999.png" alt="image was not found!" />,
-    text:' Personal 150',
-    status:'',
-   },
-   {
-    id:0,
-    imageUrl: <img src="https://cdn-icons-png.flaticon.com/128/1478/1478927.png" alt="image was not found!" />,
-    text:'Business 56',
-    status:'',
-   },
-]
+  {
+    id: 0,
+    imageUrl: (
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/647/647857.png"
+        alt="image was not found!"
+      />
+    ),
+    text: "Total 12  ",
+    status: "contacts",
+  },
+  {
+    id: 0,
+    imageUrl: (
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/12617/12617999.png"
+        alt="image was not found!"
+      />
+    ),
+    text: " Personal 150",
+    status: "",
+  },
+  {
+    id: 0,
+    imageUrl: (
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/1478/1478927.png"
+        alt="image was not found!"
+      />
+    ),
+    text: "Business 56",
+    status: "",
+  },
+];
 
 // review data
 export const reviewData = [
   {
     name: "John Smith",
-    point:'01',
-    review: "This contact-saving website is a lifesaver! It’s so easy to import and organize my contacts. Highly recommend!",
+    point: "01",
+    review:
+      "This contact-saving website is a lifesaver! It’s so easy to import and organize my contacts. Highly recommend!",
     twitter_handle: "@techlover123",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwZkSEm6tkwEyPiz1kmz9BMlcBsbjl8q__XQ&s",
-    rating: 4.5
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwZkSEm6tkwEyPiz1kmz9BMlcBsbjl8q__XQ&s",
+    rating: 4.5,
   },
   {
     name: "Maria Gonzalez",
-    point:'02',
-    review: "I love how simple this platform is. Syncing across devices makes managing my contacts seamless. Definitely worth it!",
+    point: "02",
+    review:
+      "I love how simple this platform is. Syncing across devices makes managing my contacts seamless. Definitely worth it!",
     twitter_handle: "@maria_2025",
-    image: " ",
-    rating: 4.0
+    image:
+      "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1689977968861-9c91dbb16049%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8Nzd8fGF2YXRhcnxlbnwwfHwwfHx8MA%253D%253D&w=640&q=75",
+    rating: 4.0,
   },
   {
     name: "John Doe",
-    point:'03',
-    review: "A great tool for both personal and professional contact management. The cloud backup feature is a must-have!",
+    point: "03",
+    review:
+      "A great tool for both personal and professional contact management. The cloud backup feature is a must-have!",
     twitter_handle: "@john_doe_23",
-    image: " ",
-    rating: 4.7
+    image:
+      "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1438761681033-6461ffad8d80%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww&w=640&q=75",
+    rating: 4.7,
   },
   {
     name: "Alex Smith",
-    point:'04',
-    review: "Amazing platform for keeping my contacts organized. The user interface is clean and intuitive!",
+    point: "04",
+    review:
+      "Amazing platform for keeping my contacts organized. The user interface is clean and intuitive!",
     twitter_handle: "@alex_smith",
-    image: " ",
-    rating: 4.2
+    image:
+      "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1701615004837-40d8573b6652%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8MzB8fGF2YXRhcnxlbnwwfHwwfHx8MA%253D%253D&w=640&q=75",
+    rating: 4.2,
   },
   {
     name: "Susan Lee",
-    point:'05',
-    review: "I’ve tried many contact managers, but this one stands out. Easy to use, and the sync feature is fantastic.",
+    point: "05",
+    review:
+      "I’ve tried many contact managers, but this one stands out. Easy to use, and the sync feature is fantastic.",
     twitter_handle: "@susan_writes",
-    image: " ",
-    rating: 4.6
-  }
-]
+    image: "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1689568126014-06fea9d5d341%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8NTd8fGF2YXRhcnxlbnwwfHwwfHx8MA%253D%253D&w=640&q=75",
+    rating: 4.6,
+  },
+];
 
-// pricing card data 
+// pricing card data
 export const pricingCardData = [
   {
     title: "Basic Plan",
@@ -180,7 +204,8 @@ export const pricingCardData = [
   },
   {
     title: "Business Plan",
-    description: "Ideal for businesses that need powerful contact management tools",
+    description:
+      "Ideal for businesses that need powerful contact management tools",
     price: "$99",
     duration: "month",
     highlight: "Everything in Premium, plus",
@@ -195,4 +220,3 @@ export const pricingCardData = [
     priceId: "price_1OYxkqFj9oKEERu1NbKUxXxN",
   },
 ];
-

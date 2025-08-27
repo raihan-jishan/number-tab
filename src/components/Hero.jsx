@@ -1,38 +1,15 @@
-import { useEffect, useState } from "react";
 import { FiRss, FiSave } from "react-icons/fi";
 import { RiContactsLine } from "react-icons/ri";
 import { TiContacts } from "react-icons/ti";
-import Hero_Animation from "../assets/Uploading.mp4";
-import LightthemeHeroImage from "../assets/light-themeAnimation.mp4";
 import { BtnPrimary } from "./ui/button";
-
+import HeroIllustration from "../assets/heroIllustration.svg";
 export const Hero = () => {
-  const [isLightTheme, setIsLightTheme] = useState(
-    !document.documentElement.classList.contains("dark")
-  );
-
-  // useEffect
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      setIsLightTheme(!document.documentElement.classList.contains("dark"));
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <main className="bg-white dark:bg-bgColor">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
         {/* Left: Text Content */}
         <div className="mr-auto place-self-center lg:col-span-7">
-          <h1 className="max-w-2xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-6xl dark:text-gray-200 font-extrabold font-Raleway tracking-wide  max-lg:mt-4  ">
+          <h1 className="max-w-2xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-6xl dark:text-gray-200 font-extrabold font-Raleway tracking-wide  max-lg:mt-4   ">
             Next-Gen Contact Storage, Simplified
           </h1>
           <p className="max-w-2xl mb-6 text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-300 font-Raleway">
@@ -75,15 +52,12 @@ export const Hero = () => {
 
         {/* Right: Hero Animation Video */}
         <div className="lg:mt-0 mt-5 lg:col-span-5 lg:flex justify-center items-center relative">
-          <video
-            key={isLightTheme ? "light" : "dark"}
-            src={isLightTheme ? LightthemeHeroImage : Hero_Animation}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full rounded-tl-[8rem] rounded-br-[5rem]  h-[25rem] rounded-2xl   object-cover   
-        dark:mix-blend-hard-light "
+          <img
+            src={HeroIllustration}
+            width="600"
+            height="300"
+            alt="mockup"
+            className="w-[90%]"
           />
         </div>
       </div>
@@ -114,7 +88,7 @@ export const DashHero = ({ label, btnText, image, path }) => {
         {/* Right: Hero Animation Video */}
         <div className="lg:mt-0 lg:col-span-5 lg:flex justify-center items-center relative">
           <img
-            src={image}
+            src={HeroIllustration}
             className="w-[60%]   rounded-2xl   object-cover  rounded-tl-[50%]
       rounded-br-[50%] dark:mix-blend-hard-light max-lg:w-full "
           />

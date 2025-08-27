@@ -7,12 +7,7 @@ import { MdContacts } from "react-icons/md";
 import { RiAccountPinCircleLine, RiGroupLine } from "react-icons/ri";
 export const navLinkData = [
   { name: "Home", icon: <CiHome size={20} />, path: "#" },
-  {
-    name: "About Us",
 
-    path: "about_us",
-    icon: <FaRegBookmark size={20} />,
-  },
   {
     name: "Features",
 
@@ -26,9 +21,10 @@ export const navLinkData = [
     icon: <FaMoneyBillWheat size={20} />,
   },
   {
-    name: "Contact",
+    name: "Reviews",
 
-    path: "contact", 
+    path: "reviews",
+    icon: <FaMoneyBillWheat size={20} />,
   },
 ];
 
