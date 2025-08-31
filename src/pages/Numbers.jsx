@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import Illustation from '../assets/undraw_not-found_6bgl.svg';
+import Illustation from "../assets/undraw_not-found_6bgl.svg";
 import { DashHero } from "../components/Hero.jsx";
 import { NumberCard } from "../components/ui/card.jsx";
 import GridOptions from "../components/ui/grid-options.jsx";
 import TopBar from "../components/ui/top-bars.jsx";
 import { AppLayout, Context, Login } from "../utils/index.jsx";
 import { useScrollDetection } from "../utils/utils.jsx";
+import { BtnPrimary } from "../components/ui/button.jsx";
 const Numbers = () => {
   const scrolled = useScrollDetection();
   const [searchTerm, setSearchTerm] = useState("");
@@ -80,11 +81,11 @@ const Numbers = () => {
     <>
       {notes.length === 0 ? (
         <div>
-          <DashHero 
-          label={'No Contact Was  Saved'}
-          btnText={'Save contact now'}
-          image={Illustation}
-          path={'/addnumbers'}
+          <DashHero
+            label={"No Contact Was  Saved"}
+            btnText={"Save contact now"}
+            image={Illustation}
+            path={"/addnumbers"}
           />
         </div>
       ) : (
@@ -119,18 +120,23 @@ const Numbers = () => {
                         label={data.title}
                         number={data.description}
                         type={data.tag}
-                        location={new Date(data.date).toLocaleDateString()}
                         isFavourite={favourites.includes(data._id)} // 🔥 pass favourite state
                         onToggleFavourite={() => toggleFavourite(data._id)} // 🔥 handle click
                       />
                     ))
-                  : 'No matching contact found!'}
+                  : "No matching contact found!"}
+              </div>
+              <div className="flex items-center justify-center">
+                <BtnPrimary
+                  label={"Add onother number"}
+                  variant={"onother-number"}
+                  path={"/addnumbers"}
+                />
               </div>
             </AppLayout>
           ) : (
             <>
               <Login />
-               
             </>
           )}
         </div>

@@ -1,12 +1,12 @@
+import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
-import * as React from "react";
-
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
+// Base button variants
 const buttonVariants = cva(
-  `inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none   [&_svg]:shrink-0`,
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -34,6 +34,7 @@ const buttonVariants = cva(
   }
 );
 
+// Base Button
 const Button = React.forwardRef(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
@@ -48,81 +49,82 @@ const Button = React.forwardRef(
 );
 Button.displayName = "Button";
 
-// primarbtn
-const BtnPrimary = ({ label, icon, iconLeft, variant, onClick, path }) => {
+// Extra styles for BtnPrimary
+const primaryStyles = {
+  nav: "p-7 px-4 font-semibold bg-green-500 hover:bg-green-500/90 rounded-full border-2 border-black text-black max-lg:px-20",
+  "account-btn":
+    "p-7 px-6 bg-green-400/95 hover:bg-green-400/90 rounded-lg border-2 border-black text-black font-bold font-Comfortaa max-lg:px-24 text-[1rem]",
+  "hero-btn":
+    "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8",
+  "feature-btn":
+    "bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400",
+  "start-btn":
+    "bg-gray-900 text-[1.2rem] p-8 rounded-full text-gray-100 capitalize hover:bg-gray-800 max-lg:w-full max-lg:px-4",
+  logout: "bg-red-400 p-7 px-12 text-2xl font-semibold",
+  "onother-number":
+    "h-10 bg-green-500/90 hover:bg-green-500 text-black rounded-xl font-Comfortaa px-12 text-[1rem] font-extrabold p-8 max-lg:p-8",
+  default: "p-8 px-12",
+};
+
+// Primary button (Link + Button)
+const BtnPrimary = ({
+  label,
+  icon,
+  iconLeft,
+  variant = "default",
+  onClick,
+  path,
+}) => {
   return (
     <Link to={path}>
       <Button
-        className={buttonVariants({
-          // if varient was nav then apply nav-styles else default style included
-          className: `${
-            // for nav
-            variant === "nav"
-              ? "p-7 px-4 font-semibold  bg-green-500 hover:bg-green-500/90 rounded-full    border-2 border-black   text-black   max-lg:px-20"
-              : // default for the button
-              variant === "account-btn"
-              ? "p-7 px-6  bg-green-400/95   hover:bg-green-400/90 rounded-lg  border-2 border-black   text-black font-bold  font-Comfortaa max-lg:px-24 text-[1rem]"
-              : // for sub work btn
-              variant === "hero-btn"
-              ? "h-10 rounded-full px-12 text-[1rem] font-semibold   p-8  max-lg:p-8" 
-              : variant === "feature-btn"
-              ? ` bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400  `
-              : variant === "start-btn"
-              ? "bg-green-400/80 text-[1.2rem] p-8 rounded-full  text-black hover:bg-white/90 max-lg:w-full max-lg:px-4 "
-              : variant === "logout"
-              ? "bg-red-400 p-7 px-12 text-2xl   font-semibold "
-              : "p-8 px-12 "
-          }   flex items-center gap-2  transition-all      font-semibold `,
-        })}
+        className={cn(
+          primaryStyles[variant] || primaryStyles.default,
+          "flex items-center gap-2 transition-all font-semibold"
+        )}
         onClick={onClick}
       >
-        <div className="">{iconLeft ? iconLeft : ""}</div>
-
+        {iconLeft && <div>{iconLeft}</div>}
         {label}
-
-        <span
-          className={`${
-            variant === "nav"
-              ? "text-gray-900"
-              : variant === "vidio"
-              ? "text-black"
-              : ""
-          }`}
-        >
-          {icon}
-        </span>
+        {icon && (
+          <span
+            className={cn(
+              variant === "nav" && "text-gray-900",
+              variant === "vidio" && "text-black"
+            )}
+          >
+            {icon}
+          </span>
+        )}
       </Button>
     </Link>
   );
 };
 
-// authenticate btn
+// Auth button (used for login/signup)
 const AuthBtn = ({ label, icon, iconLeft, variant, onClick }) => {
   return (
     <Button
-      className={buttonVariants({
-        className: `p-7 ${
-          variant === "btn-login" ? "px-[9.5rem]" : "px-[7rem] "
-        } bg-green-500  hover:bg-green-500/90 rounded-full  border-2 border-black   text-black font-bold  font-Comfortaa max-lg:px-20 text-[1rem]`,
-      })}
+      className={cn(
+        "p-7 bg-green-500 hover:bg-green-500/90 rounded-xl border-2 border-black/20 text-black font-bold font-OpenSans text-[1rem] max-lg:px-20",
+        variant === "btn-login" ? "px-[9.5rem]" : "px-[7rem]"
+      )}
       onClick={onClick}
     >
-      <div className="">{iconLeft ? iconLeft : ""}</div>
-
+      {iconLeft && <div>{iconLeft}</div>}
       {label}
-
-      <span
-        className={`${
-          variant === "nav"
-            ? "text-gray-900"
-            : variant === "vidio"
-            ? "text-black"
-            : ""
-        }`}
-      >
-        {icon}
-      </span>
+      {icon && (
+        <span
+          className={cn(
+            variant === "nav" && "text-gray-900",
+            variant === "vidio" && "text-black"
+          )}
+        >
+          {icon}
+        </span>
+      )}
     </Button>
   );
 };
+
 export { AuthBtn, BtnPrimary, Button, buttonVariants };

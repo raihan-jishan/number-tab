@@ -5,7 +5,7 @@ import LoginImage from "../assets/Login.svg";
 import AddnumberImage from "../assets/addnumbers.svg";
 import FaildImage from "../assets/faild.svg";
 import SuccessImage from "../assets/success.svg";
- 
+ import SuccessToSave from '../assets/success-to-save.svg'
 import Feature from "../components/Feature.jsx";
 import FeaturesCard from "../components/FeaturesCard.jsx";
 import LabelFeild from "../components/LabelFeild.jsx";
@@ -38,6 +38,7 @@ export {
     LabelFeild,
     Login,
     LoginImage,
+    SuccessToSave,
     Navbar,
     navbarListData,
     NoteState,

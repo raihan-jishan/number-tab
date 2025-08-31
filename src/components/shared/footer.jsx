@@ -39,7 +39,7 @@ const Footer = () => {
                   />
 
                   <Button
-                    className={buttonVariants({ className: "p-6 px-8  bg-green-400 dark:bg-green-300 text-black font-bold rounded-full hover:opacity-90 hover:bg-green-300" })}
+                    className={buttonVariants({ className: "p-6 px-8  bg-gray-900 dark:bg-gray-50 text-white font-bold rounded-md text-[1rem] hover:opacity-90 hover:bg-gray-800 dark:text-black" })}
                   >
                     send
                   </Button>

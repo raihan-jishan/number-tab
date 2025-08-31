@@ -10,7 +10,7 @@ const Feature = () => {
   const [showAll, setShowAll] = useState(false);
 
   // Slice the array to show only the first 3 items initially
-  const displayedData = showAll ? serviceCardData : serviceCardData.slice(0, 3);
+  const displayedData = showAll ? serviceCardData : serviceCardData.slice(0, 6);
 
   return (
     <Section
@@ -31,7 +31,7 @@ const Feature = () => {
         showAll={showAll}
       />
       {/* Cards Display */}
-      <div className="grid grid-cols-2 gap-2 m-5 p-5 max-lg:grid-cols-1 max-lg:m-2 max-lg:p-2">
+      <div className="grid grid-cols-3 gap-5 m-5 p-5 max-lg:grid-cols-1 max-lg:m-2 max-lg:p-2">
         {displayedData.map((item, index) => (
           <ServiceCard
             key={index}
@@ -40,27 +40,12 @@ const Feature = () => {
             status={item.status}
             percentage={item.percentage}
             description={item.description}
-            className={`transition-all duration-500 ${
-              showAll ? "bg-gray-700 text-white" : "bg-gray-900 text-black"
-            }`}
+            className={`transition-all duration-500`}
             showAll={showAll}
           />
         ))}
 
-        <div className="flex items-center justify-center w-full">
-          <BtnPrimary
-            variant={"feature-btn"}
-            label={showAll ? "Show Less" : "Show More"}
-            onClick={() => setShowAll((prevState) => !prevState)}
-            icon={
-              showAll ? (
-                <FaSortAmountUpAlt size={25} />
-              ) : (
-                <FaSortAmountDown size={25} />
-              )
-            }
-          />
-        </div>
+     
       </div>
     </Section>
   );

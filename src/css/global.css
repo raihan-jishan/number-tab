@@ -7,6 +7,9 @@
   background-color: rgb(209, 209, 209);
   border-top-right-radius: 2rem;
 }
+body {
+  list-style: none;
+}
 
 @layer base {
   :root {

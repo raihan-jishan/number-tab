@@ -15,7 +15,8 @@ import {
   Oldnumbers,
   ResultInfos,
   Signup,
-  SuccessImage
+  SuccessImage,
+  SuccessToSave
 } from "../utils/index.jsx";
 const Routes = () => {
   return (
@@ -73,6 +74,19 @@ const Routes = () => {
               "our database faild to done  the proccess, try again ,or put onother email address.... "
             }
             Image={FaildImage}
+          />
+        }
+      />
+      <Route
+        path="/successful-to-save-number"
+        element={
+          <ResultInfos
+            name={"Success! to save an number"}
+            description={
+              " Successful to store phone number.."
+            }
+            Image={SuccessToSave}
+            customBtn
           />
         }
       />

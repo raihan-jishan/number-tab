@@ -20,7 +20,7 @@ const Dashboard = () => {
         {/* wellcome user text */}
         <div className="flex items-center justify-between max-lg:flex-col">
           {/* wellcome user text */}
-          <h1 className="relative inline-block px-6 max-lg:px-4  py-4   dark:bg-[#182126] bg-gray-50 dark:rounded-[3rem_1rem_3rem_1.5rem] dark:shadow-xl dark:ring-2 dark:ring-green-500/30 hover:scale-105 transition-transform duration-300 ease-in-out  ">
+          <h1 className="relative inline-block px-6 max-lg:px-4  py-4   dark:bg-[#182126] bg-gray-50 dark:rounded-[3rem_1rem_3rem_1.5rem] dark:shadow-xl dark:ring-2 dark:ring-green-500/30     ">
             <span className="font-Comfortaa font-light text-2xl dark:drop-shadow-sm dark:text-white text-black ">
               Hi{" "}
             </span>

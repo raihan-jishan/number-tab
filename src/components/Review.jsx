@@ -11,7 +11,7 @@ const Review = () => {
         borderSide
         description="What user say's about NumberTab"
         paragraph=""
-        widthFull
+         widthMedium
       />
       <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1">
         {reviewData.map((item, index) => (

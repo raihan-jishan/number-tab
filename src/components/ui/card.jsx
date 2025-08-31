@@ -15,6 +15,7 @@ import { BiCategoryAlt, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FaFeather } from "react-icons/fa";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { Phone } from "lucide-react";
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
@@ -99,18 +100,14 @@ export const ServiceCard = ({
 }) => {
   return (
     <div
-      className={`flex-shrink-0 m-6 relative overflow-hidden bg-gray-200 cursor-pointer ${
-        showAll
-          ? "hover:bg-gray-800/90 bg-gray-800 dark:bg-gray-900"
-          : "hover:bg-gray-300/20 bg-gray-100 dark:bg-gray-800"
-      } rounded-2xl max-w-2xl shadow-lg transition-all  max-lg:max-w-3xl  `}
+      className={`flex-shrink-0 m-3  relative overflow-hidden bg-white cursor-pointer   rounded-2xl max-w-2xl shadow-[0_0_1px_gray]  transition-all  max-lg:max-w-3xl  `}
     >
       <CardSvgIcon />
-      <div className="relative pt-10 px-10 flex items-center justify-center">
+      <div className="relative pt-10 px-5 flex items-center justify-center">
         <div
-          className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
+          className=" absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 hidden dark:block"
           style={{
-            background: "radial-gradient(black, transparent 60%)",
+            background: "radial-gradient(black, transparent 50%)",
             transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
             opacity: 0.2,
           }}
@@ -119,35 +116,18 @@ export const ServiceCard = ({
       </div>
       <div className="relative font-semibold text-gray-950 px-6 pb-6 mt-6">
         <span
-          className={`block opacity-75   border-b-2  w-[15%] -mb-1 text-2xl font-semibold font-Raleway tracking-wide ${
-            showAll
-              ? "text-green-300 border-gray-100  "
-              : "text-green-800 border-green-400 dark:text-green-400 "
-          }`}
+          className={`block opacity-75   border-b-4  w-[15%] -mb-1 text-2xl font-semibold font-OpenSans tracking-wide `}
         >
           {status}
         </span>
         <div className="flex justify-between">
           <span
-            className={` block   text-xl font-semibold mt-2  ${
-              showAll
-                ? " dark:text-green-300 text-gray-300"
-                : "text-black dark:text-gray-200"
-            }`}
+            className={` block   text-[1.5rem] mt-2  font-Raleway font-extrabold`}
           >
             {label}
           </span>
-          <span className="text-gray-950 max-lg:rounded-full  text-lg font-bold border-2 border-black p-2 px-3 leading-none flex gap-1 rounded-full items-center -mt-2 bg-gray-300  ">
-            <FaRegHeart size={20} /> {percentage}{" "}
-          </span>
         </div>
-        <div
-          className={`mt-4 text-[1rem]  ${
-            showAll
-              ? "text-gray-300 dark:text-gray-300  "
-              : "text-gray-700 dark:text-gray-300"
-          }`}
-        >
+        <div className={`mt-1 text-[0.9rem] `}>
           <h4>{description}</h4>
         </div>
       </div>
@@ -336,9 +316,7 @@ export const NumberCard = ({
                   <p className="text-lg font-semibold text-gray-900 truncate dark:text-white">
                     {label}
                   </p>
-                  <p className="text-sm text-gray-500 truncate dark:text-gray-400">
-                    {new Date().toDateString()}
-                  </p>
+        
                 </div>
               </div>
 
@@ -405,8 +383,8 @@ export const NumberCard = ({
         </ul>
 
         <div className="p-2">
-          <h4 className="flex items-center text-lg gap-3">
-            <FaPhone size={20} className="dark:text-gray-300" /> {number}
+          <h4 className="flex items-center text-[1.5rem] gap-3">
+           <Phone size={25} />{number}
           </h4>
         </div>
 
@@ -416,11 +394,7 @@ export const NumberCard = ({
           </div>
         )}
 
-        {location && (
-          <div className="text-lg p-2 flex items-center gap-3">
-            <FaLocationDot size={20} /> {location}
-          </div>
-        )}
+         
       </div>
     </Card>
   );

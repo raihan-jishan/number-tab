@@ -38,7 +38,7 @@ const OverView = () => {
         <OverViewCard
           Icon={"https://cdn-icons-png.flaticon.com/128/1478/1478927.png"}
           status=""
-          label={`Business ${businessCount} ${businessCount !== 1 ? "s" : ""}`}
+          label={`Bussiness ${businessCount} ${businessCount !== 1 ? "s" : ""}`}
         />
       </div>
     </div>

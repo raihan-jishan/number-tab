@@ -26,7 +26,7 @@ const TopBar = ({
       <div className="mt-2 p-2 flex items-center justify-between flex-wrap gap-2">
         <h3 className="font-Raleway font-bold text-[2rem]">{label}</h3>
 
-        <div className="flex    p-2 gap-2 border border-black rounded-full  max-lg:border-none">
+        <div className="flex    p-2 gap-2 border border-black rounded-2xl  max-lg:border-none">
           <TagQuery icon={<TiChartAreaOutline />} label={"Home"} />
           {isMobile ? null : (
             <TagQuery

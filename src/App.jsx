@@ -6,11 +6,18 @@ function App() {
   const location = useLocation();
 
   // Hide navbar and footer on any "/dashboard" route
- 
-  const hideNavbar = location.pathname.startsWith("/dashboard");
-  const hideFooter = ["/dashboard", "/saved-numbers", "/create-an-account", "/login-your-account"].some((path) =>
+
+  const hideNavbar = ["/dashboard", "/addnumbers",'/successful-to-save-number'].some((path) =>
     location.pathname.startsWith(path)
   );
+  const hideFooter = [
+    "/dashboard",
+    "/saved-numbers",
+    "/addnumbers",
+    "/create-an-account",
+    "/login-your-account",
+    '/successful-to-save-number'
+  ].some((path) => location.pathname.startsWith(path));
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
