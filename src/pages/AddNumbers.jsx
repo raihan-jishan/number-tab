@@ -38,7 +38,7 @@ const AddNumbers = () => {
   return (
     <>
       <div className="flex items-center justify-between p-2">
-        <h1 className="text-3xl font-Raleway font-semibold">Add Number</h1>
+        <h1 className="text-3xl font-Raleway font-semibold max-lg:text-2xl">Add Number</h1>
 
         <ui className="flex items-center justify-between gap-2 p-2">
           <Link to={'/'}>
@@ -58,7 +58,7 @@ const AddNumbers = () => {
           {/* forms */}
           <div className="p-10 max-lg:p-0">
             <form>
-              <div className="grid gap-6 mb-14 md:grid-cols-2 max-lg:mb-4">
+              <div className="grid gap-6 -mt-20 md:grid-cols-2 max-lg:mb-4 max-lg:space-y-8">
                 <div>
                   <Label
                     label={"Name"}

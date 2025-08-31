@@ -55,7 +55,7 @@ const primaryStyles = {
   "account-btn":
     "p-7 px-6 bg-green-400/95 hover:bg-green-400/90 rounded-lg border-2 border-black text-black font-bold font-Comfortaa max-lg:px-24 text-[1rem]",
   "hero-btn":
-    "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8",
+    "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8 max-lg:px-20 dark:bg-gray-400",
   "feature-btn":
     "bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400",
   "start-btn":

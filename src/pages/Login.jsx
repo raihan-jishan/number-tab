@@ -47,7 +47,7 @@ const Login = () => {
         widthFull
       />
       {/* forms */}
-      <div className="flex w-full items-center justify-around m-5 max-lg:m-1 max-lg:flex-col-reverse gap-10  mt-16  ">
+      <div className="flex w-full items-center justify-around m-5 max-lg:m-1 max-lg:flex-col-reverse gap-10    ">
         {/* left content */}
         <form action="" className="mt-4" onSubmit={handleSubmit}>
           {/* 2 */}

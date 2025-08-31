@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { FaFeather } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import SignupImage from '../assets/createaccount.svg';
+import SignupImage from "../assets/createaccount.svg";
 import { AuthBtn } from "../components/ui/button.jsx";
 import { Heading } from "../components/ui/heading.jsx";
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
-import {
-  AppLayout
-} from "../utils/index.jsx";
+import { AppLayout } from "../utils/index.jsx";
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     name: "",
@@ -44,14 +42,8 @@ const Signup = () => {
 
   // name , email, password
   return (
-    <AppLayout>
-      <Heading
-        textSmall
-        borderSide
-        description={"Create an account"}
-        MobilewidthFull
-        widthFull
-      />
+    <AppLayout className={'mt-40'}>
+      
       {/* forms */}
       <div className="flex w-full items-center justify-around  m-5  max-lg:m-1 max-lg:flex-col-reverse gap-10  mt-2  ">
         {/* left content */}
@@ -107,31 +99,21 @@ const Signup = () => {
               placeholder="Enter your password"
               className="mt-2"
             />
-             
+
             <div className="flex items-center justify-center mt-5">
               <AuthBtn
                 variant={"account-btn"}
                 label={"create account"}
-                iconLeft={<FaFeather  size={25} />}
+                iconLeft={<FaFeather size={25} />}
               />
             </div>
-            
-            {/* doesn't account */}
-            <Label
-              htmlFor="message"
-              className="  text-sm font-semibold text-gray-800 dark:text-gray-400 mt-10 gap-3 flex "
-            >
-              Already have an account?
-              <Link
-                to={"/login-your-account"}
-                className="underline text-black dark:text-gray-200 text-sm font-semibold"
-              >
-                Log in here
+            <div className="mt-4 flex items-center gap-1">
+              <Label label={"Already have an account?"} />
+              <Link to={"/login-your-account"} className="text-[1.4rem] text-blue-600 underline hover:text-blue-600/80">
+                Login
               </Link>
-            </Label>
+            </div>
           </div>
-
-          
         </form>
         {/* close */}
         {/* right content */}

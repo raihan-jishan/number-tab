@@ -20,7 +20,7 @@ const Pricing = () => {
       />
       <div className="flex items-center justify-center overflow-x-hidden">
         <div className="flex flex-col items-center justify-center   relative ">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full   py-2 max-lg:py-8  flex-wrap max-w-4xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full   py-2 max-lg:py-8  flex-wrap max-w-4xl max-lg:p-2">
             {pricingCardData.map((card, index) => (
               <PricingCard key={index} card={card} />
             ))}

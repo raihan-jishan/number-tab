@@ -100,7 +100,7 @@ export const ServiceCard = ({
 }) => {
   return (
     <div
-      className={`flex-shrink-0 m-3  relative overflow-hidden bg-white cursor-pointer   rounded-2xl max-w-2xl shadow-[0_0_1px_gray]  transition-all  max-lg:max-w-3xl  `}
+      className={`flex-shrink-0 m-3  relative overflow-hidden bg-white cursor-pointer   rounded-2xl max-w-2xl shadow-[0_0_1px_gray]  transition-all  max-lg:max-w-3xl dark:bg-gray-800 `}
     >
       <CardSvgIcon />
       <div className="relative pt-10 px-5 flex items-center justify-center">
@@ -116,18 +116,18 @@ export const ServiceCard = ({
       </div>
       <div className="relative font-semibold text-gray-950 px-6 pb-6 mt-6">
         <span
-          className={`block opacity-75   border-b-4  w-[15%] -mb-1 text-2xl font-semibold font-OpenSans tracking-wide `}
+          className={`block opacity-75   border-b-4  w-[15%] -mb-1 text-2xl font-semibold font-OpenSans tracking-wide text-black dark:text-white`}
         >
           {status}
         </span>
         <div className="flex justify-between">
           <span
-            className={` block   text-[1.5rem] mt-2  font-Raleway font-extrabold`}
+            className={` block   text-[1.5rem] mt-2  font-Raleway font-extrabold text-black dark:text-gray-200`}
           >
             {label}
           </span>
         </div>
-        <div className={`mt-1 text-[0.9rem] `}>
+        <div className={`mt-1 text-[0.9rem] text-black dark:text-gray-400`}>
           <h4>{description}</h4>
         </div>
       </div>

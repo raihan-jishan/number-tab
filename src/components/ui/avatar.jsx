@@ -42,7 +42,7 @@ const AvatarFallback = React.forwardRef(({ className, ...props }, ref) => (
 ));
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
-const UserProfile = ({ name, email }) => {
+const UserProfile = ({ name, email, ClickFunction }) => {
   const [onClick, setOnClick] = useState(false);
 
   const handleClick = () => setOnClick(!onClick);

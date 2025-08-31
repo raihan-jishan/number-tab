@@ -20,8 +20,7 @@ const carouselData = [
     image: AddContact,
     title: "#Set your favourite contact",
     description:
-      "Saving contacts goes beyond just storing phone numbers. It’s about streamlining communication  ",
-    icon: <LuHeartHandshake size={30} />,
+      "Saving contacts goes beyond just storing phone numbers. It’s about streamlining communication  ", 
   },
   {
     image: Access,
@@ -44,7 +43,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-[90%]  max-w-5xl mx-auto py-10">
+    <div className="w-[90%]  max-w-5xl mx-auto py-10 max-lg:w-full">
       <Slider {...settings} className=" ">
         {carouselData.map((slide, index) => (
           <Card
@@ -57,7 +56,7 @@ const Carousel = () => {
               className="w-full h-[20rem] object-contain rounded-md"
             />
             <CardContent className="text-center mt-4  ">
-              <h3 className="text-[1.6rem] font-bold font-Raleway  text-black dark:text-green-400 ">
+              <h3 className="text-[1.6rem] font-bold font-Raleway  text-black dark:text-green-400 max-lg:text-[1.5rem] ">
                 <span className="flex items-center justify-center  gap-2">
                   {slide.title}{" "}
                   <span className="text-black dark:text-green-200">
