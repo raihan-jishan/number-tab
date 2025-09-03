@@ -38,26 +38,19 @@ const Login = () => {
   };
 
   return (
-    <AppLayout>
-      <Heading
-        textSmall
-        borderSide
-        description={"Login to numberTab"}
-        MobilewidthFull
-        widthFull
-      />
+    <AppLayout className={'max-lg:mt-1 max-lg:p-1'}>
+     <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans flex gap-2 ">Login <span className="max-lg:hidden block">NumberTab</span></h1>
       {/* forms */}
-      <div className="flex w-full items-center justify-around m-5 max-lg:m-1 max-lg:flex-col-reverse gap-10    ">
+      <div className="flex w-full items-center justify-around m-5 max-lg:m-0 max-lg:flex-col-reverse gap-10 max-lg:gap-0   ">
         {/* left content */}
-        <form action="" className="mt-4" onSubmit={handleSubmit}>
+        <form
+          action=""
+          className="mt-4 max-lg:space-y-5"
+          onSubmit={handleSubmit}
+        >
           {/* 2 */}
           <div className="relative mb-6">
-            <Label
-              htmlFor="password"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
-            >
-              email
-            </Label>
+            <Label label={"email"} />
             <Input
               type="email"
               id="email"
@@ -70,12 +63,8 @@ const Login = () => {
           </div>
           {/* 3 */}
           <div className="relative mb-6">
-            <Label
-              htmlFor="password"
-              className="block text-sm font-semibold text-gray-700 dark:text-gray-400"
-            >
-              Password
-            </Label>
+            <Label label={"password"} />
+
             <Input
               type="password"
               id="password"
@@ -89,11 +78,11 @@ const Login = () => {
             <div className="flex items-center justify-center mt-5">
               <AuthBtn
                 variant={"btn-login"}
-                label={"Login"} 
+                label={"Login"}
                 iconLeft={<BsPass size={25} />}
               />
             </div>
-           
+
             {/* doesn't account */}
             <Label
               htmlFor="message"
@@ -111,8 +100,8 @@ const Login = () => {
         </form>
         {/* close */}
         {/* right content */}
-        <div className="m-5 ">
-          <img src={LoginImage} alt="" className="w-[20rem]" />
+        <div className="m-5 max-lg:m-0">
+          <img src={LoginImage} alt="" className="w-[20rem] max-lg:w-[12rem]" />
         </div>
         {/* close */}
       </div>

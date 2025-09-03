@@ -42,8 +42,8 @@ const Signup = () => {
 
   // name , email, password
   return (
-    <AppLayout className={'mt-40'}>
-      
+    <AppLayout className={'mt-40 max-lg:mt-2'}>
+       <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans ">SignUp</h1>
       {/* forms */}
       <div className="flex w-full items-center justify-around  m-5  max-lg:m-1 max-lg:flex-col-reverse gap-10  mt-2  ">
         {/* left content */}

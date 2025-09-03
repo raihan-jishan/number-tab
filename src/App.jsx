@@ -7,31 +7,38 @@ function App() {
 
   // Hide navbar and footer on any "/dashboard" route
 
-  const hideNavbar = ["/dashboard", "/addnumbers",'/successful-to-save-number'].some((path) =>
-    location.pathname.startsWith(path)
-  );
+  const hideNavbar = [
+    "/dashboard",
+    "/addnumbers",
+    "/successful-to-save-number",
+    "/create-an-account"
+  ].some((path) => location.pathname.startsWith(path));
   const hideFooter = [
     "/dashboard",
     "/saved-numbers",
     "/addnumbers",
     "/create-an-account",
     "/login-your-account",
-    '/successful-to-save-number'
+    "/successful-to-save-number",
+    
   ].some((path) => location.pathname.startsWith(path));
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <NoteState>
-        <div className="bg-white dark:bg-bgColor">
+    <div
+      className="bg-white dark:text-gray-50
+dark:bg-bgColor"
+    >
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <NoteState>
           {!hideNavbar && <Navbar />}
           <Routes />
           {localStorage.getItem("token")
             ? console.log("token was found!")
             : console.log("please login!")}
-        </div>
-        {!hideFooter && <Footer />}
-      </NoteState>
-    </ThemeProvider>
+          {!hideFooter && <Footer />}
+        </NoteState>
+      </ThemeProvider>
+    </div>
   );
 }
 

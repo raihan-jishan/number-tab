@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { FaSortAmountDown, FaSortAmountUpAlt } from "react-icons/fa";
-import { BtnPrimary } from "../components/ui/button";
 import { Heading } from "../components/ui/heading";
 import { serviceCardData } from "../constants/data";
 import Section from "../global/wrapper";
@@ -27,8 +25,7 @@ const Feature = () => {
           "Automatically sync and organize your contacts across all devices, keeping them updated and accessible with ease."
         }
         MobilewidthFull
-        widthFull
-        showAll={showAll}
+        widthFull 
       />
       {/* Cards Display */}
       <div className="grid grid-cols-3 gap-5 m-5 p-5 max-lg:grid-cols-1 max-lg:m-2 max-lg:p-2">

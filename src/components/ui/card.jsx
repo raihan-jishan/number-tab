@@ -207,7 +207,7 @@ export const PricingCard = ({ card }) => {
     <Card
       key={card.title}
       className={cn(
-        "relative flex flex-col w-full border-neutral-700 p-6 dark:bg-gray-900 shadow-[0_0_10px_gray]  dark:shadow-[0_0_10px_green] flex-shrink-0 m-6  max-lg:m-0 overflow-hidden bg-gray-900 00",
+        "relative flex flex-col w-full border-neutral-700 p-6 dark:bg-gray-900 shadow-[0_0_10px_gray]  dark:shadow-[0_0_2px_white] flex-shrink-0 m-6  max-lg:m-0 overflow-hidden bg-gray-900 00",
         card.title === "Unlimited Saas" && "border-2 border-primary"
       )}
     >

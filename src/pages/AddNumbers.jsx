@@ -12,7 +12,7 @@ import {
   MapPinned,
   NotebookPen,
   User,
-} from "lucide-react";  
+} from "lucide-react";
 
 const AddNumbers = () => {
   const context = useContext(Context);
@@ -36,86 +36,90 @@ const AddNumbers = () => {
   };
 
   return (
-    <>
-      <div className="flex items-center justify-between p-2">
-        <h1 className="text-3xl font-Raleway font-semibold max-lg:text-2xl">Add Number</h1>
-
-        <ui className="flex items-center justify-between gap-2 p-2">
-          <Link to={'/'}>
-            <House size={26} />
-          </Link>
-          <Link to={'/dashboard'}>
-            <ChartArea size={26} />
-          </Link>
-          <Link to={'/dashboard/account-settings'}>
-            <User size={26} />
-          </Link>
-          <ThemeSwitcher />
-        </ui>
-      </div>
+    <div>
       {localStorage.getItem("token") ? (
-        <AppLayout>
-          {/* forms */}
-          <div className="p-10 max-lg:p-0">
-            <form>
-              <div className="grid gap-6 -mt-20 md:grid-cols-2 max-lg:mb-4 max-lg:space-y-8">
-                <div>
-                  <Label
-                    label={"Name"}
-                    For={"name"}
-                    icon={<NotebookPen size={22} />}
-                  />
-                  <Input
-                    type="text"
-                    name="title"
-                    id="text"
-                    value={note.title}
-                    onChange={onChange}
-                    placeholder="Enter name..."
-                  />
-                </div>
-                <div>
-                  <Label
-                    label={"Phone number"}
-                    For={"number"}
-                    icon={<Hash size={22} />}
-                  />
-                  <Input
-                    type="text"
-                    name="description"
-                    value={note.description}
-                    onChange={onChange}
-                    id="phone"
-                    placeholder="+880-enter number"
-                  />
-                </div>
-                <div>
-                  <Label
-                    label={"Location"}
-                    For={"text"}
-                    icon={<MapPinned size={22} />}
-                  />
-                  <Input
-                    type="text"
-                    name="tag"
-                    value={note.tag}
-                    onChange={onChange}
-                    id="location"
-                    placeholder="enter person location"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="flex items-center justify-center p-2 mt-20">
-                <AuthBtn label={"Submit"} onClick={handleClick} />
-              </div>
-            </form>
+        <div>
+          <div className="flex items-center justify-between p-2">
+            <h1 className="text-3xl font-Raleway font-semibold max-lg:text-[1.25rem]">
+              Add Number
+            </h1>
+
+            <ui className="flex items-center justify-between gap-2 p-2">
+              <Link to={"/"}>
+                <House size={26} />
+              </Link>
+              <Link to={"/dashboard"}>
+                <ChartArea size={26} />
+              </Link>
+              <Link to={"/dashboard/account-settings"}>
+                <User size={26} />
+              </Link>
+              <ThemeSwitcher />
+            </ui>
           </div>
-        </AppLayout>
+          <AppLayout>
+            {/* forms */}
+            <div className="p-10 max-lg:p-0 ">
+              <form>
+                <div className="grid gap-6 -mt-20 md:grid-cols-2 max-lg:mb-4 max-lg:space-y-8">
+                  <div>
+                    <Label
+                      label={"Name"}
+                      For={"name"}
+                      icon={<NotebookPen size={22} />}
+                    />
+                    <Input
+                      type="text"
+                      name="title"
+                      id="text"
+                      value={note.title}
+                      onChange={onChange}
+                      placeholder="Enter name..."
+                    />
+                  </div>
+                  <div>
+                    <Label
+                      label={"Phone number"}
+                      For={"number"}
+                      icon={<Hash size={22} />}
+                    />
+                    <Input
+                      type="text"
+                      name="description"
+                      value={note.description}
+                      onChange={onChange}
+                      id="phone"
+                      placeholder="+880-enter number"
+                    />
+                  </div>
+                  <div>
+                    <Label
+                      label={"person description"}
+                      For={"text"}
+                      icon={<MapPinned size={22} />}
+                    />
+                    <Input
+                      type="text"
+                      name="tag"
+                      value={note.tag}
+                      onChange={onChange}
+                      id="location"
+                      placeholder="enter person location"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="flex items-center justify-center p-2 mt-20 max-lg:mt-10">
+                  <AuthBtn label={"Submit"} onClick={handleClick} />
+                </div>
+              </form>
+            </div>
+          </AppLayout>
+        </div>
       ) : (
         <Login />
       )}
-    </>
+    </div>
   );
 };
 

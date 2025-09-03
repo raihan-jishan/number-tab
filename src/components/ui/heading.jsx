@@ -17,7 +17,7 @@ export const Heading = ({
         className={`relative   inline-block ${textLarge ? "text-4xl" : ""} ${
           textMedium ? "text-3xl" : ""
         } ${
-          textSmall ? "text-xl" : ""
+          textSmall ? "text-xl " : ""
         } font-bold text-center capitalize tracking-wide`}
       >
         <span className="   border-b-2 border-black dark:border-green-200 text-gray-700 dark:text-gray-500">
@@ -27,9 +27,8 @@ export const Heading = ({
       {/* main title */}
       <div className="flex items-center justify-center">
         <h2
-          className={`${
-            showAll ? "text-gray-400" : "  dark:text-gray-400 text-gray-900"
-          } font-semibold font-Raleway leading-[2.7rem] 
+          className={` 
+            dark:text-gray-400 text-gray-900 font-semibold font-Raleway leading-[2.7rem] 
             relative after:content-[''] after:absolute after:left-1/2 after:bottom-[-8px] after:w-16 after:h-[4px] after:bg-green-500 after:transform after:-translate-x-1/2
             ${widthMedium ? "w-[30%]" : "w-1/4"} ${
             widthFull
