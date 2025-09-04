@@ -34,17 +34,21 @@ const AddNumbers = () => {
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
-
+  const hideHeading = ["/dashboard/addnew-contact"].some((path) =>
+    location.pathname.startsWith(path)
+  );
   return (
-    <div>
+    <div className="max-lg:mt-20">
       {localStorage.getItem("token") ? (
         <div>
-          <div className="flex items-center justify-between p-2">
-            <h1 className="text-3xl font-Raleway font-semibold max-lg:text-[1.25rem]">
-              Add Number
-            </h1>
+          <div className="flex items-center justify-between max-lg:justify-center  p-2">
+            {!hideHeading && (
+              <h1 className="text-3xl font-Raleway font-semibold max-lg:text-[1rem]">
+                Add Number
+              </h1>
+            )}
 
-            <ui className="flex items-center justify-between gap-2 p-2">
+            <ui className="flex items-center justify-between gap-2 p-2 max-lg:gap-5">
               <Link to={"/"}>
                 <House size={26} />
               </Link>

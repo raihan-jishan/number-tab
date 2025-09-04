@@ -20,6 +20,9 @@ function App() {
     "/create-an-account",
     "/login-your-account",
     "/successful-to-save-number",
+    "/success-to-create-an-account",
+    "/faild-to-create-an-account", 
+    "/faild-to-login-your-account"
     
   ].some((path) => location.pathname.startsWith(path));
 

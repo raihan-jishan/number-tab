@@ -55,11 +55,11 @@ const primaryStyles = {
   "account-btn":
     "p-7 px-6 bg-green-400/95 hover:bg-green-400/90 rounded-lg border-2 border-black text-black font-bold font-Comfortaa max-lg:px-24 text-[1rem]",
   "hero-btn":
-    "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8 max-lg:px-16   dark:bg-gray-400",
+    "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8 max-lg:px-16    dark:bg-gray-300 dark:text-black hover:dark:bg-gray-300/90",
   "feature-btn":
     "bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400",
   "start-btn":
-    "bg-gray-900 text-[1.2rem] p-8 rounded-full text-gray-100 capitalize hover:bg-gray-800 max-lg:w-full max-lg:px-4 max-lg:dark:bg-green-400/80 max-lg:text-black max-lg:rounded-xl",
+    "bg-gray-900 dark:bg-green-500 dark:text-black dark:hover:bg-green-500/90 text-[1.2rem] p-8 rounded-full text-gray-100 capitalize hover:bg-gray-800 max-lg:w-full max-lg:px-4 max-lg:dark:bg-green-400/80 max-lg:text-black max-lg:rounded-xl",
   logout: "bg-red-400 p-7 px-12 text-2xl font-semibold",
   "onother-number":
     "h-10 bg-green-500/90 hover:bg-green-500 text-black rounded-xl font-Comfortaa px-12 text-[1rem] font-extrabold p-8 max-lg:p-8",
