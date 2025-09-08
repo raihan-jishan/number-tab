@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthBtn } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
@@ -12,6 +12,7 @@ import {
   MapPinned,
   NotebookPen,
   User,
+  UserRoundPen,
 } from "lucide-react";
 
 const AddNumbers = () => {
@@ -34,11 +35,10 @@ const AddNumbers = () => {
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
-  const hideHeading = ["/dashboard/addnew-contact"].some((path) =>
-    location.pathname.startsWith(path)
-  );
+  const hideHeading = location.pathname.startsWith("/dashboard/addnew-contact");
+
   return (
-    <div className="max-lg:mt-20">
+    <div className={`${!hideHeading ? "mt-0" : "mt-20"}`}>
       {localStorage.getItem("token") ? (
         <div>
           <div className="flex items-center justify-between max-lg:justify-center  p-2">
@@ -65,7 +65,7 @@ const AddNumbers = () => {
             {/* forms */}
             <div className="p-10 max-lg:p-0 ">
               <form>
-                <div className="grid gap-6 -mt-20 md:grid-cols-2 max-lg:mb-4 max-lg:space-y-8">
+                <div className="grid gap-6 -mt-20 md:grid-cols-2 max-lg:mb-4 max-lg:space-y-4">
                   <div>
                     <Label
                       label={"Name"}
@@ -100,7 +100,7 @@ const AddNumbers = () => {
                     <Label
                       label={"person description"}
                       For={"text"}
-                      icon={<MapPinned size={22} />}
+                      icon={<UserRoundPen size={22} />}
                     />
                     <Input
                       type="text"
