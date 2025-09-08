@@ -42,11 +42,9 @@ const AddNumbers = () => {
       {localStorage.getItem("token") ? (
         <div>
           <div className="flex items-center justify-between max-lg:justify-center  p-2">
-            {!hideHeading && (
-              <h1 className="text-3xl font-Raleway font-semibold max-lg:text-[1rem]">
-                Add Number
-              </h1>
-            )}
+            <h1 className="text-3xl font-Raleway font-semibold max-lg:text-[1rem] max-lg:hidden">
+              Add Number
+            </h1>
 
             <ui className="flex items-center justify-between gap-2 p-2 max-lg:gap-5">
               <Link to={"/"}>
@@ -113,8 +111,12 @@ const AddNumbers = () => {
                     />
                   </div>
                 </div>
-                <div className="flex items-center justify-center p-2 mt-20 max-lg:mt-10">
-                  <AuthBtn label={"Submit"} onClick={handleClick} />
+                <div className="flex items-center justify-center p-2 mt-20 max-lg:mt-3">
+                  <AuthBtn
+                    label={"Submit"}
+                    variant={"addnumber"}
+                    onClick={handleClick}
+                  />
                 </div>
               </form>
             </div>

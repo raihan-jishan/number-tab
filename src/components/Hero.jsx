@@ -75,7 +75,7 @@ export const DashHero = ({ label, btnText, image, path }) => {
             {label}
           </h1>
 
-          <div className="flex  items-center justify-center gap-3 flex-wrap">
+          <div className="flex  items-center justify-center gap-3 flex-wrap text-white">
             <BtnPrimary
               label={btnText}
               variant={"start-btn"}

@@ -58,8 +58,7 @@ const primaryStyles = {
     "h-10 rounded-full px-12 text-[1rem] font-semibold p-8 max-lg:p-8 max-lg:px-16    dark:bg-gray-300 dark:text-black hover:dark:bg-gray-300/90",
   "feature-btn":
     "bg-green-400 text-[1.2rem] p-6 rounded-full text-black hover:bg-green-400/90 border-2 border-green-400",
-  "start-btn":
-    "bg-gray-900 dark:bg-green-500 dark:text-black dark:hover:bg-green-500/90 text-[1.2rem] p-8 rounded-full text-gray-100 capitalize hover:bg-gray-800 max-lg:w-full max-lg:px-4 max-lg:dark:bg-green-400/80 max-lg:text-black max-lg:rounded-xl",
+  
   logout: "bg-red-400 p-7 px-12 text-2xl font-semibold",
   "onother-number":
     "h-10 bg-green-500/90 hover:bg-green-500 text-black rounded-xl font-Comfortaa px-12 text-[1rem] font-extrabold p-8 max-lg:p-8",
@@ -74,13 +73,15 @@ const BtnPrimary = ({
   variant = "default",
   onClick,
   path,
+  className, // ✅ allow extra classes to be passed
 }) => {
   return (
     <Link to={path}>
       <Button
         className={cn(
           primaryStyles[variant] || primaryStyles.default,
-          "flex items-center gap-2 transition-all font-semibold"
+          "flex items-center justify-center gap-2 transition-all font-semibold",
+          className // ✅ so we can extend styles if needed
         )}
         onClick={onClick}
       >
@@ -106,8 +107,8 @@ const AuthBtn = ({ label, icon, iconLeft, variant, onClick }) => {
   return (
     <Button
       className={cn(
-        "p-7 bg-green-500 hover:bg-green-500/90 rounded-xl border-2 border-black/20 text-black font-bold font-OpenSans text-[1rem] max-lg:px-28 max-lg:rounded-lg",
-        variant === "btn-login" ? "px-[9.5rem]" : "px-[7rem]"
+        "p-7 bg-gray-900 dark:bg-green-500 dark:text-black hover:bg-gray-800 transition-all ease-linear delay-50 dark:hover:bg-green-500/80 rounded-xl border-2 border-black/20 text-white font-bold font-OpenSans text-[1rem]   max-lg:rounded-lg ",
+        variant === "btn-login" ? "px-[9.5rem]" : variant==='addnumber' ? 'px-28' : "max-lg:px-[4.6rem]"
       )}
       onClick={onClick}
     >
