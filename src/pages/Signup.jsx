@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FaFeather } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import SignupImage from "../assets/createaccount.svg";
-import { AuthBtn, BtnPrimary } from "../components/ui/button.jsx";
-import { Heading } from "../components/ui/heading.jsx";
+import { AuthBtn } from "../components/ui/button.jsx";
+
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AppLayout } from "../utils/index.jsx";
@@ -43,11 +43,13 @@ const Signup = () => {
   // name , email, password
   return (
     <AppLayout className="mt-40 max-lg:mt-2">
-      <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans">
-        SignUp
-      </h1>
+      <div className="flex items-start justify-start ml-28 max-lg:ml-0">
+        <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans flex gap-2 ">
+          SignUp
+        </h1>
+      </div>
 
-      <div className="flex w-full items-center justify-around m-5 max-lg:m-2 max-lg:flex-col-reverse gap-10 mt-2">
+      <div className="flex w-full items-center justify-around m-5 max-lg:m-0  max-lg:flex-col-reverse gap-10 mt-2">
         {/* left content */}
         <form
           action=""
@@ -108,11 +110,7 @@ const Signup = () => {
             />
 
             <div className="mt-5 w-full flex justify-center ">
-              <AuthBtn
-                variant="account-btn"
-                label="Create Account"
-                iconLeft={<FaFeather size={25} />}
-              />
+              <AuthBtn variant="account-btn" label="Create Account" />
             </div>
 
             <div className="mt-4 flex items-center gap-1">

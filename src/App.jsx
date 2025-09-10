@@ -11,7 +11,8 @@ function App() {
     "/dashboard",
     "/addnumbers",
     "/successful-to-save-number",
-    "/create-an-account"
+    "/create-an-account",
+    "/login-your-account"
   ].some((path) => location.pathname.startsWith(path));
   const hideFooter = [
     "/dashboard",

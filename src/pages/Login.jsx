@@ -38,14 +38,18 @@ const Login = () => {
   };
 
   return (
-    <AppLayout className={'max-lg:mt-1 max-lg:p-1'}>
-     <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans flex gap-2 ">Login <span className="max-lg:hidden block">NumberTab</span></h1>
+    <AppLayout className={"max-lg:mt-6 max-lg:p-1"}>
+      <div className="flex items-start justify-start ml-28 max-lg:ml-0">
+        <h1 className="text-black dark:text-gray-300 text-4xl max-lg:text-3xl font-OpenSans flex gap-2 ">
+        Login 
+      </h1>
+      </div>
       {/* forms */}
       <div className="flex w-full items-center justify-around m-5 max-lg:m-0 max-lg:flex-col-reverse gap-10 max-lg:gap-0   ">
         {/* left content */}
         <form
           action=""
-          className="mt-4 max-lg:space-y-5"
+          className="mt-4 w-full max-w-md max-lg:space-y-5"
           onSubmit={handleSubmit}
         >
           {/* 2 */}
@@ -76,11 +80,7 @@ const Login = () => {
             />
 
             <div className="flex items-center justify-center mt-5">
-              <AuthBtn
-                variant={"btn-login"}
-                label={"Login"}
-                iconLeft={<BsPass size={25} />}
-              />
+              <AuthBtn variant={"btn-login"} label={"Login"} />
             </div>
 
             {/* doesn't account */}
@@ -96,6 +96,16 @@ const Login = () => {
                 Sign up in numberTab
               </Link>
             </Label>
+
+            <div className="mt-4 flex items-center gap-1">
+              <Label label={"Doesn't have an account?"} />
+              <Link
+                to={"/create-an-account"}
+                className="text-[1.1rem] text-blue-600 underline hover:text-blue-600/80"
+              >
+                Signup
+              </Link>
+            </div>
           </div>
         </form>
         {/* close */}
