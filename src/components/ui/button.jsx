@@ -109,10 +109,10 @@ const AuthBtn = ({ label, icon, iconLeft, variant, onClick }) => {
       className={cn(
         "p-7 bg-gray-900 dark:bg-green-500 dark:text-black hover:bg-gray-800 transition-all ease-linear delay-50 dark:hover:bg-green-500/80 rounded-xl border-2 border-black/20 text-white font-bold font-Raleway  text-[1rem]   max-lg:rounded-full ",
         variant === "btn-login"
-          ? "px-40 max-lg:px-[8rem]"
+          ? "px-[12.5rem] max-lg:px-[8rem]"
           : variant === "addnumber"
           ? "px-28"
-          : "px-36 max-lg:px-[5rem]"
+          : "px-40 max-lg:px-[5rem]"
       )}
       onClick={onClick}
     >

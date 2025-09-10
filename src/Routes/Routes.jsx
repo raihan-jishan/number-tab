@@ -16,12 +16,15 @@ import {
   ResultInfos,
   Signup,
   SuccessImage,
-  SuccessToSave
+  SuccessToSave,
+  FaildImage2,
+  FaildLogin,
+  WrongCredential,
 } from "../utils/index.jsx";
 const Routes = () => {
   return (
     <Router>
-      <Route path="/" element={<Home />} /> 
+      <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/addnumbers" element={<AddNumbers />} />
       <Route path="/saved-numbers" element={<Numbers />} />
@@ -54,6 +57,42 @@ const Routes = () => {
         }
       />
       <Route
+        path="/already-have-an-account"
+        element={
+          <ResultInfos
+            name={"Sorry! this account already exist ! please login "}
+            description={
+              "please login with your crediantials , your account is already exist in our server!"
+            }
+            Image={FaildImage2}
+          />
+        }
+      />
+      <Route
+        path="/account-not-found"
+        element={
+          <ResultInfos
+            name={"Sorry! your account is not  exist ! please Signup "}
+            description={
+              "please login with your crediantials , your account is already exist in our server!"
+            }
+            Image={FaildLogin}
+          />
+        }
+      />
+      <Route
+        path="/wrong-credentials"
+        element={
+          <ResultInfos
+            name={"Sorry! your input credentials are wrong"}
+            description={
+              "please login with your crediantials , your account is already exist in our server!"
+            }
+            Image={WrongCredential}
+          />
+        }
+      />
+      <Route
         path="/success-to-login-your-account"
         element={
           <ResultInfos
@@ -82,9 +121,7 @@ const Routes = () => {
         element={
           <ResultInfos
             name={"Success! to save an number"}
-            description={
-              " Successful to store phone number.."
-            }
+            description={" Successful to store phone number.."}
             Image={SuccessToSave}
             customBtn
           />

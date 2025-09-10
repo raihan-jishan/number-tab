@@ -7,11 +7,11 @@ const ResultInfos = ({ Image, name, description, customBtn }) => {
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
         {/* Left: Text Content */}
         <div className="mr-auto place-self-center lg:col-span-7">
-          <h1 className="max-w-3xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-6xl dark:text-gray-200 font-semibold font-Raleway tracking-wide max-lg:mt-2">
+          <h1 className="max-w-3xl mb-4 text-4xl  leading-tight md:text-5xl xl:text-[3.5rem] font-Raleway dark:text-gray-200 font-semibold  tracking-wide max-lg:mt-2">
             {name}
           </h1>
 
-          <div className="flex  gap-3 flex-wrap">
+          <div className="flex  gap-3 flex-wrap mt-5">
             {customBtn ? (
               <>
                 <BtnPrimary

@@ -1,46 +1,78 @@
 import React, { useState } from "react";
-import { FaFeather } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import SignupImage from "../assets/createaccount.svg";
 import { AuthBtn } from "../components/ui/button.jsx";
-
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AppLayout } from "../utils/index.jsx";
+
 const Signup = () => {
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false); // ✅ loader state
   const server = import.meta.env.VITE_SERVER_URL;
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, password } = credentials;
-    const response = await fetch(`${server}/api/auth/createuser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-    });
-    // response -> covert json
-    const json = await response.json();
-    console.log(json);
-    if (json.success) {
-      // Save the auth token and redirect
-      localStorage.setItem("token", json.authtoken);
-      navigate("/success-to-create-an-account");
-    } else {
+    setLoading(true);
+    try {
+      const { name, email, password } = credentials;
+      const response = await fetch(`${server}/api/auth/createuser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      const json = await response.json();
+      console.log(json);
+
+      if (json.success) {
+        // ✅ account created
+        localStorage.setItem("token", json.authtoken);
+        navigate("/success-to-create-an-account");
+      } else if (
+        json.error &&
+        json.error.toLowerCase().includes("already exist") // ✅ fixed check
+      ) {
+        // ✅ redirect to "already have account"
+        navigate("/already-have-an-account");
+      } else {
+        // ❌ general failure
+        navigate("/faild-to-create-an-account");
+      }
+    } catch (error) {
+      console.error("Server not responding:", error);
       navigate("/faild-to-create-an-account");
+    } finally {
+      setLoading(false);
     }
   };
+
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  // name , email, password
+  // ✅ Loader Screen
+  if (loading) {
+    return (
+      <AppLayout className="flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+          <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+            Waking up server... Please wait
+          </p>
+        </div>
+      </AppLayout>
+    );
+  }
+
+  // ✅ Normal Signup Form
   return (
     <AppLayout className="mt-40 max-lg:mt-2">
       <div className="flex items-start justify-start ml-28 max-lg:ml-0">
@@ -53,7 +85,7 @@ const Signup = () => {
         {/* left content */}
         <form
           action=""
-          className="mt-4 w-full max-w-md" // ✅ responsive width
+          className="mt-4 w-full max-w-md"
           onSubmit={handleSubmit}
         >
           {/* name */}
@@ -70,7 +102,7 @@ const Signup = () => {
               name="name"
               onChange={onChange}
               placeholder="Enter your name"
-              className="mt-2 w-full" // ✅ make input take full width
+              className="mt-2 w-full"
             />
           </div>
 
@@ -88,7 +120,7 @@ const Signup = () => {
               name="email"
               onChange={onChange}
               placeholder="Enter your email"
-              className="mt-2 w-full" // ✅ full width
+              className="mt-2 w-full"
             />
           </div>
 
@@ -106,10 +138,10 @@ const Signup = () => {
               name="password"
               onChange={onChange}
               placeholder="Enter your password"
-              className="mt-2 w-full" // ✅ full width
+              className="mt-2 w-full"
             />
 
-            <div className="mt-5 w-full flex justify-center ">
+            <div className="mt-5 w-full flex justify-center">
               <AuthBtn variant="account-btn" label="Create Account" />
             </div>
 
@@ -130,7 +162,7 @@ const Signup = () => {
           <img
             src={SignupImage}
             alt="Signup"
-            className="w-[25rem] max-w-full h-auto" // ✅ prevent overflow on mobile
+            className="w-[25rem] max-w-full h-auto"
           />
         </div>
       </div>
