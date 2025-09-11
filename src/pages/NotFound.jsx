@@ -2,7 +2,7 @@ import { LucideNotepadTextDashed } from "lucide-react";
 import { CiHome } from "react-icons/ci";
 import { useLocation } from "react-router-dom";
 import NotFoundImage from "../assets/notfound.svg";
-import { BtnPrimary } from '../components/ui/button';
+import { BtnPrimary } from "../components/ui/button";
 const NotFound = () => {
   const location = useLocation();
   const { pathname } = location;
@@ -21,17 +21,20 @@ const NotFound = () => {
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             is not exist in this webpage. Please browse onother page..
           </p>
-          <div className="flex gap-4 max-lg:flex-col max-lg:items-center max-lg:w-full  ">
-          <BtnPrimary 
-          label={'Home'}
-          path={'/'}
-          iconLeft={<CiHome size={25} />}
-          />
-          <BtnPrimary 
-          label={'Dashboard'}
-          path={'/dashboard'}
-          iconLeft={<LucideNotepadTextDashed   size={25} />}
-          />
+          <div className="flex  max-lg:flex-col max-lg:items-center max-lg:w-full max-lg:mt-10  
+          gap-5">
+            <BtnPrimary
+              label={"Home"}
+              path={"/"}
+              variant="btn-login"
+              iconLeft={<CiHome size={25} />}
+            />
+            <BtnPrimary
+              label={"Dashboard"}
+              path={"/dashboard"}
+              variant="btn-login"
+              iconLeft={<LucideNotepadTextDashed size={25} />}
+            />
           </div>
         </div>
         <div className="max-lg:hidden lg:mt-0 lg:col-span-5 lg:flex">
@@ -42,4 +45,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound; 
+export default NotFound;

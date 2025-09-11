@@ -5,16 +5,36 @@ import { Footer, Navbar, NoteState, Routes } from "./utils/index.jsx";
 function App() {
   const location = useLocation();
 
-  // Hide navbar and footer on any "/dashboard" route
+  // ✅ Define known routes (that are NOT 404)
+  const knownPaths = [
+    "/",
+    "/dashboard",
+    "/addnumbers",
+    "/successful-to-save-number",
+    "/create-an-account",
+    "/login-your-account",
+    "/saved-numbers",
+    "/success-to-create-an-account",
+    "/faild-to-create-an-account",
+    "/faild-to-login-your-account"
+  ];
 
-  const hideNavbar = [
+  // ✅ Check if current path is NOT a known route → treat as 404
+  const is404Page = !knownPaths.some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  // ✅ Define routes where Navbar should be hidden
+  const hideNavbarRoutes = [
     "/dashboard",
     "/addnumbers",
     "/successful-to-save-number",
     "/create-an-account",
     "/login-your-account"
-  ].some((path) => location.pathname.startsWith(path));
-  const hideFooter = [
+  ];
+
+  // ✅ Define routes where Footer should be hidden
+  const hideFooterRoutes = [
     "/dashboard",
     "/saved-numbers",
     "/addnumbers",
@@ -22,16 +42,21 @@ function App() {
     "/login-your-account",
     "/successful-to-save-number",
     "/success-to-create-an-account",
-    "/faild-to-create-an-account", 
+    "/faild-to-create-an-account",
     "/faild-to-login-your-account"
-    
-  ].some((path) => location.pathname.startsWith(path));
+  ];
+
+  // ✅ Final check for visibility
+  const hideNavbar = hideNavbarRoutes.some((path) =>
+    location.pathname.startsWith(path)
+  ) || is404Page;
+
+  const hideFooter = hideFooterRoutes.some((path) =>
+    location.pathname.startsWith(path)
+  ) || is404Page;
 
   return (
-    <div
-      className="bg-white dark:text-gray-50
-dark:bg-bgColor"
-    >
+    <div className="bg-white dark:text-gray-50 dark:bg-bgColor">
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <NoteState>
           {!hideNavbar && <Navbar />}
