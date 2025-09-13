@@ -24,7 +24,9 @@ const TopBar = ({
       }`}
     >
       <div className="mt-2 p-2 flex items-center justify-between flex-wrap gap-2">
-        <h3 className="font-Raleway font-bold text-[2rem]">{label}</h3>
+        <h3 className="font-Raleway font-bold text-[2rem] max-lg:hidden block">
+          {label}
+        </h3>
 
         <div className="flex    p-2 gap-2 border border-black rounded-2xl  max-lg:border-none">
           <TagQuery icon={<TiChartAreaOutline />} label={"Home"} />
@@ -47,7 +49,7 @@ const TopBar = ({
         </div>
 
         {activePanel === "filter" && (
-          <div className="flex items-center gap-2 mt-2 w-full max-w-sm">
+          <div className="flex items-center gap-2 mt-2 max-lg:mt-0 w-full max-w-sm">
             <Input
               type="text"
               placeholder="Search contacts..."

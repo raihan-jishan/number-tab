@@ -295,7 +295,7 @@ export const NumberCard = ({
   };
 
   return (
-    <Card className="p-2 mt-5 bg-white dark:bg-[rgba(255,255,255,0.05)] hover:bg-gray-50 dark:border-gray-700 border hover:shadow-sm transition-all h-fit relative">
+    <Card className="p-2 mt-5 bg-white dark:bg-[rgba(255,255,255,0.05)] dark:text-white hover:bg-gray-50 dark:border-gray-700 border hover:shadow-sm transition-all h-fit relative">
       <div className="flow-root">
         <ul
           role="list"
@@ -316,7 +316,6 @@ export const NumberCard = ({
                   <p className="text-lg font-semibold text-gray-900 truncate dark:text-white">
                     {label}
                   </p>
-        
                 </div>
               </div>
 
@@ -384,7 +383,8 @@ export const NumberCard = ({
 
         <div className="p-2">
           <h4 className="flex items-center text-[1.5rem] gap-3">
-           <Phone size={25} />{number}
+            <Phone size={25} />
+            {number}
           </h4>
         </div>
 
@@ -393,8 +393,6 @@ export const NumberCard = ({
             <BiCategoryAlt /> {type}
           </div>
         )}
-
-         
       </div>
     </Card>
   );

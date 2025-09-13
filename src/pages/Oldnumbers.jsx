@@ -47,7 +47,7 @@ const Oldnumbers = () => {
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         handlePanelOpen={handlePanelOpen}
-        label={'Old contacts'}
+        label={"Old contacts"}
       />
 
       <GridOptions
@@ -60,7 +60,7 @@ const Oldnumbers = () => {
       <div
         className={`m-4 grid gap-10 mb-4 mt-24 ${
           gridClass || "grid-cols-3"
-        } max-lg:grid-cols-1 max-sm:flex-col max-sm:gap-3`}
+        } max-lg:grid-cols-1 max-sm:flex-col max-sm:gap-3 max-lg:mt-32`}
       >
         {filteredData.map((data, index) => (
           <NumberCard

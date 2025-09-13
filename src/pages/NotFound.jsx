@@ -21,8 +21,10 @@ const NotFound = () => {
           <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
             is not exist in this webpage. Please browse onother page..
           </p>
-          <div className="flex  max-lg:flex-col max-lg:items-center max-lg:w-full max-lg:mt-10  
-          gap-5">
+          <div
+            className="flex  max-lg:flex-col max-lg:items-center max-lg:w-full max-lg:mt-10  
+          gap-5"
+          >
             <BtnPrimary
               label={"Home"}
               path={"/"}

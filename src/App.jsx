@@ -43,7 +43,8 @@ function App() {
     "/successful-to-save-number",
     "/success-to-create-an-account",
     "/faild-to-create-an-account",
-    "/faild-to-login-your-account"
+    "/faild-to-login-your-account",
+    "/oldnumbers"
   ];
 
   // ✅ Final check for visibility
