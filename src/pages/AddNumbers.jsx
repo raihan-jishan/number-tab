@@ -23,6 +23,11 @@ const AddNumbers = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    // ✅ Validation check
+    if (!note.title.trim() || !note.description.trim()) {
+      alert("Please enter both Name and Phone number before submitting.");
+      return;
+    }
     addNote(note.title, note.description, note.tag);
     setNote({ title: "", description: "", tag: "" });
 
