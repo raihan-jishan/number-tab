@@ -7,6 +7,11 @@
   background-color: rgb(209, 209, 209);
   border-top-right-radius: 2rem;
 }
+
+::selection {
+  background: #4ade80;
+  color: #000000;
+}
 body {
   list-style: none;
 }

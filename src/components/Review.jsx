@@ -9,7 +9,7 @@ const Review = () => {
       <Heading
         textSmall
         borderSide
-        description="What user say's about NumberTab"
+        description="Reviews"
         paragraph=""
         widthMedium
       />

@@ -8,11 +8,10 @@ const Pricing = () => {
       id="pricing"
       className=" mt-12 p-4 bg-gray-100 dark:bg-gray-950/30 text-black dark:text-gray-400/80"
     >
-      <Heading
-        title={"#pricing table"}
+      <Heading 
         textSmall
         borderSide
-        description={" Princing of application"}
+        description={" Application Pricing"}
         paragraph={
           " ensure a smooth, transparent journey from the first consultation to the final inspection."
         }
@@ -20,7 +19,7 @@ const Pricing = () => {
       />
       <div className="flex items-center justify-center overflow-x-hidden">
         <div className="flex flex-col items-center justify-center   relative ">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 w-full   py-2 max-lg:py-8  flex-wrap max-w-4xl max-lg:p-2">
+          <div className="max-w-6xl grid grid-cols-3 gap-6  p-10">
             {pricingCardData.map((card, index) => (
               <PricingCard key={index} card={card} />
             ))}

@@ -11,7 +11,9 @@ import {
   House,
   MapPinned,
   NotebookPen,
+  NotebookTabs,
   User,
+  UserRound,
   UserRoundPen,
 } from "lucide-react";
 
@@ -72,8 +74,8 @@ const AddNumbers = () => {
                   <div>
                     <Label
                       label={"Name"}
-                      For={"name"}
-                      icon={<NotebookPen size={22} />}
+                      For={"name"} 
+                     
                     />
                     <Input
                       type="text"
@@ -82,13 +84,13 @@ const AddNumbers = () => {
                       value={note.title}
                       onChange={onChange}
                       placeholder="Enter name..."
+                      icon={<UserRound />}
                     />
                   </div>
                   <div>
                     <Label
                       label={"Phone number"}
-                      For={"number"}
-                      icon={<Hash size={22} />}
+                      For={"number"} 
                     />
                     <Input
                       type="text"
@@ -97,13 +99,13 @@ const AddNumbers = () => {
                       onChange={onChange}
                       id="phone"
                       placeholder="+880-enter number"
+                      icon={<NotebookTabs className="w-6 h-6" />}
                     />
                   </div>
                   <div>
                     <Label
                       label={"person description"}
-                      For={"text"}
-                      icon={<UserRoundPen size={22} />}
+                      For={"text"} 
                     />
                     <Input
                       type="text"
@@ -113,6 +115,7 @@ const AddNumbers = () => {
                       id="location"
                       placeholder="enter person location"
                       required
+                      icon={<User className="w-6 h-6"/>}
                     />
                   </div>
                 </div>

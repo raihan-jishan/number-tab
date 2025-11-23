@@ -217,7 +217,7 @@ export const PricingCard = ({ card }) => {
 
       {/* Content */}
       <CardHeader className="border-border relative">
-        <span className="text-xl font-bold text-gray-500 dark:text-gray-300/60">
+        <span className="text-xl font-bold text-gray-500 dark:text-gray-300/60 ">
           {card.title}
         </span>
         <CardTitle
@@ -225,7 +225,7 @@ export const PricingCard = ({ card }) => {
             card.title !== "Unlimited Saas" && "text-muted-foreground"
           )}
         >
-          <span className="text-3xl font-semibold tracking-tight text-gray-100 dark:text-green-400/95  font-Poppins">
+          <span className="text-4xl font-semibold tracking-tight text-gray-100 dark:text-green-400/95 font-Manrope">
             {card.price}
           </span>
         </CardTitle>

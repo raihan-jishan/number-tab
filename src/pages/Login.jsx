@@ -4,6 +4,7 @@ import { AuthBtn } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AppLayout, LoginImage } from "../utils/index.jsx";
+import { LockKeyhole, UserRound } from "lucide-react";
 
 const Login = () => {
   const server = import.meta.env.VITE_SERVER_URL;
@@ -96,6 +97,7 @@ const Login = () => {
               onChange={onChange}
               placeholder="Enter your email"
               className="mt-2"
+              icon={<UserRound className="w-6 h-6" />}
             />
           </div>
 
@@ -110,6 +112,7 @@ const Login = () => {
               onChange={onChange}
               placeholder="Enter your password"
               className="mt-2"
+              icon={<LockKeyhole className="w-6 h-6" />}
             />
 
             <div className="flex items-center justify-center mt-5">

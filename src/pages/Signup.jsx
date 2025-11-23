@@ -5,6 +5,8 @@ import { AuthBtn } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AppLayout } from "../utils/index.jsx";
+import { LockKeyhole, Mail, UserRound } from "lucide-react";
+import { MdPassword } from "react-icons/md";
 
 const Signup = () => {
   const [credentials, setCredentials] = useState({
@@ -103,6 +105,7 @@ const Signup = () => {
               onChange={onChange}
               placeholder="Enter your name"
               className="mt-2 w-full"
+              icon={<UserRound className="w-6 h-6" />}
             />
           </div>
 
@@ -121,6 +124,7 @@ const Signup = () => {
               onChange={onChange}
               placeholder="Enter your email"
               className="mt-2 w-full"
+              icon={<Mail className="w-6 h-6" />}
             />
           </div>
 
@@ -139,6 +143,7 @@ const Signup = () => {
               onChange={onChange}
               placeholder="Enter your password"
               className="mt-2 w-full"
+              icon={<LockKeyhole className="w-6 h-6" />}
             />
 
             <div className="mt-5 w-full flex justify-center">

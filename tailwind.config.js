@@ -8,6 +8,7 @@ export default {
       Comfortaa: ["Comfortaa"],
       Raleway: ["Raleway", "serif"],
       OpenSans: ["Open Sans", "sans-serif"],
+      Manrope: ["Manrope", "sans-serif"]
     },
     extend: {
       borderRadius: {
