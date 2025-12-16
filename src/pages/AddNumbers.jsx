@@ -1,38 +1,41 @@
-import React, { useState, useRef } from "react";
-import { Input } from "../components/ui/input.jsx";
-import { Label } from "../components/ui/label.jsx";
-import { AddBtn } from "../components/ui/button.jsx";
-import AddNumberImage from "../assets/addnumbers.svg"; // Your image
-import { NotebookTabs, UserRound, User, CircleArrowRight } from "lucide-react";
-import Tesseract from "tesseract.js";
+import React, { useState, useRef, useEffect } from "react";
 
 const AddNumbers = () => {
+  const cameraRef = useRef(null); // Reference to the video element
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
   const [step, setStep] = useState(1); // State to manage steps
-  const [capturing, setCapturing] = useState(false);
-  const [ocrResult, setOcrResult] = useState(""); // To store OCR result
-  const cameraRef = useRef(null); // Camera reference for streaming
 
-  // Handle input changes
-  const onChange = (e) => {
-    setNote({ ...note, [e.target.name]: e.target.value });
-  };
+  const startCamera = async () => {
+    try {
+      // Check if getUserMedia is supported
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error("Your browser does not support camera access.");
+      }
 
-  // Handle next step
-  const nextStep = () => {
-    if (step < 3) {
-      setStep(step + 1);
+      // Request access to the camera
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+      });
+
+      // Check if cameraRef.current is available
+      if (cameraRef.current) {
+        cameraRef.current.srcObject = stream; // Assign the camera stream to the video element
+        cameraRef.current.play();
+        cameraRef.current.onloadedmetadata = () => {
+          cameraRef.current.width = 640;
+          cameraRef.current.height = 480;
+        };
+      } else {
+        throw new Error("Video element not found.");
+      }
+
+      console.log("Camera access granted.");
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+      alert("Error accessing the camera: " + error.message);
     }
   };
 
-  // Handle previous step
-  const prevStep = () => {
-    if (step > 1) {
-      setStep(step - 1);
-    }
-  };
-
-  // Handle form submission
   const handleClick = (e) => {
     e.preventDefault();
     if (!note.title.trim() || !note.description.trim() || !note.tag.trim()) {
@@ -48,62 +51,26 @@ const AddNumbers = () => {
     }, 1000);
   };
 
-  // Start camera capture to scan text
-  const startCamera = async () => {
-    try {
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        throw new Error("Camera access is not supported on this device or browser.");
-      }
+  const onChange = (e) => {
+    setNote({ ...note, [e.target.name]: e.target.value });
+  };
 
-      setCapturing(true);
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      console.log("Camera stream:", stream); // Log the camera stream for debugging
-      cameraRef.current.srcObject = stream;
-      cameraRef.current.play();
-      cameraRef.current.onloadedmetadata = () => {
-        cameraRef.current.width = 640;
-        cameraRef.current.height = 480;
-      };
-    } catch (error) {
-      console.error("Camera error:", error); // Log any camera errors
-      alert("Error accessing camera: " + error.message);
+  const nextStep = () => {
+    if (step < 3) {
+      setStep(step + 1);
     }
   };
 
-  // Stop camera capture
-  const stopCamera = () => {
-    const stream = cameraRef.current.srcObject;
-    const tracks = stream.getTracks();
-    tracks.forEach((track) => track.stop());
-    cameraRef.current.srcObject = null;
-    setCapturing(false);
+  const prevStep = () => {
+    if (step > 1) {
+      setStep(step - 1);
+    }
   };
 
-  // Capture an image from the camera
-  const captureImage = async () => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    canvas.width = cameraRef.current.videoWidth;
-    canvas.height = cameraRef.current.videoHeight;
-    ctx.drawImage(cameraRef.current, 0, 0, canvas.width, canvas.height);
-    const image = canvas.toDataURL("image/png");
-
-    // Use Tesseract to recognize text from the image
-    Tesseract.recognize(image, "eng", {
-      logger: (m) => console.log(m),
-    })
-      .then(({ data: { text } }) => {
-        console.log("OCR Result:", text);
-        setOcrResult(text); // Set the OCR result to the state
-        setNote((prevState) => ({ ...prevState, title: text }));
-        stopCamera(); // Stop the camera after capturing
-      })
-      .catch((err) => {
-        console.error("OCR Error:", err);
-        alert("Error capturing text");
-        stopCamera(); // Stop the camera if an error occurs
-      });
-  };
+  useEffect(() => {
+    // Only call startCamera when the component mounts
+    startCamera();
+  }, []);
 
   return (
     <div className="min-w-screen min-h-screen bg-gradient-to-l from-green-400 via-green-900 to-green-900 flex items-center justify-center px-5 py-5">
@@ -112,7 +79,7 @@ const AddNumbers = () => {
           {/* Left content: Image */}
           <div className="md:block bg-black/10 w-1/2 py-10 px-10">
             <img
-              src={AddNumberImage}
+              src="your-image-path"
               alt="Add number illustration"
               className="w-[73%]"
             />
@@ -140,19 +107,6 @@ const AddNumbers = () => {
                     placeholder="Enter name"
                     icon={<UserRound />}
                   />
-                </div>
-
-                {/* Button to trigger camera for text capture */}
-                <div className="mt-2">
-                  <button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      startCamera();
-                    }}
-                    className="w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  >
-                    Use Camera to Capture Name
-                  </button>
                 </div>
 
                 <div className="flex justify-center items-center mt-6">
@@ -229,6 +183,11 @@ const AddNumbers = () => {
                 </div>
               </form>
             )}
+
+            {/* Camera Stream (hidden from view) */}
+            <div className="hidden">
+              <video ref={cameraRef}></video>
+            </div>
           </div>
         </div>
       </div>
