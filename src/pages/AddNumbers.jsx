@@ -1,89 +1,82 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Input } from "../components/ui/input.jsx";
+import React, { useState, useRef } from "react";
+import { Input } from "../components/ui/Input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AddBtn } from "../components/ui/button.jsx";
-import AddNumberImage from "../assets/addnumbers.svg"; // Your image
-import { NotebookTabs, UserRound, User, CircleArrowRight } from "lucide-react";
+import Tesseract from "tesseract.js"; // Import Tesseract.js for OCR
+
 const AddNumbers = () => {
-  const cameraRef = useRef(null); // Reference to the video element
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
-  const [step, setStep] = useState(1); // State to manage steps
+  const [step, setStep] = useState(1);
+  const [imageUrl, setImageUrl] = useState(null); // Holds the captured image URL
+  const [isCameraOpen, setIsCameraOpen] = useState(false); // Track camera status
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  const startCamera = async () => {
-    try {
-      // Check if getUserMedia is supported
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        throw new Error("Your browser does not support camera access.");
-      }
-
-      // Request access to the camera
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-      });
-
-      // Check if cameraRef.current is available
-      if (cameraRef.current) {
-        cameraRef.current.srcObject = stream; // Assign the camera stream to the video element
-        cameraRef.current.play();
-        cameraRef.current.onloadedmetadata = () => {
-          cameraRef.current.width = 640;
-          cameraRef.current.height = 480;
-        };
-      } else {
-        throw new Error("Video element not found.");
-      }
-
-      console.log("Camera access granted.");
-    } catch (error) {
-      console.error("Error accessing camera:", error);
-      alert("Error accessing the camera: " + error.message);
-    }
+  // Handle Input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNote({ ...note, [name]: value });
   };
 
-  const handleClick = (e) => {
+  // Handle submit (for adding contact)
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!note.title.trim() || !note.description.trim() || !note.tag.trim()) {
-      alert("Please complete all fields before submitting.");
-      return;
-    }
-    // Add Note functionality (this would be your logic to add contact)
-    console.log("Contact Added", note);
-
+    console.log("Contact Added:", note);
+    alert("Successfully saved number!");
     setNote({ title: "", description: "", tag: "" });
-    setTimeout(() => {
-      alert("Successfully saved number!");
-    }, 1000);
   };
 
-  const onChange = (e) => {
-    setNote({ ...note, [e.target.name]: e.target.value });
+  // Handle camera opening
+  const openCamera = () => {
+    setIsCameraOpen(true);
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then((stream) => {
+        videoRef.current.srcObject = stream;
+      })
+      .catch((err) => {
+        alert("Error accessing camera: " + err);
+      });
   };
 
-  const nextStep = () => {
-    if (step < 3) {
-      setStep(step + 1);
-    }
+  // Capture image from the camera
+  const captureImage = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+
+    // Convert the captured image to a URL
+    const image = canvas.toDataURL("image/png");
+    setImageUrl(image);
+
+    // Perform OCR to extract text
+    Tesseract.recognize(image, "eng", {
+      logger: (m) => console.log(m), // Optional: See OCR progress
+    }).then(({ data: { text } }) => {
+      setNote({
+        ...note,
+        title: text, // Auto-fill name field with detected text
+      });
+      setIsCameraOpen(false); // Close camera after capture
+    });
   };
 
-  const prevStep = () => {
-    if (step > 1) {
-      setStep(step - 1);
-    }
+  // Stop the camera stream
+  const stopCamera = () => {
+    const stream = videoRef.current.srcObject;
+    const tracks = stream.getTracks();
+    tracks.forEach((track) => track.stop());
+    videoRef.current.srcObject = null;
   };
-
-  useEffect(() => {
-    // Only call startCamera when the component mounts
-    startCamera();
-  }, []);
 
   return (
     <div className="min-w-screen min-h-screen bg-gradient-to-l from-green-400 via-green-900 to-green-900 flex items-center justify-center px-5 py-5">
-      <div className="bg-Primary -mt-16 rounded-3xl shadow-xl w-full overflow-hidden max-w-[1000px]">
+      <div className="bg-Primary rounded-3xl shadow-xl w-full overflow-hidden max-w-[1000px]">
         <div className="md:flex w-full">
           {/* Left content: Image */}
           <div className="md:block bg-black/10 w-1/2 py-10 px-10">
             <img
-              src={AddNumberImage}
+              src={imageUrl || "your-image-path"}
               alt="Add number illustration"
               className="w-[73%]"
             />
@@ -98,103 +91,84 @@ const AddNumbers = () => {
             </div>
 
             {/* Step 1: Name Input */}
-            {step === 1 && (
-              <form className="w-full max-w-lg space-y-6">
+            <form className="w-full max-w-lg space-y-6">
+              <div>
+                <Label label="Name" htmlFor="name" />
+                <Input
+                  type="text"
+                  name="title"
+                  value={note.title}
+                  onChange={handleChange}
+                  id="name"
+                  placeholder="Enter name"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl"
+                />
+              </div>
+
+              <div>
+                <Label label="Phone Number" htmlFor="phone" />
+                <Input
+                  type="text"
+                  name="description"
+                  value={note.description}
+                  onChange={handleChange}
+                  id="phone"
+                  placeholder="Enter phone number"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl"
+                />
+              </div>
+
+              <div>
+                <Label label="Person Description" htmlFor="tag" />
+                <Input
+                  type="text"
+                  name="tag"
+                  value={note.tag}
+                  onChange={handleChange}
+                  id="tag"
+                  placeholder="Enter location or details"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl"
+                />
+              </div>
+
+              {/* Camera Button */}
+              {!isCameraOpen && (
+                <button
+                  type="button"
+                  onClick={openCamera}
+                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md"
+                >
+                  Open Camera
+                </button>
+              )}
+
+              {/* Capture Image Button */}
+              {isCameraOpen && (
                 <div>
-                  <Label label="Name" htmlFor="name" />
-                  <Input
-                    type="text"
-                    name="title"
-                    value={note.title}
-                    onChange={onChange}
-                    id="name"
-                    placeholder="Enter name"
-                    icon={<UserRound />}
-                  />
+                  <video ref={videoRef} width="100%" height="auto" autoPlay />
+                  <button
+                    onClick={captureImage}
+                    className="mt-4 w-full py-3 bg-green-600 hover:bg-green-700 text-white rounded-xl shadow-md"
+                  >
+                    Capture Image
+                  </button>
+                  <button
+                    onClick={stopCamera}
+                    className="mt-4 w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl shadow-md"
+                  >
+                    Stop Camera
+                  </button>
                 </div>
+              )}
 
-                <div className="flex justify-center items-center mt-6">
-                  <AddBtn
-                    label={"Next"}
-                    onClick={nextStep}
-                    className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  />
-                </div>
-              </form>
-            )}
-
-            {/* Step 2: Phone Number Input */}
-            {step === 2 && (
-              <form className="w-full max-w-lg space-y-6">
-                <div>
-                  <Label label="Phone Number" htmlFor="phone" />
-                  <Input
-                    type="text"
-                    name="description"
-                    value={note.description}
-                    onChange={onChange}
-                    id="phone"
-                    placeholder="+880-Enter number"
-                    icon={<NotebookTabs />}
-                  />
-                </div>
-
-                <div className="flex justify-between items-center mt-6">
-                  <AddBtn
-                    label={"Previous"}
-                    onClick={prevStep}
-                    className="w-full py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  />
-                  <AddBtn
-                    label={"Next"}
-                    icon={<CircleArrowRight size={20} />}
-                    onClick={nextStep}
-                    className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  />
-                </div>
-              </form>
-            )}
-
-            {/* Step 3: Person Description Input */}
-            {step === 3 && (
-              <form
-                onSubmit={handleClick}
-                className="w-full max-w-lg space-y-6"
-              >
-                <div>
-                  <Label label="Person Description" htmlFor="tag" />
-                  <Input
-                    type="text"
-                    name="tag"
-                    value={note.tag}
-                    onChange={onChange}
-                    id="location"
-                    placeholder="Enter person location or details"
-                    required
-                    icon={<User />}
-                  />
-                </div>
-
-                <div className="flex justify-between items-center mt-6">
-                  <AddBtn
-                    label={"Previous"}
-                    onClick={prevStep}
-                    className="w-full py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  />
-                  <AddBtn
-                    label={"Add Contact"}
-                    variant={"authenticate"}
-                    onClick={handleClick}
-                    className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md transform transition-all duration-300 ease-in-out"
-                  />
-                </div>
-              </form>
-            )}
-
-            {/* Camera Stream (hidden from view) */}
-            <div className="hidden">
-              <video ref={cameraRef}></video>
-            </div>
+              <div className="flex justify-center items-center mt-6">
+                <AddBtn
+                  label="Add Contact"
+                  onClick={handleSubmit}
+                  className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-md"
+                />
+              </div>
+            </form>
           </div>
         </div>
       </div>
