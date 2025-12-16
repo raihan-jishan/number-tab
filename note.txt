@@ -1,1 +1,10 @@
-727272 bg color code for animation 
+add number page ui idea
+https://www.creative-tim.com/twcomponents/component/account-form
+
+https://cdn.dribbble.com/userupload/8490431/file/original-2f930e905a0ef3ef150eec450fe0fd9b.png?resize=1024x768&vertical=center
+
+https://cdn.dribbble.com/userupload/11683710/file/original-5e15f3a90a1f00f356b3625ad34f9aa5.png?resize=1024x768&vertical=center
+
+https://dribbble.com/shots/25923789-Sign-up
+
+https://cdn.dribbble.com/userupload/13978493/file/original-99c4d0dcb55805708311f07d0ae790d6.png?resize=1024x768&vertical=center

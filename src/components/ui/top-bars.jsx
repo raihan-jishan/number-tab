@@ -1,7 +1,6 @@
 import { IoGridOutline } from "react-icons/io5";
 import { RiMenuSearchLine } from "react-icons/ri";
 import { TiChartAreaOutline } from "react-icons/ti";
-import { ThemeSwitcher } from "../../utils/index";
 import { useIsMobile } from "../../utils/useIsMobile.jsx";
 import { Input } from "./input.jsx";
 import { TagQuery } from "./query-options.jsx";
@@ -43,9 +42,7 @@ const TopBar = ({
             label={"Filter"}
             handelClick={() => handlePanelOpen("filter")}
           />
-          <div className="border border-black rounded-xl">
-            <ThemeSwitcher />
-          </div>
+       
         </div>
 
         {activePanel === "filter" && (

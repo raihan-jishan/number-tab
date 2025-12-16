@@ -4,50 +4,29 @@ import { IoIosClose } from "react-icons/io";
 import { RiContactsLine } from "react-icons/ri";
 import { navLinkData } from "../../constants";
 import noteContext from "../../context/noteContext";
-import ThemeSwitcher from "../ThemeSwitcher";
-import { UserProfile } from "../ui/avatar";
-import { BtnPrimary } from "../ui/button";
+import { UserProfile } from "../ui/avatar"; 
 import Logo from "../ui/logo";
 import NavLink from "../ui/navLink";
+import { Button } from "../ui/button";
+import { User } from "lucide-react";
 
 const Nav = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu open state
-  const [bgColor, setBgColor] = useState("#111827"); // Background color
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const closeNav = () => setIsMenuOpen(false);
   const context = useContext(noteContext);
   const { user, getUserdetails } = context;
-  // Scroll effect to change navbar color
   useEffect(() => {
-    // get the login user details
     if (localStorage.getItem("token")) {
       getUserdetails();
     } else {
     }
-
-    const changeColor = () => {
-      if (window.scrollY >= 90) {
-        setBgColor("#1e293b"); // Change background color when scrolled down
-      } else {
-        setBgColor("#111827"); // Default background color at the top
-      }
-    };
-    window.addEventListener("scroll", changeColor);
-
-    // Cleanup the event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", changeColor);
-    };
   }, []);
   return (
-    <header
-      className={`fixed left-0 top-0 w-full z-50  bg-white dark:bg-bgColor`}
-      // style={{ backgroundColor: bgColor }}
-    >
+    <header className={`fixed left-0 top-0 w-full z-50  bg-Primary`}>
       <nav className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Logo />
@@ -59,7 +38,7 @@ const Nav = () => {
             onClick={toggleMenu} // Toggle menu on click
           >
             <span className="sr-only">Open main menu</span>
-            <HiMiniBars3BottomRight className="h-8 w-8 "  aria-hidden="true" />
+            <HiMiniBars3BottomRight className="h-8 w-8 " aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -68,20 +47,10 @@ const Nav = () => {
           ))}
         </div>
         <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
-          {!localStorage.getItem("token") ? null : <ThemeSwitcher />}
-          {/* Button */}
-
-          {localStorage.getItem("token") ? (
-            // if the token was available then show the use name on the button
-
+          {localStorage.getItem("token") ? ( 
             <UserProfile name={user.name} email={user.email} />
           ) : (
-            <BtnPrimary
-              label={"Get started free"}
-              icon={<RiContactsLine size={25} />}
-              variant={"nav"}
-              path={"/create-an-account"}
-            />
+            <Button label={"Sigup"} path={"/create-an-account"} varient={'secondary'} icon={<User />}/>
           )}
         </div>
       </nav>
@@ -102,38 +71,37 @@ const Nav = () => {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              
               <div className="mt-2">
                 {localStorage.getItem("token") ? (
                   <div className="flex items-center justify-between gap-6  ">
-                   
                     <span className="ml-7">
-                    <ThemeSwitcher />
+                      <ThemeSwitcher />
                     </span>
                     <UserProfile name={user.name} email={user.email} />
                   </div>
                 ) : (
-                 <div className="flex items-center justify-center mt-2">
-                   <BtnPrimary
-                    label={"Get started free"}
-                    icon={<RiContactsLine size={25} />}
-                    variant={"nav"}
-                    path={'/create-an-account'}
+                  <div className="flex items-center justify-center mt-2">
+                    <Button
+                      label={"Get start"}
+                      icon={<RiContactsLine size={25} />}
+                      path={"/create-an-account"}
+                    />
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col items-center justify-center space-y-10 py-5 p-6">
+                {navLinkData.map((item, index) => (
+                  <NavLink
+                    key={index}
+                    label={item.name}
+                    path={item.path}
                     onClick={closeNav}
                   />
-                 </div>
-                )}
-              </div> 
-               <div className="flex flex-col items-center justify-center space-y-10 py-5 p-6">
-               {navLinkData.map((item, index) => (
-                  <NavLink key={index} label={item.name} path={item.path} onClick={closeNav}/>
                 ))}
-               </div>
               </div>
-             
             </div>
           </div>
-       
+        </div>
       )}
     </header>
   );

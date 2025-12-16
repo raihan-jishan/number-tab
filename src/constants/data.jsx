@@ -1,90 +1,16 @@
-import { AiOutlineNumber } from "react-icons/ai";
 import {
-  AdvancedSearch,
-  Automatic_Syncing,
-  Easy_Import_Export,
-  Marge_Duplicate,
-  Multi_Language_Support,
-  Privacy_Security,
-  Real_Time_Update,
-  Secure_Backup,
-} from "../constants/svg-icon";
-export const LogoData = [
-  {
-    name: "numberTab",
-    icon: <AiOutlineNumber size={30} className="text-green-900" />,
-  },
-];
-export const serviceCardData = [
-  {
-    id: 0,
-    imageUrl: <Automatic_Syncing />,
-    status: "01",
-    title: "Automatic Syncing",
-    description:
-      "Automatically update and access your contacts on all devices, anytime, without manual effort. Stay connected effortlessly!",
-    percentage: "95%",
-  },
-  {
-    id: 1,
-    imageUrl: <Real_Time_Update />,
-    status: "02",
-    title: "Real-Time Updates",
-    description: "Get immediate updates whenever a contact is added or edited.",
-    percentage: "95%",
-  },
-  {
-    id: 2,
-    imageUrl: <Secure_Backup />,
-    status: "03",
-    title: "Secure Backup",
-    description: "Safely back up your contacts in the cloud.",
-    percentage: "95%",
-  },
-  {
-    id: 3,
-    imageUrl: <Marge_Duplicate />,
-    status: "04",
-    title: "Merge Duplicates",
-    description: "Automatically detect and merge duplicate contacts.",
-    percentage: "95%",
-  },
-  {
-    id: 4,
-    imageUrl: <Easy_Import_Export />,
-    status: "05",
-    title: "Easy Import/Export",
-    description: "Automatically detect and merge duplicate contacts.",
-    percentage: "95%",
-  },
-  {
-    id: 5,
-    imageUrl: <AdvancedSearch />,
-    status: "06",
-    title: " Advanced Search & Filters",
-    description:
-      "Find contacts quickly with powerful search, filters, and sorting options.",
-    percentage: "95%",
-  },
-  {
-    id: 6,
-    imageUrl: <Privacy_Security />,
-    status: "07",
-    title: " Privacy & Security",
-    description:
-      "End-to-end encryption ensures your contact data stays safe and private.",
-    percentage: "95%",
-  },
-  {
-    id: 7,
-    imageUrl: <Multi_Language_Support />,
-    status: "08",
-    title: "  Multi-Language Support",
-    description:
-      "Use the app in multiple languages for a seamless global experience.",
-    percentage: "95%",
-  },
-];
+  Cloud,
+  FileSliders,
+  MonitorSmartphone,
+  PencilRuler,
+  TextSearch,
+  Users,
+} from "lucide-react";
+import {
+  AccessAnytimeIllustration,
+  SaveIllustration,
+  SignupIllustration,
+} from "../assets";
 
 export const overviewCard_Data = [
   {
@@ -170,17 +96,27 @@ export const reviewData = [
     review:
       "I’ve tried many contact managers, but this one stands out. Easy to use, and the sync feature is fantastic.",
     twitter_handle: "@susan_writes",
-    image: "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1689568126014-06fea9d5d341%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8NTd8fGF2YXRhcnxlbnwwfHwwfHx8MA%253D%253D&w=640&q=75",
+    image:
+      "https://digital-resources-gamma.vercel.app/_next/image?url=https%3A%2F%2Fplus.unsplash.com%2Fpremium_photo-1689568126014-06fea9d5d341%3Fw%3D500%26auto%3Dformat%26fit%3Dcrop%26q%3D60%26ixlib%3Drb-4.1.0%26ixid%3DM3wxMjA3fDB8MHxzZWFyY2h8NTd8fGF2YXRhcnxlbnwwfHwwfHx8MA%253D%253D&w=640&q=75",
+    rating: 4.6,
+  },
+  {
+    name: "Jack Koi",
+    point: "06",
+    review:
+      "that was a super cool conatact number sharing application, without any limits. It will provide a cool modern ui expreince",
+    twitter_handle: "@susan_writes",
+    image:
+      "https://randomuser.me/api/portraits/men/48.jpg",
     rating: 4.6,
   },
 ];
 
-// pricing card data
 export const pricingCardData = [
   {
     title: "Basic Plan",
     description: "Perfect for individuals just starting to save contacts",
-    price: "$19/m",
+    price: "19/m",
     duration: "",
     highlight: "Key features",
     buttonText: "Start saving now",
@@ -190,7 +126,7 @@ export const pricingCardData = [
   {
     title: "Premium Plan",
     description: "For those needing unlimited contacts and advanced features",
-    price: "$49",
+    price: "49",
     duration: "month",
     highlight: "Key features",
     buttonText: "Upgrade to Premium",
@@ -206,7 +142,7 @@ export const pricingCardData = [
     title: "Business Plan",
     description:
       "Ideal for businesses that need powerful contact management tools",
-    price: "$99",
+    price: "99",
     duration: "month",
     highlight: "Everything in Premium, plus",
     buttonText: "Upgrade to Business",
@@ -218,5 +154,68 @@ export const pricingCardData = [
       "Team collaboration tools",
     ],
     priceId: "price_1OYxkqFj9oKEERu1NbKUxXxN",
+  },
+];
+
+export const features = [
+  {
+    icon: <PencilRuler size={30} strokeWidth={2} />,
+    label: "Seamless Contact Management",
+    description:
+      "Effortlessly store, edit, and access your contacts' details—phone numbers, emails, and more—with just a few taps in a simple, organized interface.",
+  },
+  {
+    icon: <TextSearch size={30} strokeWidth={2} />,
+    label: "Advanced Search & Filter",
+    description:
+      "Instantly locate any contact with powerful search and filter options. Search by name, number, email, or tags, making it easy to find what you need without scrolling endlessly.",
+  },
+  {
+    icon: <MonitorSmartphone size={30} strokeWidth={2} />,
+    label: "Sync Across Devices",
+    description:
+      "Keep your contact list up-to-date across all devices—smartphone, tablet, or computer. With cloud syncing, your contacts are always accessible and consistent.",
+  },
+  {
+    icon: <Cloud size={30} strokeWidth={2.2} />,
+    label: "Backup and Restore",
+    description:
+      "Safeguard your contacts with automatic cloud backups. In case of data loss, quickly restore your information to any device without missing a beat.",
+  },
+  {
+    icon: <Users size={30} strokeWidth={2} />,
+    label: "Integrate Communication Tools",
+    description:
+      "Call, text, or email directly from the app without switching to another messaging platform. Streamline your communication with built-in contact action options.",
+  },
+  {
+    icon: <FileSliders size={30} strokeWidth={2} />,
+    label: "Merge Duplicate Contacts",
+    description:
+      "Automatically detect and merge duplicate contacts to maintain a clean, clutter-free contact list, ensuring you only have one entry for each person.",
+  },
+];
+
+export const worksInfo = [
+  {
+    id: "1",
+    image: SignupIllustration,
+    label: "Simple Sign-Up",
+    description:
+      "Get started by creating an account with your email or social media login. Once signed up, you can easily start adding contacts and syncing them across your devices for seamless management.",
+  },
+  {
+    id: "2",
+    image: SaveIllustration,
+    label: "Save & Organize Contacts",
+    description:
+      "Add new contacts with just a few taps—store phone numbers, email addresses, and other details. Categorize them into groups (e.g., family, work) for easy access and better organization.",
+  },
+  {
+    id: "3",
+    image: AccessAnytimeIllustration,
+    label: "Access Anytime, Anywhere",
+    description:
+      "Add new contacts with just a few taps—store phone numbers, email addresses, and other details. Categorize them into groups (e.g., family, work) for easy access and better organization.",
   },
 ];

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Dashboard_Layout from "../../components/dash-layout";
-import noteContext from "../../context/noteContext";
-import { ThemeSwitcher } from "../../utils";
+import noteContext from "../../context/noteContext"; 
 import { formattedDate, getTimeGreeting } from "../../utils/utils";
 import OverView from "./over-view";
 const Dashboard = () => {
@@ -37,7 +36,7 @@ const Dashboard = () => {
             <h1 className="text-black dark:text-gray-400  tracking-wide text-lg  max-lg:dark:bg-transparent max-lg:dark:border-0 max-lg:border-0 max-lg:font-Raleway border-2 dark:bg-gray-800 border-spacing-x-64  p-4  rounded-full  font-semibold">
               {formattedDate}
             </h1>
-            <ThemeSwitcher />
+            
           </div>
         </div>
         {/* overview part */}

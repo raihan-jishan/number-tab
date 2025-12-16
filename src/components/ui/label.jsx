@@ -1,10 +1,10 @@
-export const Label = ({ For, label, icon }) => {
+export const Label = ({ For, children }) => {
   return (
     <label
       htmlFor={For}
-      className="flex items-center gap-2  text-[0.9rem] font-semibold   text-gray-900 dark:text-gray-100 "
+      className="block text-[0.9rem]   font-medium text-gray-200 capitalize"
     >
-    {icon}  {label}  
+      {children}
     </label>
   );
 };

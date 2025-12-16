@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthBtn } from "../components/ui/button.jsx";
 import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AppLayout, LoginImage } from "../utils/index.jsx";
 import { LockKeyhole, UserRound } from "lucide-react";
+import { AuthBtn } from "../components/ui/button.jsx";
 
 const Login = () => {
   const server = import.meta.env.VITE_SERVER_URL;
@@ -116,7 +116,7 @@ const Login = () => {
             />
 
             <div className="flex items-center justify-center mt-5">
-              <AuthBtn variant={"btn-login"} label={"Login"} />
+              <AuthBtn label={"Login Now"} />
             </div>
 
             {/* doesn't account */}

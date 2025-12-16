@@ -4,7 +4,7 @@ import OtherAccountSvg from "../../assets/undraw_creative-flow_t3kz.svg";
 import Dashboard_Layout from "../../components/dash-layout";
 import { DashHero } from "../../components/Hero";
 import { DashAvatar } from "../../components/ui/avatar";
-import { BtnPrimary } from "../../components/ui/button";
+// import { BtnPrimary } from "../../components/ui/button";
 
 import { DashHeading } from "../../components/ui/heading";
 import noteContext from "../../context/noteContext";
@@ -45,13 +45,13 @@ const AaccountSettings = () => {
         <DashHeading label={'DANGER 🔴 '}/>
 
         <div className="flex items-center justify-center">
-          <BtnPrimary 
+          {/* <BtnPrimary 
           label={'Logout'}
           variant={'logout'}
           onClick={() => {
             localStorage.removeItem('token')
           }}
-          />
+          /> */}
         </div>
       </Dashboard_Layout>
     </div>

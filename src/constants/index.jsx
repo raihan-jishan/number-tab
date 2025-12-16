@@ -8,11 +8,26 @@ import { RiAccountPinCircleLine, RiGroupLine } from "react-icons/ri";
 // ✅ First, import images at the top
 import SuccessImage from "../assets/success.svg";
 import FaildImage from "../assets/faild.svg";
-import FaildImage2 from "../assets/faild.svg";
 import FaildLogin from "../assets/undraw_back-home_3dun.svg";
 import WrongCredential from "../assets/undraw_page-eaten_b2rt.svg";
 import SuccessToSave from "../assets/success-to-save.svg";
-import { CircleUser, House, LayoutDashboard, NotebookTabs, RotateCcw, User, UserPlus } from "lucide-react";
+import {
+  BookUser,
+  ChartArea,
+  CircleUser,
+  House,
+  IterationCw,
+  LayoutDashboard,
+  MessageCircleX,
+  NotebookTabs,
+  PhoneOutgoing,
+  RotateCcw,
+  User,
+  UserPlus,
+  UserRoundPlus,
+  Webhook,
+} from "lucide-react";
+import { BsDash } from "react-icons/bs";
 export const navLinkData = [
   { name: "Home", icon: <CiHome size={20} />, path: "#" },
 
@@ -123,97 +138,135 @@ export const NotificationRoutes = [
     MessageName: "Success! to create your account!",
     MessageImage: SuccessImage,
     path: "/success-to-create-an-account",
-    buttonText1: "Dashboard",
-    buttonText2: "Add contact",
-    buttonPath1: "/dashboard",
-    buttonPath2: "/addnumbers",
-    firstIcon:<LayoutDashboard size={25} />,
-    secondIcon:<UserPlus size={25} />,
+    btnText: [
+      {
+        text: "Dashboard",
+        icon: <ChartArea size={20} strokeWidth={3} />,
+        path: "/dashboard",
+      },
+      {
+        text: "Add Contact",
+        icon: <UserRoundPlus strokeWidth={2.6} />,
+        path: "/add-contact",
+      },
+    ],
   },
   {
     id: 1,
     MessageName: "Sorry! this account already exist ! please login",
-    MessageImage: FaildImage2,
+    MessageImage: FaildImage,
     path: "/already-have-an-account",
-    buttonText1: "Login",
-    buttonText2: "Create new account",
-    buttonPath1: "/login-your-account",
-    buttonPath2: "/create-new-account",
-    firstIcon:<CircleUser size={25} />,
-    secondIcon:<FaUserLock size={25} />
+    btnText: [
+      {
+        text: "Login",
+        icon: <CircleUser size={20} strokeWidth={2} />,
+        path: "/login",
+      },
+      {
+        text: "Forget password",
+        icon: <FaUserLock strokeWidth={2.6} />,
+        path: "/forget-password",
+      },
+    ],
   },
   {
     id: 2,
     MessageName: "Sorry! your account is not exist ! please Signup",
     MessageImage: FaildLogin,
     path: "/account-not-found",
-    buttonText1: "Signup",
-    buttonText2: "Home",
-    buttonPath1: "/signup-your-account",
-    buttonPath2: "/",
-    firstIcon:<House size={25} />,
-    secondIcon:<User size={25}  />
+    btnText: [
+      {
+        text: "Signup",
+        icon: <PhoneOutgoing size={20} strokeWidth={3} />,
+        path: "/create-an-account",
+      },
+      { text: "Return", icon: <MessageCircleX strokeWidth={2.6} />, path: "/" },
+    ],
   },
   {
     id: 3,
     MessageName: "Sorry! your input credentials are wrong",
     MessageImage: WrongCredential,
     path: "/wrong-credentials",
-    buttonText1: "Try Again",
-    buttonText2: "Signup",
-    buttonPath1: "/login-your-account",
-    buttonPath2: "/create-new-account",
-    firstIcon:<RotateCcw size={25} />,
-    secondIcon:<User size={25}/>
+    btnText: [
+      {
+        text: "Try Again",
+        icon: <PhoneOutgoing size={20} strokeWidth={3} />,
+        path: "/login",
+      },
+      {
+        text: "Signup",
+        icon: <BookUser strokeWidth={2.6} />,
+        path: "/create-an-account",
+      },
+    ],
   },
   {
     id: 4,
     MessageName: "Success! to login your account!",
-    MessageImage: SuccessImage,
     path: "/success-to-login-your-account",
-    buttonText1: "Dashboard",
-    buttonText2: "Add new contact",
-        firstIcon:<LayoutDashboard size={25} />,
-    secondIcon:<NotebookTabs size={25} />,
+    MessageImage: SuccessImage,
+    btnText: [
+      {
+        text: "Dashboard",
+        icon: <ChartArea size={20} strokeWidth={3} />,
+        path: "/dashboard",
+      },
+      {
+        text: "Add Contact",
+        icon: <UserRoundPlus strokeWidth={2.6} />,
+        path: "/add-contact",
+      },
+    ],
   },
   {
     id: 5,
     MessageName: "Sorry! to create an account!",
     MessageImage: FaildImage,
     path: "/faild-to-create-an-account",
-    buttonText1: "Try Again",
-    buttonText2: "Home",
-    buttonPath1: "/signup-your-account",
-    buttonPath2: "/",
-    firstIcon:<RotateCcw size={25} />,
-    firstIcon:<House size={25} />,
-
-
+    btnText: [
+      {
+        text: "Try Again",
+        icon: <PhoneOutgoing size={20} strokeWidth={3} />,
+        path: "/create-an-account",
+      },
+      { text: "Return", icon: <IterationCw strokeWidth={2.6} />, path: "/" },
+    ],
   },
   {
     id: 6,
     MessageName: "Success! to save an number",
     MessageImage: SuccessToSave,
     path: "/successful-to-save-number",
-    buttonText1: "Dashboard",
-    buttonText2: "Saved contacts",
-    buttonPath1: "/dashboard",
-    buttonPath2: "/saved-numbers",
-    firstIcon:<LayoutDashboard size={25} />,
-    secondIcon:<NotebookTabs size={25} />,
-
-    
+    btnText: [
+      {
+        text: "Dashboard",
+        icon: <ChartArea size={20} strokeWidth={3} />,
+        path: "/dashboard",
+      },
+      {
+        text: "Add Contact",
+        icon: <UserRoundPlus strokeWidth={2.6} />,
+        path: "/add-contact",
+      },
+    ],
   },
   {
     id: 7,
     MessageName: "Sorry! to login your account!",
     MessageImage: FaildImage,
     path: "/faild-to-login-your-account",
-    buttonText1: "Try Again",
-    buttonText2: "Signup",
-    buttonPath1: "/login-your-account",
-    buttonPath2: "/create-new-account",
-    firstIcon:<RotateCcw size={25} />,
-    secondIcon:<User size={25}  />
+    btnText: [
+      {
+        text: "Try Again",
+        icon: <PhoneOutgoing size={20} strokeWidth={3} />,
+        path: "/login",
+      },
+      {
+        text: "Signup",
+        icon: <BookUser strokeWidth={2.6} />,
+        path: "/create-an-account",
+      },
+    ],
   },
 ];

@@ -1,4 +1,3 @@
-import { ThemeProvider } from "next-themes";
 import { useLocation } from "react-router-dom";
 import { Footer, Navbar, NoteState, Routes } from "./utils/index.jsx";
 
@@ -16,7 +15,7 @@ function App() {
     "/saved-numbers",
     "/success-to-create-an-account",
     "/faild-to-create-an-account",
-    "/faild-to-login-your-account"
+    "/faild-to-login-your-account",
   ];
 
   // ✅ Check if current path is NOT a known route → treat as 404
@@ -30,7 +29,17 @@ function App() {
     "/addnumbers",
     "/successful-to-save-number",
     "/create-an-account",
-    "/login-your-account"
+    "/success-to-login-your-account",
+    "/success-to-create-an-account",
+    "/already-have-an-account",
+    "/faild-to-create-an-account",
+    "/faild-to-login-your-account",
+    "/wrong-credentials",
+    "/account-not-found",
+    "/add-contact",
+    "/signup",
+    "/login",
+    "/login-your-account",
   ];
 
   // ✅ Define routes where Footer should be hidden
@@ -44,30 +53,28 @@ function App() {
     "/success-to-create-an-account",
     "/faild-to-create-an-account",
     "/faild-to-login-your-account",
-    "/oldnumbers"
+    "/oldnumbers",
   ];
 
   // ✅ Final check for visibility
-  const hideNavbar = hideNavbarRoutes.some((path) =>
-    location.pathname.startsWith(path)
-  ) || is404Page;
+  const hideNavbar =
+    hideNavbarRoutes.some((path) => location.pathname.startsWith(path)) ||
+    is404Page;
 
-  const hideFooter = hideFooterRoutes.some((path) =>
-    location.pathname.startsWith(path)
-  ) || is404Page;
+  const hideFooter =
+    hideFooterRoutes.some((path) => location.pathname.startsWith(path)) ||
+    is404Page;
 
   return (
-    <div className="bg-white dark:text-gray-50 dark:bg-bgColor">
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <NoteState>
-          {!hideNavbar && <Navbar />}
-          <Routes />
-          {localStorage.getItem("token")
-            ? console.log("token was found!")
-            : console.log("please login!")}
-          {!hideFooter && <Footer />}
-        </NoteState>
-      </ThemeProvider>
+    <div className="bg-Primary text-white">
+      <NoteState>
+        {!hideNavbar && <Navbar />}
+        <Routes />
+        {localStorage.getItem("token")
+          ? console.log("token was found!")
+          : console.log("please login!")}
+        {!hideFooter && <Footer />}
+      </NoteState>
     </div>
   );
 }

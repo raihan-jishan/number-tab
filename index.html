@@ -12,18 +12,15 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>numberTab</title>
+
+    <!-- Dark theme is default -->
+    <script>
+      document.documentElement.classList.add("dark");
+    </script>
   </head>
-  <body className="dark">
+
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script>
-      const theme = localStorage.getItem("theme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      if (theme === "dark" || (!theme && prefersDark)) {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
   </body>
 </html>

@@ -2,7 +2,7 @@ import { LucideNotepadTextDashed } from "lucide-react";
 import { CiHome } from "react-icons/ci";
 import { useLocation } from "react-router-dom";
 import NotFoundImage from "../assets/notfound.svg";
-import { BtnPrimary } from "../components/ui/button";
+// import { BtnPrimary } from "../components/ui/button";
 const NotFound = () => {
   const location = useLocation();
   const { pathname } = location;
@@ -25,7 +25,7 @@ const NotFound = () => {
             className="flex  max-lg:flex-col max-lg:items-center max-lg:w-full max-lg:mt-10  
           gap-5"
           >
-            <BtnPrimary
+            {/* <BtnPrimary
               label={"Home"}
               path={"/"}
               variant="btn-login"
@@ -36,7 +36,7 @@ const NotFound = () => {
               path={"/dashboard"}
               variant="btn-login"
               iconLeft={<LucideNotepadTextDashed size={25} />}
-            />
+            /> */}
           </div>
         </div>
         <div className="max-lg:hidden lg:mt-0 lg:col-span-5 lg:flex">

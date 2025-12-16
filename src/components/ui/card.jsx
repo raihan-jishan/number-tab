@@ -1,21 +1,18 @@
 import { cn } from "@/lib/utils";
 import * as React from "react";
 import { useState } from "react";
-import {
-  FaFacebook,
-  FaLinkedin,
-  FaLocationDot,
-  FaPhone,
-  FaRegHeart,
-  FaTwitter,
-} from "react-icons/fa6";
-import { CardSvgIcon } from "../../constants/svg-icon";
 
 import { BiCategoryAlt, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FaFeather } from "react-icons/fa";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { Phone } from "lucide-react";
+import {
+  ArchiveRestore,
+  CheckCheck,
+  DollarSign,
+  Phone,
+  Star,
+  TwitterIcon,
+} from "lucide-react";
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
@@ -75,199 +72,119 @@ export {
   CardTitle,
 };
 
-// herologo card
-export const HeroLogoCard = ({ logo }) => {
-  return (
-    <div>
-      <img
-        alt="App icon"
-        className="mx-auto mb-6 sm:mb-8 md:mb-12 w-[15%] sm:w-[10%] md:w-[8%] lg:w-[6%] max-lg:w-[15%]"
-        height="80"
-        src={logo}
-        width="80"
-      />
-    </div>
-  );
-};
-// service card
-export const ServiceCard = ({
-  Icon,
-  label,
-  status,
-  percentage,
-  description,
-  showAll,
-}) => {
+export const FeatureCard = ({ icon, label, description }) => {
   return (
     <div
-      className={`flex-shrink-0 m-3  relative overflow-hidden bg-white cursor-pointer   rounded-2xl max-w-2xl shadow-[0_0_1px_gray]  transition-all  max-lg:max-w-3xl dark:bg-gray-800 `}
+      className="flex flex-col items-start px-4 md:px-6 lg:px-8 lg:py-6 py-4 transition-all   
+       bg-Primary/5  "
     >
-      <CardSvgIcon />
-      <div className="relative pt-10 px-5 flex items-center justify-center">
-        <div
-          className=" absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3 hidden dark:block"
-          style={{
-            background: "radial-gradient(black, transparent 50%)",
-            transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-            opacity: 0.2,
-          }}
-        ></div>
-        {Icon}
+      <div className="flex items-center justify-center   text-Secondary">
+        {icon}
       </div>
-      <div className="relative font-semibold text-gray-950 px-6 pb-6 mt-6">
-        <span
-          className={`block opacity-75   border-b-4  w-[15%] -mb-1 text-2xl font-semibold font-OpenSans tracking-wide text-black dark:text-white`}
-        >
-          {status}
-        </span>
-        <div className="flex justify-between">
-          <span
-            className={` block   text-[1.5rem] mt-2  font-Raleway font-extrabold text-black dark:text-gray-200`}
-          >
-            {label}
-          </span>
-        </div>
-        <div className={`mt-1 text-[0.9rem] text-black dark:text-gray-400`}>
-          <h4>{description}</h4>
-        </div>
-      </div>
+      <h3 className="text-[1.3rem] font-semibold font-Manrope text-gray-300 mt-2  ">
+        {label}
+      </h3>
+      <p className="text-sm mt-2 text-start lg:text-start text-gray-400">
+        {description}
+      </p>
     </div>
   );
 };
-// review card
 
-export const ReviewCard = ({
-  ImageURl,
-  label,
-  status,
-  percentage,
-  description,
-  showAll,
-}) => {
+export const ReviewCard = ({ img, name, handle, text }) => {
   return (
-    <div
-      className={`flex-shrink-0 m-6 relative overflow-hidden bg-gray-3 00 mt-14  ${
-        showAll ? "hover:bg-gray-800/90" : "hover:bg-gray-300/5"
-      } rounded-lg max-w-2xl shadow-lg bg-white dark:bg-gray-950 transition-all  max-lg:max-w-3xl ${
-        showAll ? "bg-gray-900" : ""
-      }`}
-    >
-      <CardSvgIcon />
-      <div className="relative pt-10 px-10 flex items-start justify-start">
-        <div
-          className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-          style={{
-            background: "radial-gradient(black, transparent 60%)",
-            transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
-            opacity: 0.2,
-          }}
-        ></div>
-        <div className="flex items-center justify-between">
+    <div className=" p-4 rounded-3xl shadow-md hover:shadow-xl   duration-500 border border-gray-600 transition-all hover:bg-slate-200/5 cursor-pointer">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4 mb-4">
           <img
-            src={ImageURl}
-            className="w-[40%] rounded-lg"
-            alt="404 profile picture not found!"
+            src={img}
+            alt={name}
+            className="w-14 h-14 rounded-full object-cover border border-gray-200"
           />
-          {/* social icons */}
 
-          <div className="flex gap-5 text-gray-700 dark:text-gray-300">
-            <FaFacebook size={30} />
-            <FaTwitter size={30} />
-            <FaLinkedin size={30} />
+          <div>
+            <h3 className="text-lg font-semibold m-1">{name}</h3>
+            <p className="text-gray-500 text-sm flex items-center">
+              <TwitterIcon /> {handle}
+            </p>
           </div>
         </div>
-      </div>
-      <div className="relative font-semibold text-gray-950 px-6 pb-6 mt-6">
-        <span
-          className={`block opacity-75   border-b-2   w-[15%] -mb-1 text-2xl font-semibold font-Raleway tracking-wide  text-gray-900 dark:text-gray-100 border-gray-800 dark:border-gray-100`}
-        >
-          {status}
-        </span>
-        <div className="flex justify-between">
-          <span
-            className={` block font-bold font-Raleway text-xl mt-2  text-gray-900 tracking-wide dark:tracking-normal dark:text-green-400`}
-          >
-            {label}
-          </span>
-          <span className="text-gray-950 max-lg:rounded-full  text-lg font-bold border-2 border-black p-2 px-3 leading-none flex gap-1 rounded-full items-center -mt-2 bg-green-400/90  ">
-            <FaRegHeart size={20} /> {percentage}{" "}
-          </span>
-        </div>
-        <div className={`mt-3 text-[1rem] text-gray-800 dark:text-gray-400`}>
-          <h4>{description}</h4>
+
+        <div className="flex items-center -mt-10 max-lg:-mt-0 font-Comfortaa  gap-1 font-semibold text-green-200/70 ">
+          <Star className="-mt-1" fill="currentColor" /> 4.5
         </div>
       </div>
+  
+      <p className="text-gray-400 leading-relaxed">"{text}"</p>
     </div>
   );
 };
-
-// pricing-table card
 export const PricingCard = ({ card }) => {
   return (
     <Card
       key={card.title}
       className={cn(
-        "relative flex flex-col w-full border-neutral-700 p-6 dark:bg-gray-900 shadow-[0_0_10px_gray]  dark:shadow-[0_0_2px_white] flex-shrink-0 m-6  max-lg:m-0 overflow-hidden bg-gray-900 00",
-        card.title === "Unlimited Saas" && "border-2 border-primary"
+        "relative flex flex-col w-full p-6 rounded-2xl backdrop-blur-md",
+        "bg-gradient-to-br from-[#0b0f15]/30 to-[#111827]/30",
+        "shadow-lg shadow-black/30 border border-white/10",
+        "transition-all duration-300 hover:shadow-xl",
+        "m-6 max-lg:m-0 overflow-hidden",
+
+        card.title === "Unlimited Saas" &&
+          "border-2 border-green-400 shadow-green-500/20"
       )}
     >
-      {/* Background SVG */}
-
-      <CardSvgIcon />
-
-      {/* Content */}
-      <CardHeader className="border-border relative">
-        <span className="text-xl font-bold text-gray-500 dark:text-gray-300/60 ">
+      {/* Header */}
+      <CardHeader className="relative space-y-4 pb-4 border-b border-white/10">
+        <span className="text-lg font-extrabold text-gray-400 tracking-wide font-Manrope">
           {card.title}
         </span>
-        <CardTitle
-          className={cn(
-            card.title !== "Unlimited Saas" && "text-muted-foreground"
-          )}
-        >
-          <span className="text-4xl font-semibold tracking-tight text-gray-100 dark:text-green-400/95 font-Manrope">
+
+        <CardTitle>
+          <span className="text-5xl font-bold font-Manrope flex items-center">
+            <DollarSign size={50} />
             {card.price}
           </span>
         </CardTitle>
-        <div className="mt-2 text-xl  ">
-          <CardDescription className="text-gray-400 tracking-wide font-Comfortaa dark:text-gray-200 font-semibold mt-4 dark:mt-2">
-            {card.description}
-          </CardDescription>
-        </div>
+
+        <CardDescription className="text-gray-400 text-sm tracking-wide  ">
+          {card.description}
+        </CardDescription>
       </CardHeader>
-      <CardContent className="pt-10 space-y-2 relative max-lg:space-y-8">
+
+      <CardContent className="pt-8 space-y-4">
         {card.features.map((feature) => (
           <div key={feature} className="flex items-center gap-3">
-            <span className="w-4 h-4 fill-primary text-primary">
-              <IoMdCheckmarkCircleOutline
-                size={20}
-                className="text-gray-500 dark:text-green-400"
-              />
-            </span>
-            <p className="text-gray-100  dark:text-gray-300">{feature}</p>
+            <CheckCheck
+              size={22}
+              className="text-green-400 drop-shadow-[0_0_4px_rgba(0,255,0,0.3)]"
+            />
+            <p className="text-gray-200 text-[15px]">{feature}</p>
           </div>
         ))}
       </CardContent>
-      <div className="mt-auto">
+
+      <div className="mt-auto pt-0">
         <Link to={"/"}>
-          <CardFooter className="mt-10  ">
-            <Link
-              to={"/"}
+          <CardFooter>
+            <button
               className={cn(
-                "w-full text-center flex items-center justify-center font-semibold bg-white text-black p-3 rounded-md text-sm hover:scale-95 transition-all  ",
-                card.title === "Premium Plan" && "bg-green-400 text-black"
+                "w-full p-[0.8rem] rounded-lg text-[1rem] font-bold   transition-all",
+                "bg-white text-black hover:bg-gray-200m flex items-center justify-center gap-1 ",
+
+                card.title === "Premium Plan" &&
+                  "bg-green-500 hover:bg-green-500/90 text-black"
               )}
             >
+              {card.title === "Premium Plan" && <ArchiveRestore />}{" "}
               {card.buttonText}
-            </Link>
+            </button>
           </CardFooter>
         </Link>
       </div>
     </Card>
   );
 };
-
-// number card
 
 export const NumberCard = ({
   userAvatar,
@@ -404,7 +321,6 @@ export const OverViewCard = ({ Icon, label, status }) => {
     <div
       className={`flex-shrink-0 m-6 relative overflow-hidden  cursor-pointer  hover:bg-gray-800/90"  rounded-lg max-w-2xl shadow-lg transition-all hover:bg-gray-600/20      max-lg:max-w-3xl   `}
     >
-      <CardSvgIcon />
       <div className="relative pt-10 px-5 flex items-center justify-center">
         <div
           className="block absolute w-28 h-48 bottom-0 left-0 -mb-24 ml-3"
@@ -436,6 +352,33 @@ export const OverViewCard = ({ Icon, label, status }) => {
             {status}{" "}
           </span>
         </div>
+      </div>
+    </div>
+  );
+};
+
+export const WorkCard = ({ point, image, label, description }) => {
+  return (
+    <div className="relative flex flex-col items-center max-w-sm p-6   rounded-lg shadow-lg  hover:shadow-xl transition-shadow duration-300">
+      <div
+        className={
+          "absolute top-4 left-3 w-8 h-8 flex items-center justify-center    text-green-100   text-4xl font-bold rounded-full "
+        }
+      >
+        0{point}
+      </div>
+
+      <img
+        src={image}
+        alt="image was not found!"
+        className={`${
+          point === "1" ? "w-[85%] " : "w-full"
+        } h-48 object-contain mb-4 rounded-lg`}
+      />
+      <div className="text-center">
+        <h2 className="text-[1.8rem] font-Comfortaa tracking-tighter font-extrabold   text-gray-400 mb-2  ">
+          {label}
+        </h2>
       </div>
     </div>
   );

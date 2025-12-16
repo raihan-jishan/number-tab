@@ -6,7 +6,7 @@ import GridOptions from "../components/ui/grid-options.jsx";
 import TopBar from "../components/ui/top-bars.jsx";
 import { AppLayout, Context, Login } from "../utils/index.jsx";
 import { useScrollDetection } from "../utils/utils.jsx";
-import { BtnPrimary } from "../components/ui/button.jsx";
+// import { BtnPrimary } from "../components/ui/button.jsx";
 const Numbers = () => {
   const scrolled = useScrollDetection();
   const [searchTerm, setSearchTerm] = useState("");
@@ -127,11 +127,11 @@ const Numbers = () => {
                   : "No matching contact found!"}
               </div>
               <div className="flex items-center justify-center">
-                <BtnPrimary
+                {/* <BtnPrimary
                   label={"Add onother number"}
                   variant={"onother-number"}
                   path={"/addnumbers"}
-                />
+                /> */}
               </div>
             </AppLayout>
           ) : (

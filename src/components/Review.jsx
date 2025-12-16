@@ -5,23 +5,19 @@ import Section from "../global/wrapper";
 import { ReviewCard } from "./ui/card";
 const Review = () => {
   return (
-    <Section className="mt-12 p-4 bg-gray-50 text-black dark:bg-bgColor dark:text-gray-400/80" id={'reviews'}>
-      <Heading
-        textSmall
-        borderSide
-        description="Reviews"
-        paragraph=""
-        widthMedium
+    <Section className="mt-12 p-4 bg-Primary text-white " id={'reviews'}>
+      <Heading 
+        label="Reviews" 
+        textCenter
       />
-      <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1">
+      <div className="grid grid-cols-3 gap-6 max-lg:grid-cols-1 mt-10">
         {reviewData.map((item, index) => (
           <ReviewCard
             key={index}
-            ImageURl={item.image}
-            label={item.name}
-            description={item.review}
-            percentage={item.rating}
-            status={item.point}
+            img={item.image}
+            name={item.name}
+            text={item.review}  
+            handle={item.twitter_handle}
           />
         ))}
       </div>

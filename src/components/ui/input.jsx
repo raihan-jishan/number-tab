@@ -1,25 +1,39 @@
 import { Mail } from "lucide-react";
+import { Label } from "./label";
 
-export const Input = ({ type, id, name, placeholder, value, onChange , icon }) => {
+export const Input = ({
+  label,
+  For,
+  type,
+  id,
+  name,
+  placeholder,
+  value,
+  onChange,
+  icon,
+}) => {
   return (
-    <div className="relative">
-      <input
-        type={type}
-        id={id}
-        name={name}
-        className="bg-white border border-gray-200 text-gray-900 text-sm rounded-lg dark:focus:ring-green-500 focus:border-gray-900 dark:focus:border-gray-900 block w-full p-4 pl-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:bg-transparent outline-none dark:max-lg:hover:outline-green-400/90 hover:border-transparent hover:rounded-sm"
-        inputMode="text"
-        autoComplete="off"
-        autoCorrect="off"
-        spellCheck="false"
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required
-      />
-      <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-       {icon}
-      </span>
+    <div className="w-full px-3 mb-5 ">
+      <Label htmlFor={For}>{label}</Label>
+      <div className="relative mt-1 ">
+        {/* Icon container */}
+        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10 text-center pointer-events-none flex items-center justify-center text-gray-400">
+          {icon}
+        </div>
+
+        {/* Input field */}
+        <input
+          id={id}
+          name={name}
+          value={value}
+          type={type}
+          placeholder={placeholder}
+          className="w-full pl-10 pr-3 py-2 rounded-lg bg-Primary border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500   transition-all duration-200 ease-in-out    "
+          onChange={onChange}
+          aria-label={label}
+          aria-required="true"
+        />
+      </div>
     </div>
   );
 };

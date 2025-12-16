@@ -1,6 +1,8 @@
-const Layout = ({ children , className}) => {
+const Layout = ({ children, className }) => {
   return (
-    <section className={`mt-[6rem] text-gray-950 font-semibold dark:text-gray-50 m-5 dark:bg-bgColor   text-3xl max-lg:pt-0  ${className}`}>
+    <section
+      className={` text-gray-400 font-semibold   m-5  bg-Primary   text-3xl max-lg:pt-0  ${className}`}
+    >
       {children}
     </section>
   );

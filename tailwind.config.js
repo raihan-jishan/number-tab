@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
+  darkMode: false,
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
   theme: {
     fontFamily: {
       Comfortaa: ["Comfortaa"],
       Raleway: ["Raleway", "serif"],
       OpenSans: ["Open Sans", "sans-serif"],
-      Manrope: ["Manrope", "sans-serif"]
+      Manrope: ["Manrope", "sans-serif"],
+      Dosis: ["Dosis", "sans-serif"],
+      Lato: ["Lato", "sans-serif"],
     },
     extend: {
       borderRadius: {
@@ -17,7 +18,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        bgColor: "#121B22",
+        Primary: "#181A1B",
+        Secondary: "#22c55e",
+        Tertiary: "#f3f4f6",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -60,7 +63,6 @@ export default {
         },
       },
     },
-
     animation: {
       "fade-in": "fadeIn 0.2s ease-in-out",
     },

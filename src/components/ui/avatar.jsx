@@ -69,33 +69,35 @@ const UserProfile = ({ name, email, ClickFunction }) => {
 
       {/* Dropdown Menu */}
       {onClick && (
-        <div className="absolute top-14 right-0 z-50 w-64 bg-white dark:bg-gray-50 shadow-xl border dark:border-gray-700 rounded-xl p-5 animate-fade-in">
-          <p className="text-lg font-semibold flex items-center gap-2 mb-2 text-black  dark:text-gray-700">
-            <FaUserLarge size={20} /> {name}
-          </p>
-          <p className="text-sm text-gray-700 dark:text-gray-700 flex items-center gap-2 mb-4 underline">
-            <IoIosMailUnread size={18} /> {email}
-          </p>
+        <div className="absolute top-14 right-0 z-50 w-64 bg-primary  bg-Primary shadow-lg border dark:border-gray-700 rounded-xl p-5 animate-fade-in">
+          <div className="flex flex-col gap-3">
+            <p className="text-lg font-semibold font-Manrope flex items-center gap-2 mb-2 text-gray-400">
+              <FaUserLarge size={20} /> {name}
+            </p>
+            <p className="text-lg text-gray-100 flex font-OpenSans items-center gap-2 mb-4">
+              <IoIosMailUnread size={18} /> {email}
+            </p>
+          </div>
 
-          <div className="flex flex-col gap-3 mt-6  ">
+          <div className="flex flex-col gap-3 mt-6 border-t border-t-gray-600 pt-4">
             <Link
               to="/dashboard"
               onClick={handleClose}
-              className="text-[0.9rem] flex gap-2 items-center hover:underline font-semibold text-black  "
+              className="text-[0.9rem] flex gap-2 items-center hover:bg-Tertiary/5 hover:text-white py-2 px-3 rounded-lg font-semibold text-white transition duration-200 ease-in-out"
             >
               <FaWpforms size={18} /> Dashboard
             </Link>
             <Link
               to="/addnumbers"
               onClick={handleClose}
-              className="text-[0.9rem] flex gap-2 items-center hover:underline font-semibold dark:text-black  "
+              className="text-[0.9rem] flex gap-2 items-center hover:bg-Tertiary/5 hover:text-white py-2 px-3 rounded-lg font-semibold dark:text-gray-300 transition duration-200 ease-in-out"
             >
-              <MdOutlineContactPage size={18} /> Add an Contact
+              <MdOutlineContactPage size={18} /> Add a Contact
             </Link>
             <Link
               to="/saved-numbers"
               onClick={handleClose}
-              className="text-[0.9rem] flex gap-2 items-center hover:underline font-semibold dark:text-black  "
+              className="text-[0.9rem] flex gap-2 items-center hover:bg-Tertiary/5 hover:text-white py-2 px-3 rounded-lg font-semibold dark:text-gray-300 transition duration-200 ease-in-out"
             >
               <RiSaveLine size={18} /> Saved Contacts
             </Link>
@@ -125,4 +127,3 @@ const DashAvatar = ({ imageUrl }) => {
 };
 
 export { Avatar, AvatarFallback, AvatarImage, DashAvatar, UserProfile };
-

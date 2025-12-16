@@ -1,5 +1,4 @@
-import Feature from "../components/Feature.jsx";
-import GetStart from "../components/GetStart.jsx";
+import Feature from "../components/Feature.jsx"; 
 import { Hero } from "../components/Hero.jsx";
 
 import HowItWorks from "../components/HowItWorks.jsx";
@@ -13,7 +12,7 @@ const Home = () => {
       <HowItWorks />
       <Review />        
       <Pricing />
-      <GetStart /> 
+       
     </div>
   );
 };

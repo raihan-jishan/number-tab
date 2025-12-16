@@ -13,18 +13,21 @@ import {
   Numbers,
   Oldnumbers,
   ResultInfos,
-  Signup,
+  CreateAccount,
 } from "../utils/index.jsx";
 import { NotificationRoutes } from "../constants/index.jsx";
+import Signup from "../pages/signup/page.jsx";
 const Routes = () => {
   return (
+    
     <Router>
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/addnumbers" element={<AddNumbers />} />
+      <Route path="/add-contact" element={<AddNumbers />} />
       <Route path="/saved-numbers" element={<Numbers />} />
-      <Route path="/create-an-account" element={<Signup />} />
-      <Route path="/login-your-account" element={<Login />} />
+      <Route path="/create-an-account" element={<CreateAccount />} />
+      <Route path="/signup" element={<Signup />}/>
+      <Route path="/login" element={<Login />} />
       <Route path="/oldnumbers" element={<Oldnumbers />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/allcontacts" element={<AllContacts />} />
@@ -42,14 +45,12 @@ const Routes = () => {
       {NotificationRoutes.map((item, index) => {
         return (
           <Route
+             key={index}
             path={item.path}
             element={
               <ResultInfos
                 Image={item.MessageImage}
-                buttonPath1={item.buttonPath1}
-                buttonPath2={item.buttonPath2}
-                buttonText1={item.buttonText1}
-                buttonText2={item.buttonText2}
+                btnText={item.btnText}
                 firstIcon={item.firstIcon}
                 secondIcon={item.secondIcon}
                 name={item.MessageName}
@@ -60,7 +61,7 @@ const Routes = () => {
       })}
       {/* 404page route  */}
       <Route path="*" element={<NotFound />} />
-    </Router>
+    </Router> 
   );
 };
 
