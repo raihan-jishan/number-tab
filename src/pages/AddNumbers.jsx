@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import { Input } from "../components/ui/input.jsx";
+import { Label } from "../components/ui/label.jsx";
+import { AddBtn } from "../components/ui/button.jsx";
+import AddNumberImage from "../assets/addnumbers.svg"; // Your image
+import { NotebookTabs, UserRound, User, CircleArrowRight } from "lucide-react";
 const AddNumbers = () => {
   const cameraRef = useRef(null); // Reference to the video element
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
@@ -79,7 +83,7 @@ const AddNumbers = () => {
           {/* Left content: Image */}
           <div className="md:block bg-black/10 w-1/2 py-10 px-10">
             <img
-              src="your-image-path"
+              src={AddNumberImage}
               alt="Add number illustration"
               className="w-[73%]"
             />
@@ -153,7 +157,10 @@ const AddNumbers = () => {
 
             {/* Step 3: Person Description Input */}
             {step === 3 && (
-              <form onSubmit={handleClick} className="w-full max-w-lg space-y-6">
+              <form
+                onSubmit={handleClick}
+                className="w-full max-w-lg space-y-6"
+              >
                 <div>
                   <Label label="Person Description" htmlFor="tag" />
                   <Input
