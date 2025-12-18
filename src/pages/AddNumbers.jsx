@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Input } from "../components/ui/Input.jsx";
+import React, { useState, useContext } from "react"; 
+import {Input} from '../components/ui/input.jsx';
 import { Label } from "../components/ui/label.jsx";
 import { AddBtn } from "../components/ui/button.jsx";
 import Tesseract from "tesseract.js";
