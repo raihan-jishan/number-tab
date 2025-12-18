@@ -7,7 +7,7 @@ const NotFound = () => {
   const location = useLocation();
   const { pathname } = location;
   return (
-    <section className="bg-white dark:bg-bgColor mt-16 max-lg:mt-[4.5rem] p-4">
+    <section className="bg-Primary  max-lg:mt-[4.5rem] p-4">
       {/* for mobile devices */}
       <div className="hidden max-lg:flex max-lg:w-4/5  max-lg:m-auto">
         <img src={NotFoundImage} alt="image not found!" />

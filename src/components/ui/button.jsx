@@ -10,7 +10,7 @@ export const Button = ({ path, label, icon, varient, image }) => {
 
   return (
     <Link
-      to={path ? path : "/"} 
+      to={path ? path : "/"}
       className={`
         ${
           varient === "primary"
@@ -61,14 +61,17 @@ export const AuthBtn = ({ label, icon, onClick }) => {
   );
 };
 
-export const AddBtn = ({ label, icon, onClick }) => {
+export const AddBtn = ({ label, icon, onClick, iconLeft, roundedMedium }) => {
   return (
     <button
-      className={"bg-Secondary hover:bg-Secondary/95 p-3 px-6 rounded-full "}
+      className={`bg-Secondary hover:bg-Secondary/95 p-3 px-6 ${
+        roundedMedium ? "rounded-lg" : "rounded-full"
+      }`}
       onClick={onClick}
     >
       {" "}
       <span className="text-black font-bold flex  gap-1 items-center justify-center ">
+        {iconLeft}
         {label}
         {icon}
       </span>

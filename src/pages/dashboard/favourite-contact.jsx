@@ -34,7 +34,6 @@ function FavouriteContact() {
 
   return (
     <Dashboard_Layout>
-      {/* ✅ Show DashHero only if no favourite contacts exist */}
       {favouriteContacts.length === 0 && (
         <DashHero
           label={"Your Favourite Contacts"}

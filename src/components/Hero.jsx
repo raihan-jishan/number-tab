@@ -1,6 +1,7 @@
 import { TiContacts } from "react-icons/ti";
 import HeroIllustration from "../assets/hero-image.png";
 import { HeroContent } from "./ui/heading";
+import {Button} from '../components/ui/button';
 export const Hero = () => {
   return (
     <main className="relative  bg-Primary -mt-16">
@@ -23,7 +24,7 @@ export const Hero = () => {
   );
 };
 
-export const DashHero = ({ label, btnText, image, path }) => {
+export const DashHero = ({ label,  path }) => {
   return (
     <main className=" bg-bgColor">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
@@ -33,10 +34,10 @@ export const DashHero = ({ label, btnText, image, path }) => {
             {label}
           </h1>
 
-          <div className="flex  items-center justify-center gap-3 flex-wrap text-white">
-            <BtnPrimary
-              label={btnText}
-              variant={"start-btn"}
+          <div className="flex  p-2 gap-3 flex-wrap text-white">
+            <Button
+              label={'Add Contact'}
+              varient={'primary'}
               iconLeft={<TiContacts size={25} />}
               path={path ? path : "/saved-numbers"}
             />

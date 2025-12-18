@@ -37,9 +37,11 @@ function App() {
     "/wrong-credentials",
     "/account-not-found",
     "/add-contact",
+    "/saved-contacts",
     "/signup",
     "/login",
     "/login-your-account",
+    "/testing",
   ];
 
   // ✅ Define routes where Footer should be hidden

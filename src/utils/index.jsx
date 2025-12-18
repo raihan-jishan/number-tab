@@ -19,8 +19,7 @@ import Context from "../context/noteContext.jsx";
 import AddNumbers from "../pages/AddNumbers.jsx";
 import Home from "../pages/Home.jsx";
 import Login from "../pages/login/page.jsx";
-import NotFound from "../pages/NotFound.jsx";
-import Numbers from "../pages/Numbers.jsx";
+import NotFound from "../pages/NotFound.jsx"; 
 import Oldnumbers from "../pages/Oldnumbers.jsx";
 import CreateAccount from "../pages/signup/create-account.jsx";
 export {
@@ -41,8 +40,7 @@ export {
   Navbar, 
   NoteState,
   NotFound,
-  NumberData,
-  Numbers,
+  NumberData, 
   Oldnumbers,
   ResultInfos,
   Routes,

@@ -28,6 +28,7 @@ import {
   Webhook,
 } from "lucide-react";
 import { BsDash } from "react-icons/bs";
+import { BookMarked } from "lucide-react";
 export const navLinkData = [
   { name: "Home", icon: <CiHome size={20} />, path: "#" },
 
@@ -102,34 +103,29 @@ export const dashboardSidebarLinks = [
   {
     name: "Dashboard",
     path: "/dashboard",
-    icon: <LuLayoutDashboard size={20} />,
+    icon: <LuLayoutDashboard size={20}  />,
   },
   {
     name: "All Contacts",
-    path: "/saved-numbers",
-    icon: <MdContacts size={20} />,
+    path: "/saved-contacts",
+    icon: <BookMarked size={20}  />,
   },
   {
     name: "Add New Contact",
     path: "/dashboard/addnew-contact",
-    icon: <IoPersonAddSharp size={20} />,
+    icon: <IoPersonAddSharp size={20}  />,
   },
   {
     name: "Favorite Contacts",
     path: "/dashboard/favourite_contact",
-    icon: <FaRegHeart size={20} />,
+    icon: <FaRegHeart size={20}  />,
   },
   {
     name: "Groups / Categories",
     path: "/dashboard/group&category",
-    icon: <RiGroupLine size={20} />,
+    icon: <RiGroupLine size={20}  />,
   },
-  {
-    name: "account settings",
-    path: "/dashboard/account-settings",
-    icon: <RiAccountPinCircleLine size={20} />,
-    tag: "add-account",
-  },
+ 
 ];
 
 export const NotificationRoutes = [
@@ -159,7 +155,7 @@ export const NotificationRoutes = [
     btnText: [
       {
         text: "Login",
-        icon: <CircleUser size={20} strokeWidth={2} />,
+        icon: <CircleUser size={20}  />,
         path: "/login",
       },
       {

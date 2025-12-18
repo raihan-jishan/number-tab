@@ -11,6 +11,8 @@ export const Input = ({
   value,
   onChange,
   icon,
+  bgTransparent,
+  defaultValue
 }) => {
   return (
     <div className="w-full px-3 mb-5 ">
@@ -27,8 +29,11 @@ export const Input = ({
           name={name}
           value={value}
           type={type}
+          defaultValue={defaultValue}
           placeholder={placeholder}
-          className="w-full pl-10 pr-3 py-2 rounded-lg bg-Primary border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500   transition-all duration-200 ease-in-out    "
+          className={`w-full pl-10 pr-3 py-2 rounded-lg ${
+            bgTransparent ? "bg-transparent" : "bg-Primary"
+          } border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500   transition-all duration-200 ease-in-out    `}
           onChange={onChange}
           aria-label={label}
           aria-required="true"
