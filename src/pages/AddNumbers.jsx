@@ -5,7 +5,7 @@ import { AddBtn } from "../components/ui/button.jsx";
 import Tesseract from "tesseract.js";
 import AddNumberImage from "../assets/addnumbers.svg";
 import { User, PhoneOutgoing, BookA } from "lucide-react";
-import { Context } from "../utils/index.jsx"; // Correctly importing context
+import { Context } from "../utils/index.jsx";  
 import { CopyMinus } from "lucide-react";
 
 const AddNumbers = () => {

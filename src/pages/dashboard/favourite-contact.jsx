@@ -38,7 +38,7 @@ function FavouriteContact() {
         <DashHero
           label={"Your Favourite Contacts"}
           btnText={"Add favourite contact"}
-          path={'/addnumbers'}
+          path={"/addnumbers"}
           image={GroupImage}
         />
       )}
