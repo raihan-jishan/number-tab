@@ -3,7 +3,7 @@ import { SearchBar } from "../../components/ui/search";
 import { FilePlusIcon, Trash2, Pencil } from "lucide-react";
 import { Heart, ListPlus } from "lucide-react";
 import NoteContext from "../../context/noteContext";
-import { Input } from "../../components/ui/Input";
+import {Input} from '../../components/ui/input.jsx';
 import { FaUserEdit } from "react-icons/fa";
 import { Phone } from "lucide-react";
 import { Book } from "lucide-react";

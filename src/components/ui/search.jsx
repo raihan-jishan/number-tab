@@ -1,6 +1,5 @@
-import { Search } from "lucide-react";
-import { Button } from "./button";
-import { Input } from "./Input";
+import { Search } from "lucide-react"; 
+import { Input } from "./input.jsx";
 
 export const SearchBar = ({value,onChange}) => {
   return (

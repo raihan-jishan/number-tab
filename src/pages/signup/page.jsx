@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignupImage from "../../assets/signup.svg";
 import { Button } from "../../components/ui/button.jsx";
-import { Input } from "../../components/ui/input.jsx";
-import { AppLayout } from "../../utils/index.jsx";
+import { Input } from "../../components/ui/input.jsx"; 
 import {
   FilePenLine,
   Home,
