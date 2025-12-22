@@ -114,7 +114,7 @@ export const ReviewCard = ({ img, name, handle, text }) => {
           <Star className="-mt-1" fill="currentColor" /> 4.5
         </div>
       </div>
-  
+
       <p className="text-gray-400 leading-relaxed">"{text}"</p>
     </div>
   );
@@ -185,136 +185,7 @@ export const PricingCard = ({ card }) => {
     </Card>
   );
 };
-
-export const NumberCard = ({
-  userAvatar,
-  label,
-  number,
-  type,
-  location,
-  isFavourite,
-  onToggleFavourite, // NEW: receive toggle function
-}) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-
-  const handleDelete = () => {
-    alert(`Deleting contact: ${label}`);
-    setMenuOpen(false);
-  };
-
-  const handleFavorite = () => {
-    if (onToggleFavourite) {
-      onToggleFavourite(); // 🚀 call the toggleFavourite function
-    }
-    setMenuOpen(false);
-  };
-
-  return (
-    <Card className="p-2 mt-5 bg-white dark:bg-[rgba(255,255,255,0.05)] dark:text-white hover:bg-gray-50 dark:border-gray-700 border hover:shadow-sm transition-all h-fit relative">
-      <div className="flow-root">
-        <ul
-          role="list"
-          className="divide-y divide-gray-200 dark:divide-gray-700"
-        >
-          <li className="py-3 sm:py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={
-                    userAvatar ||
-                    "https://cdn.vectorstock.com/i/500p/66/13/default-avatar-profile-icon-social-media-user-vector-49816613.jpg"
-                  }
-                  alt="Avatar"
-                />
-                <div className="ms-4 min-w-0">
-                  <p className="text-lg font-semibold text-gray-900 truncate dark:text-white">
-                    {label}
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative">
-                <BiDotsHorizontalRounded
-                  size={25}
-                  className="cursor-pointer text-gray-600 dark:text-white"
-                  onClick={toggleMenu}
-                />
-                {menuOpen && (
-                  <div className="absolute right-0 mt-2 w-52 bg-white dark:bg-gray-800 rounded-md shadow-lg z-10 border dark:border-gray-700">
-                    <button
-                      onClick={() => {
-                        const text = `${label} - ${number}`;
-                        navigator.clipboard.writeText(text);
-                        alert("Copied to clipboard ✅");
-                        setMenuOpen(false);
-                      }}
-                      className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >
-                      📋 Copy to Clipboard
-                    </button>
-
-                    <button
-                      onClick={handleFavorite}
-                      className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-blue-600 dark:text-blue-400"
-                    >
-                      {isFavourite
-                        ? "💔 Remove from Favourite"
-                        : "💖 Save as Favourite"}
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        const text = `${label} - ${number}`;
-                        if (navigator.share) {
-                          navigator
-                            .share({ title: "Contact Info", text })
-                            .then(() => console.log("Shared!"))
-                            .catch((error) =>
-                              console.error("Error sharing", error)
-                            );
-                        } else {
-                          alert("Web Share API not supported on this browser.");
-                        }
-                        setMenuOpen(false);
-                      }}
-                      className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700"
-                    >
-                      🔗 Share Contact
-                    </button>
-
-                    <button
-                      onClick={handleDelete}
-                      className="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 text-red-600 dark:text-red-400"
-                    >
-                      🗑 Delete Contact
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </li>
-        </ul>
-
-        <div className="p-2">
-          <h4 className="flex items-center text-[1.5rem] gap-3">
-            <Phone size={25} />
-            {number}
-          </h4>
-        </div>
-
-        {type && (
-          <div className="text-lg p-2 flex items-center gap-3">
-            <BiCategoryAlt /> {type}
-          </div>
-        )}
-      </div>
-    </Card>
-  );
-};
-
+ 
 // overview card for dashboard
 export const OverViewCard = ({ Icon, label, status }) => {
   return (
@@ -372,7 +243,7 @@ export const WorkCard = ({ point, image, label, description }) => {
         src={image}
         alt="image was not found!"
         className={`${
-          point === "1" ? "w-[85%] " : "w-full"
+          point === "1" ? "w-[85%] max-lg:w-full " : "w-full"
         } h-48 object-contain mb-4 rounded-lg`}
       />
       <div className="text-center">

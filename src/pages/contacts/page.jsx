@@ -3,13 +3,17 @@ import { SearchBar } from "../../components/ui/search";
 import { FilePlusIcon, Trash2, Pencil } from "lucide-react";
 import { Heart, ListPlus } from "lucide-react";
 import NoteContext from "../../context/noteContext";
-import {Input} from '../../components/ui/input.jsx';
+import { Input } from "../../components/ui/input.jsx";
 import { FaUserEdit } from "react-icons/fa";
 import { Phone } from "lucide-react";
 import { Book } from "lucide-react";
 import { AddBtn } from "../../components/ui/button";
 import { Archive } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SearchIcon } from "lucide-react";
+import { ShieldCloseIcon } from "lucide-react";
+import { CrossIcon } from "lucide-react";
+import { X } from "lucide-react";
 
 const Savednotess = () => {
   // Use context to get the notes and functions
@@ -18,13 +22,13 @@ const Savednotess = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredNotes, setFilteredNotes] = useState(notes);
   const [favourites, setFavourites] = useState([]);
-  const [isEditing, setIsEditing] = useState(false); // To track editing state
-  const [currentNote, setCurrentNote] = useState(null); // To store the note currently being edited
-  const [showDeleteModal, setShowDeleteModal] = useState(false); // State for delete confirmation modal
-  const [noteToDelete, setNoteToDelete] = useState(null); // Store the note to be deleted
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentNote, setCurrentNote] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [noteToDelete, setNoteToDelete] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
-    // Fetch the notes when the component mounts
     getNotes();
   }, [getNotes]);
 
@@ -77,9 +81,9 @@ const Savednotess = () => {
 
   // Handle the delete action
   const handleDeleteNote = () => {
-    deleteNote(noteToDelete._id);  
-    setShowDeleteModal(false); 
-    setNoteToDelete(null); 
+    deleteNote(noteToDelete._id);
+    setShowDeleteModal(false);
+    setNoteToDelete(null);
   };
 
   // Cancel the delete action
@@ -87,26 +91,52 @@ const Savednotess = () => {
     setShowDeleteModal(false);
     setNoteToDelete(null);
   };
-
+  const openSeaarch = () => setSearch(!search);
+  const closeSearch = () => setSearch(false);
   return (
     <div className="p-6 bg-Primary min-h-screen">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="capitalize text-3xl font-semibold text-gray-200">
-          All Notes
+      <div
+        className={`${
+          search ? "flex-col" : "flex"
+        } items-center justify-between mb-6`}
+      >
+        <h1 className="capitalize text-3xl max-lg:text-2xl font-semibold text-gray-200">
+          {search ? "" : " All Notes"}
         </h1>
 
-        <div className="flex items-center gap-4">
-          <SearchBar
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <Link
-            to={"/add-contact"}
-            className="bg-green-50 hover:bg-green-50/90 text-black p-2 rounded-lg transition   "
-          >
-            <FilePlusIcon size={22} />
-          </Link>
+        <div className="flex items-center gap-4 relative">
+          {/* Search bar or search icon */}
+          {search ? (
+            <div className="flex items-center w-full max-w-[300px]">
+              <SearchBar
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pr-10"
+              />
+              <X
+                size={30}
+                onClick={closeSearch}
+                className="absolute right-8  top-4 cursor-pointer text-gray-200 transition-all duration-300 ease-in-out hover:text-gray-700"
+              />
+            </div>
+          ) : (
+            <SearchIcon
+              size={30}
+              onClick={openSeaarch}
+              className="cursor-pointer text-gray-500 transition-all duration-300 ease-in-out hover:text-gray-700"
+            />
+          )}
+
+          {/* Add Contact Button */}
+          {!search && (
+            <Link
+              to="/add-contact"
+              className="bg-green-50 hover:bg-green-50/90 text-black p-2 rounded-lg transition duration-300 ease-in-out"
+            >
+              <FilePlusIcon size={22} />
+            </Link>
+          )}
         </div>
       </div>
 
@@ -211,7 +241,7 @@ const Savednotess = () => {
                   <td className="px-6 py-4 font-medium font-Manrope tracking-wide text-gray-100 text-lg">
                     {note.title}
                   </td>
-                  <td className="px-6 py-4 text-gray-300 font-Inter">
+                  <td className="px-6 py-4 whitespace-nowrap text-gray-300 font-Inter">
                     {note.description}
                   </td>
                   <td className="px-6 py-4 text-gray-300">{note.tag}</td>

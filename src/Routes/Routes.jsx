@@ -1,5 +1,4 @@
-import { Route, Routes as Router } from "react-router-dom";
-import AaccountSettings from "../pages/dashboard/account-settings.jsx";
+import { Route, Routes as Router } from "react-router-dom"; 
 import AddNewContact from "../pages/dashboard/addnew-contact.jsx";
 import Dashboard from "../pages/dashboard/dashboard.jsx";
 import FavouriteContact from "../pages/dashboard/favourite-contact.jsx";
@@ -32,11 +31,7 @@ const Routes = () => {
         element={<FavouriteContact />}
       />
 
-      <Route
-        path="/dashboard/account-settings"
-        element={<AaccountSettings />}
-      />
-
+       
       {/* all notifications route . */}
       {NotificationRoutes.map((item, index) => {
         return (

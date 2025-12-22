@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import GroupImage from "../../assets/undraw_group-selfie_145x.svg";
 import Dashboard_Layout from "../../components/dash-layout";
-import { DashHero } from "../../components/Hero";
-import { NumberCard } from "../../components/ui/card";
+import { DashHero } from "../../components/Hero"; 
 import { DashHeading } from "../../components/ui/heading";
 import { Context } from "../../utils/index";
 
@@ -48,15 +47,9 @@ function FavouriteContact() {
       <div className="m-4 grid gap-6 grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1">
         {favouriteContacts.length > 0 ? (
           favouriteContacts.map((contact) => (
-            <NumberCard
-              key={contact._id}
-              label={contact.title}
-              number={contact.description}
-              type={contact.tag}
-              location={new Date(contact.date).toLocaleDateString()}
-              isFavourite={true}
-              onToggleFavourite={() => {}}
-            />
+        // show table 
+        <>
+        </>
           ))
         ) : (
           <p className="text-center col-span-3 text-gray-600 dark:text-gray-300 mt-6">

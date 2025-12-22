@@ -1,4 +1,4 @@
-import Login from "../pages/Login";
+import Login from '../pages/login/page';
 import Dashboard_sidebar from "./shared/dashboard_sidebar";
 const Dashboard_Layout = ({ children, mtreverse }) => {
   return (

@@ -14,7 +14,7 @@ const Dashboard_sidebar = () => {
       <button
         onClick={toggleSidebar}
         type="button"
-        className="z-50 fixed top-4 left-4 inline-flex items-center p-2 text-gray-600 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className="z-50 fixed top-4 left-4 inline-flex items-center p-2  bg-Tertiary text-black rounded-lg sm:hidden   focus:outline-none      "
       >
         <span className="sr-only">Open sidebar</span>
         {sidebarOpen ? (
@@ -26,12 +26,12 @@ const Dashboard_sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform bg-Primary dark:bg-bgColor transform ${
+        className={`fixed top-0 left-0 z-40 w-64 max-lg:w-full h-screen transition-transform bg-Primary dark:bg-bgColor transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } sm:translate-x-0`}
       >
         <div className="h-full px-4 py-6 overflow-y-auto bg-Primary   shadow-lg rounded-r-2xl">
-          <ul className="space-y-4 mt-5 font-medium">
+          <ul className="space-y-4 max-lg:mt-5  font-medium">
             {dashboardSidebarLinks.map((item, index) => {
               return (
                 <li key={index} className="py-2">
@@ -39,7 +39,7 @@ const Dashboard_sidebar = () => {
                     to={item.path}
                     end
                     className={({ isActive }) =>
-                      `flex items-center p-3 rounded-lg   ${
+                      `flex items-center p-3 rounded-lg mt-6  ${
                         isActive
                           ? "bg-green-100 text-black font-semibold   "
                           : "text-gray-100 bg-transparent  transition-all hover:text-white hover:bg-gray-100/10  dark:text-gray-300  "

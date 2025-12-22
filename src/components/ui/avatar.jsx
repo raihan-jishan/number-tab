@@ -88,14 +88,14 @@ const UserProfile = ({ name, email, ClickFunction }) => {
               <FaWpforms size={18} /> Dashboard
             </Link>
             <Link
-              to="/addnumbers"
+              to="/add-contact"
               onClick={handleClose}
               className="text-[0.9rem] flex gap-2 items-center hover:bg-Tertiary/5 hover:text-white py-2 px-3 rounded-lg font-semibold dark:text-gray-300 transition duration-200 ease-in-out"
             >
               <MdOutlineContactPage size={18} /> Add a Contact
             </Link>
             <Link
-              to="/saved-numbers"
+              to="/saved-contacts"
               onClick={handleClose}
               className="text-[0.9rem] flex gap-2 items-center hover:bg-Tertiary/5 hover:text-white py-2 px-3 rounded-lg font-semibold dark:text-gray-300 transition duration-200 ease-in-out"
             >

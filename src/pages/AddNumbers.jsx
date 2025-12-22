@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react"; 
-import {Input} from '../components/ui/input.jsx';
+import React, { useState, useContext } from "react";
+import { Input } from "../components/ui/input.jsx";
 import { Label } from "../components/ui/label.jsx";
 import { AddBtn } from "../components/ui/button.jsx";
-import Tesseract from "tesseract.js";
 import AddNumberImage from "../assets/addnumbers.svg";
 import { User, PhoneOutgoing, BookA } from "lucide-react";
-import { Context } from "../utils/index.jsx";  
+import { Context } from "../utils/index.jsx";
 import { CopyMinus } from "lucide-react";
+import { Camera } from "lucide-react";
 
 const AddNumbers = () => {
   const context = useContext(Context); // Accessing context
@@ -17,9 +17,6 @@ const AddNumbers = () => {
   const { addNote } = context;
 
   const [note, setNote] = useState({ title: "", description: "", tag: "" });
-  const [imageUrl, setImageUrl] = useState(null);
-  const [isImageUploaded, setIsImageUploaded] = useState(false);
-  const [ocrProcessing, setOcrProcessing] = useState(false);
 
   const handleChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value });
@@ -31,65 +28,29 @@ const AddNumbers = () => {
     setNote({ title: "", description: "", tag: "" });
   };
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImageUrl(reader.result);
-        setIsImageUploaded(true);
-        extractTextFromImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      alert("Please upload a valid image.");
-    }
-  };
-
-  const extractTextFromImage = (image) => {
-    setOcrProcessing(true);
-
-    Tesseract.recognize(image, "eng+ben", {
-      logger: (m) => console.log(m),
-    })
-      .then(({ data: { text } }) => {
-        setNote({ ...note, title: text.trim() });
-        setOcrProcessing(false);
-      })
-      .catch((err) => {
-        console.error("Error during OCR:", err);
-        setOcrProcessing(false);
-      });
-  };
-
   return (
     <div className="min-w-screen min-h-screen bg-gradient-to-l from-green-400 via-green-900 to-green-900 flex items-center justify-center px-5 py-5">
-      <div className="bg-Primary rounded-3xl shadow-xl w-full overflow-hidden max-w-[1000px]">
+      <div className="bg-Primary rounded-sm shadow-xl w-full overflow-hidden max-w-[1000px] max-lg:-mt-[3.5rem] max-lg:h-[44rem]">
         <div className="md:flex w-full">
-          <div className="md:block bg-black/10 w-1/2 py-10 px-10">
-            {imageUrl ? (
+          <div className="md:block bg-black/10 w-1/2 max-lg:w-[90%] py-10 px-10">
+            <div className="text-center text-gray-500">
               <img
-                src={imageUrl}
+                src={AddNumberImage}
                 alt="Uploaded"
-                className="w-[73%] rounded-lg"
+                className="w-full rounded-lg"
               />
-            ) : (
-              <div className="text-center text-gray-500">
-                <img
-                  src={AddNumberImage}
-                  alt="Uploaded"
-                  className="w-full rounded-lg"
-                />
-              </div>
-            )}
+            </div>
           </div>
 
-          <div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+          <div className="w-full md:w-1/2 py-10 px-5 md:px-10 max-lg:-mt-16">
             <h1 className="font-bold text-[2.5rem] font-Raleway text-gray-50">
               Add a New Contact
             </h1>
 
-            <form className="w-full max-w-lg space-y-6 mt-5" onSubmit={handleSubmit}>
+            <form
+              className="w-full max-w-lg space-y-6 mt-5"
+              onSubmit={handleSubmit}
+            >
               <div>
                 <Label label="Name" htmlFor="name" />
                 <Input
@@ -132,26 +93,18 @@ const AddNumbers = () => {
                 />
               </div>
 
-              <div className="mt-6">
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-xl cursor-pointer"
-                />
+              <div className="mt-6 p-2 text-gray-400  border text-center flex items-center justify-center gap-2 font-medium">
+                <Camera className="text-gray-400" />
+                <a href="https://www.google.com/?olud" target="_blank">
+                  Open Scanner
+                </a>
               </div>
-
-              {ocrProcessing && (
-                <div className="mt-4 text-center text-yellow-500">
-                  Processing image... Please wait.
-                </div>
-              )}
 
               <div className="flex justify-center items-center mt-6">
                 <AddBtn
                   label={"Add Contact"}
                   onClick={handleSubmit}
-                  icon={<CopyMinus size={20} />}
+                  icon={<CopyMinus size={20} />} 
                 />
               </div>
             </form>

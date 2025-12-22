@@ -4,7 +4,7 @@ import { IoIosClose } from "react-icons/io";
 import { RiContactsLine } from "react-icons/ri";
 import { navLinkData } from "../../constants";
 import noteContext from "../../context/noteContext";
-import { UserProfile } from "../ui/avatar"; 
+import { UserProfile } from "../ui/avatar";
 import Logo from "../ui/logo";
 import NavLink from "../ui/navLink";
 import { Button } from "../ui/button";
@@ -47,17 +47,22 @@ const Nav = () => {
           ))}
         </div>
         <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
-          {localStorage.getItem("token") ? ( 
+          {localStorage.getItem("token") ? (
             <UserProfile name={user.name} email={user.email} />
           ) : (
-            <Button label={"Sigup"} path={"/create-an-account"} varient={'secondary'} icon={<User />}/>
+            <Button
+              label={"Sigup"}
+              path={"/create-an-account"}
+              varient={"secondary"}
+              icon={<User />}
+            />
           )}
         </div>
       </nav>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-bgColor">
+        <div className="lg:hidden fixed inset-0 z-50 bg-Primary px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-bgColor">
           <div className="flex items-center justify-between">
             <Logo />
             <button
@@ -73,10 +78,8 @@ const Nav = () => {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="mt-2">
                 {localStorage.getItem("token") ? (
-                  <div className="flex items-center justify-between gap-6  ">
-                    <span className="ml-7">
-                      <ThemeSwitcher />
-                    </span>
+                  <div className="flex items-end justify-end gap-6  ">
+                
                     <UserProfile name={user.name} email={user.email} />
                   </div>
                 ) : (

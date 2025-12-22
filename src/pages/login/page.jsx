@@ -4,12 +4,7 @@ import LoginImage from "../../assets/Login.svg";
 import { AuthBtn, Button } from "../../components/ui/button.jsx";
 import { Input } from "../../components/ui/input.jsx";
 import { AppLayout } from "../../utils/index.jsx";
-import { 
-  Home,
-  LockKeyhole,
-  Mail,
-  User, 
-} from "lucide-react";
+import { Home, LockKeyhole, Mail, User } from "lucide-react";
 
 const Login = () => {
   const server = import.meta.env.VITE_SERVER_URL;
@@ -136,7 +131,7 @@ const Login = () => {
                 </div>
                 <div className="flex  -mx-3">
                   <div className="flex items-center justify-center w-full px-3 mt-8">
-                    <AuthBtn label={"Login Now"} icon={<User />} />
+                    <AuthBtn label={"Login Now"} icon={<User />} mobileCustomPx={'px-16'} />
                   </div>
                 </div>
               </form>

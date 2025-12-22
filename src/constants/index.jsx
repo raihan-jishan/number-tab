@@ -2,9 +2,8 @@ import { CiHome, CiViewList } from "react-icons/ci";
 import { FaRegHeart, FaUserLock } from "react-icons/fa";
 import { FaMoneyBillWheat } from "react-icons/fa6";
 import { IoPersonAddSharp } from "react-icons/io5";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { MdContacts } from "react-icons/md";
-import { RiAccountPinCircleLine, RiGroupLine } from "react-icons/ri";
+import { LuLayoutDashboard } from "react-icons/lu"; 
+import {  RiGroupLine } from "react-icons/ri";
 // ✅ First, import images at the top
 import SuccessImage from "../assets/success.svg";
 import FaildImage from "../assets/faild.svg";
@@ -14,18 +13,11 @@ import SuccessToSave from "../assets/success-to-save.svg";
 import {
   BookUser,
   ChartArea,
-  CircleUser,
-  House,
-  IterationCw,
-  LayoutDashboard,
-  MessageCircleX,
-  NotebookTabs,
-  PhoneOutgoing,
-  RotateCcw,
-  User,
-  UserPlus,
-  UserRoundPlus,
-  Webhook,
+  CircleUser, 
+  IterationCw, 
+  MessageCircleX, 
+  PhoneOutgoing, 
+  UserRoundPlus, 
 } from "lucide-react";
 import { BsDash } from "react-icons/bs";
 import { BookMarked } from "lucide-react";
@@ -112,7 +104,7 @@ export const dashboardSidebarLinks = [
   },
   {
     name: "Add New Contact",
-    path: "/dashboard/addnew-contact",
+    path: "/add-contact",
     icon: <IoPersonAddSharp size={20}  />,
   },
   {

@@ -1,4 +1,3 @@
- 
 import { Label } from "./label";
 
 export const Input = ({
@@ -12,7 +11,8 @@ export const Input = ({
   onChange,
   icon,
   bgTransparent,
-  defaultValue
+  defaultValue,
+  customPY,
 }) => {
   return (
     <div className="w-full px-3 mb-5 ">
@@ -25,13 +25,16 @@ export const Input = ({
 
         {/* Input field */}
         <input
+        
           id={id}
           name={name}
           value={value}
           type={type}
           defaultValue={defaultValue}
           placeholder={placeholder}
-          className={`w-full pl-10 pr-3 py-2 rounded-lg ${
+          className={`w-full pl-10 pr-3 ${
+            customPY ? customPY : "py-2"
+          } rounded-lg ${
             bgTransparent ? "bg-transparent" : "bg-Primary"
           } border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500   transition-all duration-200 ease-in-out    `}
           onChange={onChange}

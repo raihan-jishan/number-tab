@@ -1,8 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { AddContact, Chart } from "../../components/ui/chart";
 import noteContext from "../../context/noteContext";
-import { User } from "lucide-react";
-import { Heart } from "lucide-react";
+import { User } from "lucide-react"; 
 import { HeartHandshake } from "lucide-react";
 import { useState } from "react";
 
@@ -19,7 +18,7 @@ const OverView = () => {
   const all_contact = notes.length;  ((item)  => item.favourite === true).length;
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-3 max-lg:grid-cols-1 max-lg:gap-5">
       <Chart
         label="All Contacts: "
         value={all_contact}

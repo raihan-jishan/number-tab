@@ -1,11 +1,11 @@
 import { TiContacts } from "react-icons/ti";
 import HeroIllustration from "../assets/hero-image.png";
 import { HeroContent } from "./ui/heading";
-import {Button} from '../components/ui/button';
+import { Button } from "../components/ui/button";
 export const Hero = () => {
   return (
-    <main className="relative  bg-Primary -mt-16">
-      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
+    <main className="relative  bg-Primary ">
+      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-5 max-lg:mt-16">
         {/* Left: Text Content */}
         <HeroContent />
 
@@ -24,9 +24,9 @@ export const Hero = () => {
   );
 };
 
-export const DashHero = ({ label,  path }) => {
+export const DashHero = ({ label, path }) => {
   return (
-    <main className=" bg-bgColor">
+    <main className=" bg-bgColor ">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
         {/* Left: Text Content */}
         <div className="mr-auto place-self-center lg:col-span-7">
@@ -36,8 +36,8 @@ export const DashHero = ({ label,  path }) => {
 
           <div className="flex  p-2 gap-3 flex-wrap text-white">
             <Button
-              label={'Add Contact'}
-              varient={'primary'}
+              label={"Add Contact"}
+              varient={"primary"}
               iconLeft={<TiContacts size={25} />}
               path={path ? path : "/saved-numbers"}
             />
@@ -45,7 +45,7 @@ export const DashHero = ({ label,  path }) => {
         </div>
 
         {/* Right: Hero Animation Video */}
-        <div className="lg:mt-0 lg:col-span-5 lg:flex justify-center items-center relative">
+        <div className="lg:mt-0 lg:col-span-5 lg:flex justify-center items-center relative ">
           <img
             src={HeroIllustration}
             className="w-[60%]   rounded-2xl   object-cover  rounded-tl-[50%]

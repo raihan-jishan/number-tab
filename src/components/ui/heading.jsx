@@ -17,8 +17,7 @@ export const Heading = ({
     </h1>
   );
 };
-
-// dashboard heading
+ 
 export const DashHeading = ({
   label,
   textCenterize,
@@ -55,11 +54,11 @@ export const HeroContent = ({}) => {
         modern interface.
       </p>
 
-      <div className="flex max-lg:flex max-lg:items-center max-lg:justify-center gap-2 flex-wrap ">
+      <div className="flex  gap-2 flex-wrap  ">
         {localStorage.getItem("token") ? (
-          <>
+          <> 
             <Button label={"Add new contact"} varient={"primary"} path={'/add-contact'}/>
-            <Button label={"All contacts"} varient={"primary"} />
+            <Button label={"All contacts"} varient={"primary"} path={'/saved-contacts'}/>
           </>
         ) : (
           <>

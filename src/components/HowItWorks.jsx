@@ -8,7 +8,7 @@ const HowItWorks = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="mt-10 p-10"
+      className="mt-10 p-10 max-lg:bg-gray-50/5"
     >
       <Heading label={"How it works"} textCenter fontComfortaa />
 
@@ -30,7 +30,7 @@ const HowItWorks = () => {
                 delay: index * 0.1, // Stagger effect for each card
               }}
               className={`${
-                index % 3 !== 2 ? "border-r-2" : ""
+                index % 3 !== 2 ? "border-r-2 max-lg:border-none" : ""
               } ${index >= worksInfo.length - 3 ? "" : "border-b-2"} border-gray-300`}
             >
               <WorkCard

@@ -146,7 +146,8 @@ const Signup = () => {
                     <Button
                       icon={<User scale={20} />}
                       label={"Register Now"}
-                      varient={"authenticated"}
+                      mobileCustomPX={'px-16'}
+                      varient={"authenticated"}  
                     />
                   </div>
                 </div>

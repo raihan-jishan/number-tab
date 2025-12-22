@@ -5,7 +5,7 @@ import Section from "../global/wrapper";
 import { ReviewCard } from "./ui/card";
 const Review = () => {
   return (
-    <Section className="mt-12 p-4 bg-Primary text-white " id={'reviews'}>
+    <Section className="mt-12 p-4 bg-Primary text-white max-lg:p-5" id={'reviews'}>
       <Heading 
         label="Reviews" 
         textCenter

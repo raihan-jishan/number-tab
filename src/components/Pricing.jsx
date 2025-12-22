@@ -10,9 +10,9 @@ const Pricing = () => {
      fontComfortaa
      textCenter
      />
-      <div className="flex items-center justify-center overflow-x-hidden -mt-14">
+      <div className="flex items-center justify-center overflow-x-hidden -mt-14 max-lg:mt-0">
         <div className="flex flex-col items-center justify-center   relative ">
-          <div className="max-w-6xl grid grid-cols-3 gap-6  p-10">
+          <div className="max-w-6xl grid grid-cols-3 gap-6  p-10 max-lg:grid-cols-1 max-lg:p-0">
             {pricingCardData.map((card, index) => (
               <PricingCard key={index} card={card} />
             ))}
