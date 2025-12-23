@@ -20,6 +20,11 @@ import {
   UserRoundPlus, 
 } from "lucide-react";
 import { BookMarked } from "lucide-react";
+import { UsersRound } from "lucide-react";
+import { GalleryVerticalEnd } from "lucide-react";
+import { Wallpaper } from "lucide-react";
+import { LandPlot } from "lucide-react";
+import { NotebookTabs } from "lucide-react";
 export const navLinkData = [
   { name: "Home", icon: <CiHome size={20} />, path: "#" },
 
@@ -228,7 +233,6 @@ export const NotificationRoutes = [
     btnText: [
       {
         text: "All Contacts",
-        icon: <ChartArea size={20} strokeWidth={3} />,
         path: "/saved-contacts",
       },
       {

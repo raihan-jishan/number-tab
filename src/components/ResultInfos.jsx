@@ -1,4 +1,4 @@
-import { TiContacts } from "react-icons/ti";
+ 
 import { Button } from "./ui/button";
 // import { BtnPrimary } from "./ui/button";
 const ResultInfos = ({ Image, name, btnText }) => {

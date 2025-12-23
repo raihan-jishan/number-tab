@@ -10,7 +10,6 @@ import { Camera } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import TextArea from "../components/ui/textarea.jsx";
-import { BackpackIcon } from "lucide-react";
 import { ArrowLeft } from "lucide-react";
 
 const AddNumbers = () => {
@@ -65,13 +64,13 @@ const AddNumbers = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 py-10 px-5 max-lg:px-0 max-lg:py-8 md:px-10 max-lg:-mt-12 ">
+          <div className="w-full md:w-1/2 py-10 px-5 max-lg:px-0 max-lg:py-8 md:px-10 max-lg:-mt-10 ">
             <div className="max-lg:flex max-lg:items-center max-lg:gap-5">
               <Link to={"/saved-contacts"}>
                 {" "}
                 <ArrowLeft strokeWidth={2} className="hidden max-lg:block" />
               </Link>
-              <h1 className="font-bold text-[2.5rem] max-lg:text-[1.5rem] font-Raleway text-gray-50">
+              <h1 className="font-bold text-[2.5rem] max-lg:text-[1.5rem] font-Raleway text-gray-50 ">
                 Add New Contact
               </h1>
             </div>

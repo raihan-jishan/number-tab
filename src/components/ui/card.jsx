@@ -275,7 +275,7 @@ export const ContactCard = ({
       {/* Name */}
       <div className="flex items-start gap-2">
         <User
-          size={24}
+          size={20}
           strokeWidth={2.5}
           className="text-green-100 mt-1 shrink-0"
         />
@@ -293,8 +293,8 @@ export const ContactCard = ({
       </div>
 
       {/* Phone */}
-      <div className="flex items-center gap-2 text-green-50 mt-2">
-        <Phone size={24} strokeWidth={2.2} className="shrink-0" />
+      <div className="flex items-center gap-2 text-green-50 mt-4">
+        <Phone size={18} strokeWidth={2.2} className="shrink-0" />
         <p className="font-semibold font-Inter ">
           {phone}
           {/* truncate */}

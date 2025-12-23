@@ -100,7 +100,7 @@ const Savednotess = () => {
       <div
         className={`${
           search ? "flex-col" : "flex"
-        } items-center justify-between mb-6`}
+        } items-center justify-between mb-6 sticky top-0 bg-Primary `}
       >
         <h1 className="capitalize text-3xl max-lg:text-2xl font-semibold text-gray-200">
           {search ? "" : " All Notes"}
@@ -145,7 +145,7 @@ const Savednotess = () => {
       {isEditing && currentNote && (
         <form
           onSubmit={handleEditNote}
-          className="bg-Primary p-8 rounded-lg shadow-lg max-w-lg mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full sm:w-auto "
+          className="bg-Primary p-8 rounded-lg shadow-lg max-w-lg mx-auto fixed top-1/2 left-1/2 max-lg:h-full transform -translate-x-1/2 -translate-y-1/2 z-50 w-full sm:w-auto "
         >
           <h2 className="text-2xl font-semibold text-white mb-6">Edit Note</h2>
           <div className="mb-6">
@@ -221,20 +221,29 @@ const Savednotess = () => {
       )}
 
       <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-1 max-lg:gap-5">
-        {filteredNotes.map((item,index)=>{
-          return (
-            <ContactCard
-            label={item.title}
-            phone={item.description}
-            desciption={item.tag}
-            handleDeleteClick={handleDeleteClick}
-            note={item}
-            favourites={favourites}
-            toggleFavourite={toggleFavourite}
-            startEditing={startEditing}
-            />
-          )
-        })}
+        {filteredNotes.length > 0 ? (
+          filteredNotes.map((item, index) => (
+            <div>
+              <ContactCard
+                key={index}
+                label={item.title}
+                phone={item.description}
+                desciption={item.tag}
+                handleDeleteClick={handleDeleteClick}
+                note={item}
+                favourites={favourites}
+                toggleFavourite={toggleFavourite}
+                startEditing={startEditing}
+              />
+            </div>
+          ))
+        ) : (
+          <tr>
+            <td colSpan="4" className="text-center py-10 text-gray-500">
+              No notes found
+            </td>
+          </tr>
+        )}
       </div>
     </div>
   );

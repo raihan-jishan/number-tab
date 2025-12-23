@@ -131,7 +131,7 @@ const Login = () => {
                 </div>
                 <div className="flex  -mx-3">
                   <div className="flex items-center justify-center w-full px-3 mt-8">
-                    <AuthBtn label={"Login Now"} icon={<User />} mobileCustomPx={'px-16'} />
+                    <AuthBtn label={"Login Now"} icon={<User />} mobileCustomPx={'max-lg:px-16'} />
                   </div>
                 </div>
               </form>

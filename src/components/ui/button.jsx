@@ -60,7 +60,7 @@ export const Button = ({
 export const AuthBtn = ({ label, icon, onClick, mobileCustomPx }) => {
   return (
     <button
-      className={`bg-Secondary hover:bg-Secondary/95 p-3 px-24 max-lg:${mobileCustomPx} rounded-full`}
+      className={`bg-Secondary hover:bg-Secondary/95 p-3 px-24 ${mobileCustomPx} rounded-full`}
       onClick={onClick}
     >
       {" "}
@@ -74,7 +74,7 @@ export const AuthBtn = ({ label, icon, onClick, mobileCustomPx }) => {
 
 export const AddBtn = ({ label }) => {
   return (
-    <button className="text-black font-semibold rounded-lg p-[0.6rem] px-5 bg-Secondary w-[95%] capitalize hover:bg-Secondary/95 transition-all">
+    <button className="text-black font-semibold rounded-full p-[0.6rem] px-5 bg-Secondary w-[95%] capitalize hover:bg-Secondary/85  transition-all ">
       {label}
     </button>
   );
