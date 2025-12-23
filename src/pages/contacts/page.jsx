@@ -14,6 +14,7 @@ import { SearchIcon } from "lucide-react";
 import { ShieldCloseIcon } from "lucide-react";
 import { CrossIcon } from "lucide-react";
 import { X } from "lucide-react";
+import { ContactCard } from "../../components/ui/card.jsx";
 
 const Savednotess = () => {
   // Use context to get the notes and functions
@@ -144,7 +145,7 @@ const Savednotess = () => {
       {isEditing && currentNote && (
         <form
           onSubmit={handleEditNote}
-          className="bg-Primary p-8 rounded-lg shadow-lg max-w-lg mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full sm:w-auto"
+          className="bg-Primary p-8 rounded-lg shadow-lg max-w-lg mx-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full sm:w-auto "
         >
           <h2 className="text-2xl font-semibold text-white mb-6">Edit Note</h2>
           <div className="mb-6">
@@ -192,10 +193,10 @@ const Savednotess = () => {
 
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-60">
-          <div className="bg-Primary p-6 rounded-lg max-w-md w-full">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-60">
+          <div className="bg-Primary p-6  max-lg:m-2 rounded-lg max-w-md w-full">
             <h2 className="text-xl font-semibold text-green-100 mb-4">
-              Delete Note
+              Delete Contact
             </h2>
             <p className="text-gray-400 mb-6">
               Are you sure you want to delete this contact? This action cannot
@@ -219,77 +220,21 @@ const Savednotess = () => {
         </div>
       )}
 
-      {/* Table */}
-      <div className="overflow-x-auto bg-Primary rounded-xl shadow">
-        <table className="w-full text-left border-collapse">
-          <thead className="bg-green-400 text-black text-sm uppercase">
-            <tr>
-              <th className="px-6 py-4">Name</th>
-              <th className="px-6 py-4">Phone</th>
-              <th className="px-6 py-4">Details</th>
-              <th className="px-6 py-4 text-center">Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {filteredNotes.length > 0 ? (
-              filteredNotes.map((note) => (
-                <tr
-                  key={note._id}
-                  className="border-b hover:bg-Primary/20 transition"
-                >
-                  <td className="px-6 py-4 font-medium font-Manrope tracking-wide text-gray-100 text-lg">
-                    {note.title}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-300 font-Inter">
-                    {note.description}
-                  </td>
-                  <td className="px-6 py-4 text-gray-300">{note.tag}</td>
-                  <td className="px-6 py-4 flex items-center justify-center gap-4">
-                    {/* Edit Button */}
-                    <button
-                      onClick={() => startEditing(note)}
-                      className="text-green-100 hover:scale-[0.9]"
-                    >
-                      <Pencil size={18} />
-                    </button>
-
-                    {/* Delete Button */}
-                    <button
-                      onClick={() => handleDeleteClick(note)} // Open modal
-                      className="text-red-600 hover:text-red-800"
-                    >
-                      <Trash2 size={18} />
-                    </button>
-
-                    {/* Favourite Button */}
-                    <button
-                      onClick={() => toggleFavourite(note._id)}
-                      className={`${
-                        favourites.includes(note._id)
-                          ? "text-red-600"
-                          : "text-green-100"
-                      } hover:scale-[0.9]`}
-                    >
-                      <Heart strokeWidth={2} />
-                    </button>
-
-                    {/* Add to List Button */}
-                    <button className="text-green-100 hover:scale-[0.9]">
-                      <ListPlus strokeWidth={2} />
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4" className="text-center py-10 text-gray-500">
-                  No notes found
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+      <div className="grid grid-cols-4 gap-5 max-lg:grid-cols-1 max-lg:gap-5">
+        {filteredNotes.map((item,index)=>{
+          return (
+            <ContactCard
+            label={item.title}
+            phone={item.description}
+            desciption={item.tag}
+            handleDeleteClick={handleDeleteClick}
+            note={item}
+            favourites={favourites}
+            toggleFavourite={toggleFavourite}
+            startEditing={startEditing}
+            />
+          )
+        })}
       </div>
     </div>
   );

@@ -19,6 +19,7 @@ const ResultInfos = ({ Image, name, btnText }) => {
                   icon={item.icon}
                   varient={"primary"}
                   path={item.path}
+                  wFull
                 />
               );
             })}

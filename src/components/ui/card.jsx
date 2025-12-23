@@ -13,6 +13,11 @@ import {
   Star,
   TwitterIcon,
 } from "lucide-react";
+import { User } from "lucide-react";
+import { Trash } from "lucide-react";
+import { Pen } from "lucide-react";
+import { Heart } from "lucide-react";
+import { Pencil } from "lucide-react";
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
@@ -185,7 +190,7 @@ export const PricingCard = ({ card }) => {
     </Card>
   );
 };
- 
+
 // overview card for dashboard
 export const OverViewCard = ({ Icon, label, status }) => {
   return (
@@ -228,7 +233,7 @@ export const OverViewCard = ({ Icon, label, status }) => {
   );
 };
 
-export const WorkCard = ({ point, image, label, description }) => {
+export const WorkCard = ({ point, image, label }) => {
   return (
     <div className="relative flex flex-col items-center max-w-sm p-6   rounded-lg shadow-lg  hover:shadow-xl transition-shadow duration-300">
       <div
@@ -250,6 +255,84 @@ export const WorkCard = ({ point, image, label, description }) => {
         <h2 className="text-[1.8rem] font-Comfortaa tracking-tighter font-extrabold   text-gray-400 mb-2  ">
           {label}
         </h2>
+      </div>
+    </div>
+  );
+};
+
+export const ContactCard = ({
+  label,
+  phone,
+  desciption,
+  handleDeleteClick,
+  note,
+  toggleFavourite,
+  favourites,
+  startEditing,
+}) => {
+  return (
+    <div className="bg-black/10 rounded-sm shadow-md p-4 w-full">
+      {/* Name */}
+      <div className="flex items-start gap-2">
+        <User
+          size={24}
+          strokeWidth={2.5}
+          className="text-green-100 mt-1 shrink-0"
+        />
+
+        <h2
+          className="
+        font-semibold text-lg text-green-100
+        break-words
+        line-clamp-2  
+      "
+          title={label}
+        >
+          {label}
+        </h2>
+      </div>
+
+      {/* Phone */}
+      <div className="flex items-center gap-2 text-green-50 mt-2">
+        <Phone size={24} strokeWidth={2.2} className="shrink-0" />
+        <p className="font-semibold font-Inter ">
+          {phone}
+          {/* truncate */}
+        </p>
+      </div>
+
+      {/* Description */}
+      <p
+        className="
+      text-sm text-gray-400 
+      line-clamp-2
+      break-words mt-2
+    "
+        title={desciption}
+      >
+        {desciption}
+      </p>
+
+      <div className="flex items-center justify-end gap-2">
+        <button
+          onClick={() => startEditing(note)}
+          className="text-green-100 hover:scale-[0.9]"
+        >
+          <Pen strokeWidth={2} />
+        </button>
+
+        <button
+          onClick={() => toggleFavourite(note._id)}
+          className={`${
+            favourites.includes(note._id) ? "text-red-600" : "text-green-50"
+          } hover:scale-[0.9]`}
+        >
+          <Heart strokeWidth={2.5} />
+        </button>
+        <Trash
+          className="text-red-200"
+          onClick={() => handleDeleteClick(note)}
+        />
       </div>
     </div>
   );

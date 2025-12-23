@@ -7,9 +7,10 @@ export const Button = ({
   varient,
   image,
   mobileCustomPX,
+  wFull
 }) => {
   const primary =
-    "bg-Secondary hover:bg-Secondary/95 p-4 px-5 rounded-full capitalize   last:bg-gray-200   last:hover:bg-gray-300";
+    `bg-Secondary hover:bg-Secondary/95 p-4 px-5 rounded-full capitalize ${wFull?'w-full':''}  last:bg-gray-200   last:hover:bg-gray-300`;
   const secondary = "bg-Tertiary/90 hover:bg-Tertiary/95 p-3 px-4 rounded-full";
   const authenticate =
     "bg-Tertiary/5 hover:bg-Tertiary/10 text-white p-3 px-4 rounded-full";
