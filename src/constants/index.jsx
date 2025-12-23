@@ -19,7 +19,6 @@ import {
   PhoneOutgoing, 
   UserRoundPlus, 
 } from "lucide-react";
-import { BsDash } from "react-icons/bs";
 import { BookMarked } from "lucide-react";
 export const navLinkData = [
   { name: "Home", icon: <CiHome size={20} />, path: "#" },
@@ -223,14 +222,14 @@ export const NotificationRoutes = [
   },
   {
     id: 6,
-    MessageName: "Success! to save an number",
+    MessageName: "Success! to save an Contact",
     MessageImage: SuccessToSave,
-    path: "/successful-to-save-number",
+    path: "/successful-to-save-contact",
     btnText: [
       {
-        text: "Dashboard",
+        text: "All Contacts",
         icon: <ChartArea size={20} strokeWidth={3} />,
-        path: "/dashboard",
+        path: "/saved-contacts",
       },
       {
         text: "Add Contact",

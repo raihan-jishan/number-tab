@@ -40,8 +40,8 @@ function App() {
     "/saved-contacts",
     "/signup",
     "/login",
-    "/login-your-account",
-    "/testing",
+    "/login-your-account", 
+    "/successful-to-save-contact"
   ];
 
  

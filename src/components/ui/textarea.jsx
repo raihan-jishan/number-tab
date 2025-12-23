@@ -1,41 +1,37 @@
-import { Label } from "./label";
-
-export const Input = ({
+const TextArea = ({
+  icon,
   label,
-  For,
-  type,
   id,
   name,
   placeholder,
   value,
   onChange,
-  icon,
   bgTransparent,
   defaultValue,
   customPY,
+  rows,
 }) => {
   return (
-    <div className="w-full px-3 mb-5 ">
-      <Label htmlFor={For}>{label}</Label>
-      <div className="relative mt-1 ">
+    <div className="w-full px-3 mb-5">
+      <div className="relative mt-1">
         {/* Icon container */}
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 z-10 text-center pointer-events-none flex items-center justify-center text-gray-400">
+        <div className="absolute left-3 top-5 transform -translate-y-1/2 z-10 text-center pointer-events-none flex items-center justify-center text-gray-400">
           {icon}
         </div>
 
-        {/* Input field */}
-        <input
+        <textarea
           id={id}
           name={name}
           value={value}
-          type={type}
           defaultValue={defaultValue}
           placeholder={placeholder}
+          rows={rows} // You can set the number of rows (height) of the textarea
           className={`w-full pl-10 pr-3 ${
             customPY ? customPY : "py-2"
           } rounded-lg ${
             bgTransparent ? "bg-transparent" : "bg-Primary"
-          } border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500   transition-all duration-200 ease-in-out    `}
+          } border border-gray-300/20 text-white outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500
+        transition-colors duration-300 ease-out`} // Transition only color and border
           onChange={onChange}
           aria-label={label}
           aria-required="true"
@@ -44,3 +40,5 @@ export const Input = ({
     </div>
   );
 };
+
+export default TextArea;

@@ -1,13 +1,38 @@
-import react from '@vitejs/plugin-react-swc';
-import path from 'path';
-
 import { defineConfig } from 'vite';
-// https://vitejs.dev/config/
+import react from '@vitejs/plugin-react-swc'; // React plugin for SWC
+import path from 'path';
+import { VitePWA } from 'vite-plugin-pwa'; // Import Vite PWA plugin
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'My Awesome App',
+        short_name: 'PWA App',
+        icons: [
+          {
+            src: 'pwa-192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: 'pwa-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          }
+        ],
+        start_url: '.',
+        display: 'standalone',
+        background_color: '#ffffff',
+        theme_color: '#000000',
+      },
+    }),
+  ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
-})
+});
