@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignupImage from "../../assets/signup.svg";
-import { Button } from "../../components/ui/button.jsx";
-import { Input } from "../../components/ui/input.jsx"; 
+import { AuthBtn, Button } from "../../components/ui/button.jsx";
+import { Input } from "../../components/ui/input.jsx";
 import {
   FilePenLine,
   Home,
@@ -143,11 +143,9 @@ const Signup = () => {
                 </div>
                 <div className="flex  -mx-3">
                   <div className="flex items-center justify-center w-full px-3 mt-8">
-                    <Button
+                    <AuthBtn
                       icon={<User scale={20} />}
                       label={"Register Now"}
-                      mobileCustomPX={'px-16'}
-                      varient={"authenticated"}  
                     />
                   </div>
                 </div>

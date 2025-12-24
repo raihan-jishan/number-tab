@@ -29,7 +29,7 @@ const CreateAccount = () => {
             varient={"authenticated"}
             label={"Create Account"}
             path={"/signup"}
-            mobileCustomPX={'px-20'}
+            mobileCustomPX={'max-lg:px-20'}
           />
 
           {/* Terms of Service & Already have an account */}

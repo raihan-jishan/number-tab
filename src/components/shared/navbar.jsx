@@ -95,6 +95,8 @@ const Nav = () => {
                       label={"Get start"}
                       icon={<RiContactsLine size={25} />}
                       path={"/create-an-account"}
+                      varient={'primary'}
+                      wFull
                     />
                   </div>
                 )}

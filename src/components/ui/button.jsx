@@ -14,7 +14,7 @@ export const Button = ({
   const secondary = "bg-Tertiary/90 hover:bg-Tertiary/95 p-3 px-4 rounded-full";
   const authenticate =
     "bg-Tertiary/5 hover:bg-Tertiary/10 text-white p-3 px-4 rounded-full";
-  const authenticated = `bg-Secondary hover:bg-Secondary/95 p-3 px-24 max-lg:${mobileCustomPX} rounded-full `;
+  const authenticated = `bg-Secondary hover:bg-Secondary/95 p-3 px-24  ${mobileCustomPX} rounded-full `;
 
   return (
     <Link
@@ -57,10 +57,11 @@ export const Button = ({
   );
 };
 
-export const AuthBtn = ({ label, icon, onClick, mobileCustomPx }) => {
+export const AuthBtn = ({ label, icon, onClick }) => {
   return (
     <button
-      className={`bg-Secondary hover:bg-Secondary/95 p-3 px-24 ${mobileCustomPx} rounded-full`}
+      className={`bg-Secondary hover:bg-Secondary/95 p-3  px-20 max-lg:px-12 
+     rounded-full`}
       onClick={onClick}
     >
       {" "}
