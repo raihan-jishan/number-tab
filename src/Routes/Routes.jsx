@@ -14,6 +14,7 @@ import {
 import { NotificationRoutes } from "../constants/index.jsx";
 import Signup from "../pages/signup/page.jsx";
 import SavedContacts from "../pages/contacts/page.jsx";
+import DeleteAccount from "../pages/dashboard/delete-account.jsx";
 const Routes = () => {
   return (
     <Router>
@@ -26,6 +27,7 @@ const Routes = () => {
       <Route path="/old-contacts" element={<Oldnumbers />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/addnew-contact" element={<AddNewContact />} />
+      <Route path="/dashboard/delete-account" element={<DeleteAccount />} />
       <Route
         path="/dashboard/favourite_contact"
         element={<FavouriteContact />}

@@ -121,6 +121,11 @@ export const dashboardSidebarLinks = [
     path: "/dashboard/group&category",
     icon: <RiGroupLine size={20}  />,
   },
+  {
+    name: "Delete Account",
+    path: "/dashboard/delete-account",
+    icon: <RiGroupLine size={20}  />,
+  },
  
 ];
 

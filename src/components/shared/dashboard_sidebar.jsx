@@ -31,7 +31,7 @@ const Dashboard_sidebar = () => {
         } sm:translate-x-0`}
       >
         <div className="h-full px-4 py-6 overflow-y-auto bg-Primary   shadow-lg rounded-r-2xl">
-          <ul className="space-y-4 max-lg:mt-5  font-medium">
+          <ul className="space-y-2 max-lg:mt-5  font-medium">
             {dashboardSidebarLinks.map((item, index) => {
               return (
                 <li key={index} className="py-2">
