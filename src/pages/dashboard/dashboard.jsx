@@ -6,6 +6,7 @@ import OverView from "./over-view";
 import { useLocation } from "react-router-dom";
 import { SearchBar } from "../../components/ui/search";
 import { FilePlusIcon } from "lucide-react";
+import BottomNav from "../../components/shared/bottomNav";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const Dashboard = () => {
         <div className="mt-10">
           <OverView />
         </div>
+        <BottomNav/>
       </Dashboard_Layout>
     </div>
   );

@@ -9,6 +9,7 @@ import Logo from "../ui/logo";
 import NavLink from "../ui/navLink";
 import { Button } from "../ui/button";
 import { User } from "lucide-react";
+import { getTimeGreeting } from "../../utils/utils";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,14 +33,21 @@ const Nav = () => {
           <Logo />
         </div>
         <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-white"
-            onClick={toggleMenu} // Toggle menu on click
-          >
-            <span className="sr-only">Open main menu</span>
-            <HiMiniBars3BottomRight className="h-8 w-8 " aria-hidden="true" />
-          </button>
+          {localStorage.getItem("token") ? (
+            <div className="flex flex-col items-end justify-end  font-semibold font-Lato text-green-200 ">
+              <span>Hi {user.name}</span>
+              <span className="font-Comfortaa text-green-50 font-semibold">{getTimeGreeting()}</span>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-white"
+              onClick={toggleMenu} // Toggle menu on click
+            >
+              <span className="sr-only">Open main menu</span>
+              <HiMiniBars3BottomRight className="h-8 w-8 " aria-hidden="true" />
+            </button>
+          )}
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navLinkData.map((item, index) => (
@@ -79,7 +87,6 @@ const Nav = () => {
               <div className="mt-2">
                 {localStorage.getItem("token") ? (
                   <div className="flex items-end justify-end gap-6  ">
-                
                     <UserProfile name={user.name} email={user.email} />
                   </div>
                 ) : (

@@ -271,7 +271,7 @@ export const ContactCard = ({
   startEditing,
 }) => {
   return (
-    <div className="bg-black/10 rounded-sm shadow-md p-4 w-full">
+    <div className="bg-black/20 rounded-sm shadow-md p-4 w-full">
       {/* Name */}
       <div className="flex items-start gap-2">
         <User

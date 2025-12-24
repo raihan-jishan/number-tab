@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import TextArea from "../components/ui/textarea.jsx";
 import { ArrowLeft } from "lucide-react";
+import BottomNav from "../components/shared/bottomNav.jsx";
 
 const AddNumbers = () => {
   const context = useContext(Context); // Accessing context
@@ -133,6 +134,9 @@ const AddNumbers = () => {
           </div>
         </div>
       </div>
+
+
+      <BottomNav />
     </div>
   );
 };
