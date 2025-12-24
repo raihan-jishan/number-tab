@@ -261,31 +261,29 @@ export const WorkCard = ({ point, image, label }) => {
 };
 
 export const ContactCard = ({
-  label,
-  phone,
-  desciption,
-  handleDeleteClick,
-  note,
-  toggleFavourite,
-  favourites,
-  startEditing,
+  label = "",
+  phone = "",
+  desciption = "",
+  note = null,
+
+  // optional props (safe defaults)
+  favourites = [],
+  hideEditOptions = false,
+
+  toggleFavourite = () => {},
+  deleteFavourite = () => {},
+  startEditing = () => {},
+  handleDeleteClick = () => {},
 }) => {
+  const noteId = note?.id || note?._id;
+
   return (
     <div className="bg-black/20 rounded-sm shadow-md p-4 w-full">
       {/* Name */}
       <div className="flex items-start gap-2">
-        <User
-          size={20}
-          strokeWidth={2.5}
-          className="text-green-100 mt-1 shrink-0"
-        />
-
+        <User size={20} strokeWidth={2.5} className="text-green-100 mt-1" />
         <h2
-          className="
-        font-semibold text-lg text-green-100
-        break-words
-        line-clamp-2  
-      "
+          className="font-semibold text-lg text-green-100 break-words line-clamp-2"
           title={label}
         >
           {label}
@@ -294,46 +292,58 @@ export const ContactCard = ({
 
       {/* Phone */}
       <div className="flex items-center gap-2 text-green-50 mt-4">
-        <Phone size={18} strokeWidth={2.2} className="shrink-0" />
-        <p className="font-semibold font-Inter ">
-          {phone}
-          {/* truncate */}
-        </p>
+        <Phone size={18} strokeWidth={2.2} />
+        <p className="font-semibold">{phone}</p>
       </div>
 
       {/* Description */}
-      <p
-        className="
-      text-sm text-gray-400 
-      line-clamp-2
-      break-words mt-2
-    "
-        title={desciption}
-      >
-        {desciption}
-      </p>
-
-      <div className="flex items-center justify-end gap-2">
-        <button
-          onClick={() => startEditing(note)}
-          className="text-green-100 hover:scale-[0.9]"
+      {desciption && (
+        <p
+          className="text-sm text-gray-400 line-clamp-2 break-words mt-2"
+          title={desciption}
         >
-          <Pen strokeWidth={2} />
-        </button>
+          {desciption}
+        </p>
+      )}
 
-        <button
-          onClick={() => toggleFavourite(note._id)}
-          className={`${
-            favourites.includes(note._id) ? "text-red-600" : "text-green-50"
-          } hover:scale-[0.9]`}
-        >
-          <Heart strokeWidth={2.5} />
-        </button>
-        <Trash
-          className="text-red-200"
-          onClick={() => handleDeleteClick(note)}
-        />
-      </div>
+      {/* ACTIONS */}
+      {hideEditOptions
+        ? noteId &&
+          favourites.includes(noteId) && (
+            <div className="flex justify-end mt-3">
+              <button
+                onClick={() => deleteFavourite(noteId)}
+                className="text-red-500 hover:text-red-700 text-sm"
+              >
+                Remove Favourite
+              </button>
+            </div>
+          )
+        : noteId && (
+            <div className="flex items-center justify-end gap-2 mt-3">
+              <button
+                onClick={() => startEditing(note)}
+                className="text-green-100 hover:scale-95"
+              >
+                <Pen size={18} />
+              </button>
+
+              <button
+                onClick={() => toggleFavourite(noteId)}
+                className={`${
+                  favourites.includes(noteId) ? "text-red-600" : "text-green-50"
+                } hover:scale-95`}
+              >
+                <Heart size={18} />
+              </button>
+
+              <Trash
+                size={18}
+                className="text-red-200 cursor-pointer"
+                onClick={() => handleDeleteClick(note)}
+              />
+            </div>
+          )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import GroupImage from "../../assets/undraw_group-selfie_145x.svg";
 import Dashboard_Layout from "../../components/dash-layout";
-import { DashHero } from "../../components/Hero"; 
-import { DashHeading } from "../../components/ui/heading";
+import { DashHero } from "../../components/Hero";
 import { Context } from "../../utils/index";
+import { ContactCard } from "../../components/ui/card";
+import BottomNav from "../../components/shared/bottomNav";
 
 function FavouriteContact() {
   const { notes, getNotes } = useContext(Context);
@@ -16,7 +17,7 @@ function FavouriteContact() {
   useEffect(() => {
     const savedFavourites =
       JSON.parse(localStorage.getItem("favourites")) || [];
-    setFavourites(savedFavourites); // Load favourite IDs
+    setFavourites(savedFavourites);
   }, []);
 
   if (!notes) {
@@ -30,32 +31,47 @@ function FavouriteContact() {
   const favouriteContacts = notes.filter((note) =>
     favourites.includes(note._id)
   );
+  const deleteFavourite = (id) => {
+    const updatedFavourites = favourites.filter((favId) => favId !== id);
+    setFavourites(updatedFavourites);
+    localStorage.setItem("favourites", JSON.stringify(updatedFavourites));
+  };
 
   return (
     <Dashboard_Layout>
       {favouriteContacts.length === 0 && (
-        <DashHero
-          label={"Your Favourite Contacts"}
-          btnText={"Add favourite contact"}
-          path={"/addnumbers"}
+        <DashHero 
+          label={"Not Saved"}
+          path={"/add-contact"}
           image={GroupImage}
         />
       )}
       {favouriteContacts.length > 0 ? (
-        <DashHeading label={"Your favourite contact  "} textLeftMedium />
+        <h1 className="capitalize text-3xl font-semibold ml-10 ">Favourite</h1>
       ) : null}
-      <div className="m-4 grid gap-6 grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1">
+      <div className="grid grid-cols-3 max-lg:grid-cols-1 mt-5">
         {favouriteContacts.length > 0 ? (
           favouriteContacts.map((contact) => (
-        // show table 
-        <>
-        </>
+            // show table
+            <>
+              <ContactCard
+                key={contact._id}
+                label={contact.title}
+                phone={contact.description}
+                desciption={contact.tag}
+                favourites={favourites}
+                note={contact}
+                deleteFavourite={deleteFavourite}
+                hideEditOptions
+              />
+            </>
           ))
         ) : (
           <p className="text-center col-span-3 text-gray-600 dark:text-gray-300 mt-6">
             No favourite contacts yet. ⭐ Add some from the main contacts page.
           </p>
         )}
+        <BottomNav />
       </div>
     </Dashboard_Layout>
   );

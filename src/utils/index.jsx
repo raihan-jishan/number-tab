@@ -1,4 +1,4 @@
-import { NumberData } from "../Data/Data.jsx";
+ 
 import AppLayout from "../Layout/Layout.jsx";
 import Routes from "../Routes/Routes.jsx";
 import FaildLogin from "../assets/undraw_back-home_3dun.svg";
@@ -36,8 +36,7 @@ export {
   SuccessToSave,
   Navbar,
   NoteState,
-  NotFound,
-  NumberData,
+  NotFound, 
   Oldnumbers,
   ResultInfos,
   Routes,

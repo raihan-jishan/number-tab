@@ -41,7 +41,8 @@ function App() {
     "/signup",
     "/login",
     "/login-your-account", 
-    "/successful-to-save-contact"
+    "/successful-to-save-contact",
+    "/old-contacts"
   ];
 
  

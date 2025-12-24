@@ -1,4 +1,4 @@
-export const NumberData = [
+export const oldContacts = [
   {
     id: 1,
     name: "আজাদ হেলাল ",

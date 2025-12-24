@@ -26,7 +26,7 @@ export const Hero = () => {
 
 export const DashHero = ({ label, path }) => {
   return (
-    <main className=" bg-bgColor ">
+    <main className=" bg-Primary">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-20 lg:grid-cols-12 max-lg:flex max-lg:flex-col-reverse mt-16">
         {/* Left: Text Content */}
         <div className="mr-auto place-self-center lg:col-span-7">

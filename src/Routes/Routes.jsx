@@ -23,7 +23,7 @@ const Routes = () => {
       <Route path="/create-an-account" element={<CreateAccount />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/oldnumbers" element={<Oldnumbers />} />
+      <Route path="/old-contacts" element={<Oldnumbers />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/addnew-contact" element={<AddNewContact />} />
       <Route

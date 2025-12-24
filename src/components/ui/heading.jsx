@@ -18,26 +18,7 @@ export const Heading = ({
   );
 };
  
-export const DashHeading = ({
-  label,
-  textCenterize,
-  fontDefault,
-  textLeftMedium,
-}) => {
-  return (
-    <div>
-      <h1
-        className={` ${
-          textCenterize ? "ml-20" : textLeftMedium ? "ml-12" : ""
-        } ${
-          fontDefault ? " tracking-wide font-extrabold" : "font-Comfortaa "
-        } text-black dark:text-gray-300 font-semibold text-3xl  tracking-wide `}
-      >
-        {label}
-      </h1>
-    </div>
-  );
-};
+ 
 
 export const HeroContent = ({}) => {
   return (

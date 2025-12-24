@@ -22,11 +22,13 @@ const OverView = () => {
       <Chart
         label="All Contacts: "
         value={all_contact}
+        path={'/saved-contacts'}
         icon={<User size={60} strokeWidth={2} className="text-green-200" />}
       />
       <Chart
         label="Favourite: "
         value={favContacts}
+        path={'/dashboard/favourite_contact'}
         icon={<HeartHandshake size={60} strokeWidth={2} className="text-green-200" />}
       />
       <AddContact />

@@ -1,16 +1,15 @@
 import { PlusCircle } from "lucide-react";
-import { User } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export const Chart = ({ value, icon, label }) => {
+export const Chart = ({ value, icon, label,path }) => {
   return (
-    <div className="  p-6 rounded-xl shadow-md w-full max-w-sm">
+    <Link to={path} className="  p-6 rounded-xl shadow-md w-full max-w-sm">
       <div className="flex  items-center justify-center  ">{icon}</div>
       <p className="text-center font-OpenSans mt-4 text-3xl text-white">
         {label}
         <span className="font-semibold  font-Manrope text-3xl">{value}</span>
       </p>
-    </div>
+    </Link>
   );
 };
 export const AddContact = () => {
