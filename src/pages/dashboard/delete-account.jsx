@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const DeleteAccount = () => {
   const navigate = useNavigate();
 
